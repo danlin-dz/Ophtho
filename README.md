@@ -1,37 +1,29 @@
 # Eyelingual
 
-Offline phrase cards for the parts of an ophthalmic examination that break down
-without shared language. Pick a language, tap a phrase, it fills the screen for
-the patient; tap the speaker, it plays aloud.
+Cards for an ophthalmic examination. Can be used offline with no service. 
+Pick a language, tap a phrase, it fills the screen.
+The patient can read the phrase, or tap the speaker and it plays aloud.
 
-Nine languages: Mandarin, Cantonese, Punjabi, Farsi, Arabic, Korean, Japanese,
-Vietnamese, Tagalog. Each card opens with a **Most used** panel holding the
-eleven phrases that come up on nearly every exam, so they are reachable without
-scrolling; they are references to the same phrases below, not copies.
+9 languages: Mandarin, Cantonese, Punjabi, Farsi, Arabic, Korean, Japanese,
+Vietnamese, Tagalog. Each card opens with a **Most used** panel at the top with 
+the 11 phrases that come up on nearly every exam.
 
 **Scope is deliberately narrow.** Instructions and closed questions only —
 "chin on the rest", "look at my nose", "do not rub your eyes". Every phrase is
 either a command the patient can act on or a question answerable by nodding,
-shaking, or pointing; anything needing a spoken reply is useless across a
-language barrier. History, consent, findings and plan go through a professional
+shaking, or pointing. History, consent, findings, and plan go through a professional
 interpreter. In BC that is the PHSA Provincial Language Service, 1-877-228-2557.
 
-Static site, no build step at serve time, no dependencies, no analytics, no data
-collection of any kind.
+Site contains no analytics, no data collection of any kind.
 
 ---
 
 ## Read this before you deploy
 
-**Eight of the nine translations have not been reviewed by a native speaker.**
+**8/9 pages have not been reviewed by a native speaker.**
 Only Mandarin has. The other eight carry a red "Draft translation — do not
-distribute" banner and a *Draft* badge on the homepage tile. That is correct
-behaviour, not a bug, and the banner should stay until a real speaker has read
-the card.
-
-Getting them reviewed is the whole job now. The code is finished; the
-translations are the risk. Priority order by BC interpreter demand: Punjabi,
-Cantonese, Arabic, Vietnamese, Korean, Farsi, Tagalog, Japanese.
+distribute" banner and a *Draft* badge on the homepage tile. That is not a bug, 
+and the banner should stay until a real speaker has read the card.
 
 To clear a banner, set `reviewedBy` and `reviewedOn` in
 `audio/<code>/index.json` and rebuild.
@@ -39,8 +31,7 @@ To clear a banner, set `reviewedBy` and `reviewedOn` in
 Also before going live:
 
 - [ ] Buy a domain before printing any QR codes
-- [ ] Generate or record the audio (see below) — four of the nine languages are
-      silent on a stock Apple device without it
+- [ ] Generate or record the audio: 4/9 languages are silent on a stock Apple device without it
 
 ## Build
 
@@ -104,11 +95,9 @@ the punctuation and nothing else, which is worse than saying nothing.
 That uses Microsoft's neural voices through the same free endpoint Edge's
 read-aloud uses. No API key, no cost, network needed only at generation time.
 
-Human recordings still beat it — synthetic voices flatten prosody and carry none
-of the warmth an anxious eighty-year-old responds to. Treat generated audio as
-the floor and replace files with real recordings as speakers become available.
-Neither substitutes for translation review: a synthetic voice reading a wrong
-sentence is a wrong sentence delivered fluently.
+Human recordings are the next step — synthetic voices flatten prosody and carry 
+none of the warmth an anxious eighty-year-old responds to. Replace files with 
+real recordings as speakers become available.
 
 ### Recording humans instead
 
@@ -121,9 +110,6 @@ sentence is a wrong sentence delivered fluently.
 Anything not listed in `recorded` falls back to the device voice, so partial sets
 ship fine. Phrases with a real recording show a dot on the speaker button.
 
-Roughly 500 KB per language at 34 takes. All nine fully recorded is about 4.5 MB
-— still trivially cacheable offline.
-
 Phrase IDs are identical across all nine languages: `s01-01` in Korean is the
 same sentence as `s01-01` in Arabic. That keeps the recording scripts
 comparable and means audio folders share filenames.
@@ -131,41 +117,30 @@ comparable and means audio folders share filenames.
 ## Notes on the design
 
 The palette is taken from a dilated fundus — pupil black, red reflex orange,
-optic disc cream. Light text on dark is not a style choice: exam lanes are dim, a
-bright phone ruins your dark adaptation and the patient is often photophobic, and
-reduced glare scatter helps anyone with a cataract.
+optic disc cream. Light text on dark is a deliberate choice: exams are often
+conducted in dim settings, a bright phone ruins dark adaptation, and the 
+patient is often photophobic, and reduced glare scatter helps anyone with a cataract.
 
 The one animation, a narrow band of light sweeping the phrase when it opens
-fullscreen, is the slit lamp's own gesture. It also does a job — it signals to
-the patient that the screen has changed.
-
-The only pictogram is the diplopia picker. Symbols carry nouns reliably and
-propositions poorly; an arrow meaning "look up" is ambiguous between *your eyes
-go up* and *the thing is up there*. Everything else on these cards is a command
-or a question, which is exactly where pictogram comprehension falls apart.
-Diplopia geometry is the exception — a perceptual judgement with no gesture
-equivalent and clumsy phrasing in any language.
+fullscreen, is mimicking a slit lamp. It also signals to the patient and 
+healthcare provider that the screen has changed.
 
 The line under each phrase is an English-friendly phonetic respelling, not a
 scholarly romanisation — "jow fye hoe lah" rather than "Zau6 faai3 hou2 laa3",
 because tone numbers and diacritics tell a non-speaker nothing. Tone is not
-represented, so for Mandarin, Cantonese and Vietnamese these get you close but
-not accurate; that is an argument for the audio, not against the respellings.
-The scholarly romanisations are preserved in `tools/langdata.py`.
+represented, so for Mandarin, Cantonese, and Vietnamese these get you close but
+not accurate. The scholarly romanizations are preserved in `tools/langdata.py`.
 
 Punjabi is written to avoid speaker-gender marking entirely. Punjabi inflects
 first-person futures and some participles for the speaker's gender, which would
 otherwise mean a female clinician reading masculine forms. Four phrases needed
 rewording — `s02-07`, `s04-02`, `s05-06`, `s06-02` — each moving agreement onto a
 noun or an impersonal construction. The other thirty-one are imperatives or agree
-with a noun, so they were already neutral. One form now works for anyone, and no
-male/female toggle is needed. Keep this in mind when editing Punjabi wording: a
-first-person future will reintroduce the problem.
+with a noun, so they were already neutral. One form now works for male or female.
 
-Mandarin is the only card with a 简 / 繁 toggle, and it uses one font for both so
-punctuation does not shift position when you switch. Cantonese is traditional
-only. Farsi and Arabic render right-to-left; their romanisation lines stay
-left-to-right.
+Mandarin has a simplified/traditional (简 / 繁) toggle. 
+Cantonese is traditional only. 
+Farsi and Arabic render right-to-left; their romanization lines stay left-to-right.
 
 ## Licence
 
