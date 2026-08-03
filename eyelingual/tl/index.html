@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Eyelingual — Tagalog phrase card for the ophthalmic examination. Offline, tap to show, tap to hear.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Eyelingual">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#150F0C">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="icon" href="../icons/favicon.png" type="image/png">
+<title>Eyelingual — Tagalog</title>
+<style>
+  :root{
+    /* palette drawn from the dilated fundus: pupil black, red reflex, disc cream, vessel red */
+    --pupil:#150F0C;
+    --pupil-deep:#0D0908;
+    --choroid:#241A15;
+    --choroid-hi:#2E211A;
+    --reflex:#FF8A4C;
+    --disc:#F7EBDB;
+    --vessel:#D9483C;
+    --taupe:#A08A7B;
+    --taupe-dim:#716054;
+    --line:rgba(247,235,219,.10);
+    --line-hi:rgba(247,235,219,.20);
+
+    --f-target:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --f-mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+    --f-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--pupil);
+    color:var(--disc);
+    font-family:var(--f-sans);
+    -webkit-text-size-adjust:100%;
+    padding-bottom:env(safe-area-inset-bottom);
+  }
+  .wrap{max-width:640px;margin:0 auto;padding:0 18px}
+
+  /* ---------- review status ---------- */
+  .status{
+    font-family:var(--f-mono);font-size:10px;letter-spacing:.16em;
+    text-transform:uppercase;padding:10px 18px;text-align:center;line-height:1.5;
+    background:var(--vessel);color:#1A0B09;font-weight:600;
+  }
+
+  /* ---------- masthead ---------- */
+  header{padding:26px 0 18px;border-bottom:1px solid var(--line)}
+  .kicker{
+    font-family:var(--f-mono);font-size:10px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--taupe-dim);margin:0 0 10px;
+  }
+  .kicker a{color:var(--taupe-dim);text-decoration:none}
+  .kicker a:active{color:var(--reflex)}
+  h1{margin:0;font-family:var(--f-target);font-size:38px;font-weight:600;letter-spacing:.02em;line-height:1.15}
+  h1 .en{
+    display:block;font-family:var(--f-mono);font-size:12px;font-weight:500;
+    letter-spacing:.28em;text-transform:uppercase;color:var(--reflex);margin-top:12px;
+  }
+  .scope{margin:18px 0 0;font-size:12.5px;line-height:1.55;color:var(--taupe)}
+  .scope + .scope{margin-top:7px}
+  .scope a{color:var(--reflex);text-decoration:none;border-bottom:1px solid rgba(255,138,76,.35)}
+
+  /* ---------- controls ---------- */
+  .controls{position:sticky;top:0;z-index:40;background:linear-gradient(var(--pupil) 72%,rgba(21,15,12,0));padding:12px 0 14px}
+  .row{display:flex;gap:8px;align-items:center}
+  .search{
+    flex:1;background:var(--choroid);border:1px solid var(--line);border-radius:10px;
+    color:var(--disc);font-family:var(--f-mono);font-size:13px;letter-spacing:.04em;
+    padding:11px 13px;min-width:0;
+  }
+  .search::placeholder{color:var(--taupe-dim);letter-spacing:.12em;text-transform:uppercase;font-size:11px}
+  .search:focus{outline:2px solid var(--reflex);outline-offset:1px}
+
+  .seg{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;flex:none}
+  .seg button{
+    background:var(--choroid);border:0;color:var(--taupe);
+    font-family:var(--f-target);font-size:15px;padding:10px 13px;cursor:pointer;
+  }
+  .seg button[aria-pressed="true"]{background:var(--reflex);color:var(--pupil-deep);font-weight:600}
+  .seg button:focus-visible{outline:2px solid var(--disc);outline-offset:-2px}
+
+  .chips{display:flex;gap:6px;overflow-x:auto;margin-top:10px;scrollbar-width:none;-ms-overflow-style:none;padding-bottom:2px}
+  .chips::-webkit-scrollbar{display:none}
+  .chips a{
+    flex:none;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--taupe);text-decoration:none;
+    padding:7px 11px;border:1px solid var(--line);border-radius:99px;white-space:nowrap;
+  }
+  .chips a:active{background:var(--choroid-hi)}
+
+  /* ---------- most-used panel ---------- */
+  /* Distinct from the stage cards on purpose: this is a shortcut layer sitting
+     above the exam sequence, not another step in it. */
+  .quick{
+    margin:6px 0 4px;padding:15px 13px 7px;
+    border:1px solid rgba(255,138,76,.34);border-radius:16px;
+    background:linear-gradient(180deg,rgba(255,138,76,.09),rgba(255,138,76,.025));
+  }
+  .quick-head{display:flex;align-items:baseline;gap:10px;margin-bottom:12px}
+  .quick-head h2{
+    margin:0;font-family:var(--f-mono);font-size:11.5px;font-weight:600;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--reflex);
+  }
+  .quick-head span{
+    font-family:var(--f-mono);font-size:9px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--taupe-dim);
+  }
+  .quick .card{background:rgba(255,138,76,.06);border-color:rgba(255,138,76,.2)}
+  .quick .card:active{background:rgba(255,138,76,.13);border-color:rgba(255,138,76,.42)}
+
+  /* ---------- stages ---------- */
+  .stage{padding:34px 0 6px;scroll-margin-top:118px}
+  .stage-head{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+  .num{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;color:var(--reflex);flex:none}
+  .stage-head h2{
+    margin:0;font-family:var(--f-mono);font-size:11.5px;font-weight:600;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--disc);
+  }
+  .stage-note{margin:0 0 14px 32px;font-size:12px;line-height:1.5;color:var(--taupe-dim)}
+
+  /* ---------- phrase cards ---------- */
+  .card{
+    display:flex;align-items:center;gap:10px;width:100%;text-align:left;
+    background:var(--choroid);border:1px solid var(--line);border-radius:14px;
+    padding:15px 14px 15px 16px;margin-bottom:8px;cursor:pointer;font:inherit;color:inherit;
+    transition:background .12s ease,border-color .12s ease;
+  }
+  .card:active{background:var(--choroid-hi);border-color:var(--line-hi)}
+  .card:focus-visible{outline:2px solid var(--reflex);outline-offset:2px}
+  .card .body{flex:1;min-width:0}
+  .card .en{
+    display:block;font-family:var(--f-mono);font-size:10px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--taupe-dim);margin-bottom:7px;
+  }
+  .card .zh{
+    display:block;font-family:var(--f-target);font-size:25px;font-weight:500;
+    line-height:1.4;letter-spacing:.01em;color:var(--disc);
+  }
+  .card .py{display:block;font-size:12px;font-style:italic;letter-spacing:.02em;color:var(--taupe);margin-top:6px}
+  .card .py:empty{display:none}
+
+  .spk{
+    flex:none;position:relative;width:42px;height:42px;border-radius:50%;
+    border:1px solid var(--line-hi);background:transparent;color:var(--taupe);
+    display:grid;place-items:center;cursor:pointer;
+  }
+  .spk:active,.spk.on{background:var(--reflex);color:var(--pupil-deep);border-color:var(--reflex)}
+  .spk:focus-visible{outline:2px solid var(--reflex);outline-offset:2px}
+  .spk svg{width:19px;height:19px;display:block}
+  .spk.rec::after{
+    content:"";position:absolute;top:2px;right:2px;width:7px;height:7px;
+    border-radius:50%;background:var(--reflex);border:1.5px solid var(--choroid);
+  }
+  .spk.rec.on::after{background:var(--pupil-deep)}
+  body.novoice .spk:not(.rec){opacity:.32}
+
+  /* ---------- right-to-left target scripts ---------- */
+  body.rtl .card .zh,
+  body.rtl .dip .zh{direction:rtl;text-align:right;unicode-bidi:isolate}
+  body.rtl #showZh{direction:rtl;unicode-bidi:isolate}
+
+  /* ---------- diplopia picker ---------- */
+  .dip{border:1px solid var(--line);border-radius:14px;padding:16px 14px 14px;margin:4px 0 8px;background:var(--pupil-deep)}
+  .dip .en{font-family:var(--f-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--taupe-dim)}
+  .dip .zh{font-family:var(--f-target);font-size:22px;font-weight:500;margin:8px 0 16px;line-height:1.4}
+  .dip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .dip-opt{border:1px solid var(--line);border-radius:10px;padding:14px 6px 10px;text-align:center;background:var(--choroid)}
+  .dip-opt svg{width:100%;height:56px;display:block}
+  .dip-opt span{display:block;font-family:var(--f-target);font-size:15px;margin-top:9px;color:var(--disc);line-height:1.3}
+  .dip-opt small{display:block;font-family:var(--f-mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--taupe-dim);margin-top:4px}
+
+  /* ---------- patient fullscreen ---------- */
+  .show{
+    position:fixed;inset:0;z-index:100;background:var(--pupil-deep);
+    display:none;flex-direction:column;
+    padding:calc(env(safe-area-inset-top) + 26px) 26px calc(env(safe-area-inset-bottom) + 26px);
+    overflow:hidden;
+  }
+  .show.open{display:flex}
+  .show-top{
+    display:flex;justify-content:space-between;align-items:center;gap:12px;
+    font-family:var(--f-mono);font-size:10px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--taupe-dim);flex:none;
+  }
+  .show-mid{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;padding:16px 0}
+  #showZh{font-family:var(--f-target);font-weight:500;font-size:clamp(34px,10vw,68px);line-height:1.35;letter-spacing:.02em;margin:0}
+  #showPy{font-size:15px;font-style:italic;color:var(--taupe);margin:22px 0 0;letter-spacing:.02em}
+  #showPy:empty{display:none}
+  .show-bot{flex:none;display:flex;flex-direction:column;gap:10px;align-items:center}
+  .show-btns{display:flex;gap:12px;align-items:center;justify-content:center}
+  #voiceTag{font-family:var(--f-mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--taupe-dim);min-height:12px}
+  .btn{
+    font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    padding:14px 20px;border-radius:99px;border:1px solid var(--line-hi);
+    background:transparent;color:var(--taupe);cursor:pointer;display:flex;align-items:center;gap:8px;
+  }
+  .btn.primary{background:var(--reflex);color:var(--pupil-deep);border-color:var(--reflex);font-weight:600}
+  .btn svg{width:17px;height:17px}
+  .btn:focus-visible{outline:2px solid var(--reflex);outline-offset:2px}
+
+  /* signature: a slit-lamp beam sweeps the phrase once on reveal */
+  .beam{
+    position:absolute;inset:-20% -60% -20% -60%;pointer-events:none;
+    background:linear-gradient(105deg,transparent 44%,rgba(255,214,170,.05) 47%,
+      rgba(255,231,203,.16) 50%,rgba(255,214,170,.05) 53%,transparent 56%);
+    transform:translateX(-46%);opacity:0;
+  }
+  .show.open .beam{animation:sweep 1000ms cubic-bezier(.3,0,.2,1) 60ms 1 both}
+  @keyframes sweep{
+    0%{transform:translateX(-46%);opacity:0}
+    12%{opacity:1}88%{opacity:1}
+    100%{transform:translateX(46%);opacity:0}
+  }
+
+  /* ---------- update pill ---------- */
+  .update{
+    position:fixed;left:50%;transform:translateX(-50%);
+    bottom:calc(env(safe-area-inset-bottom) + 18px);z-index:200;
+    display:none;align-items:center;gap:12px;
+    background:var(--reflex);color:var(--pupil-deep);
+    border-radius:99px;padding:11px 12px 11px 18px;
+    font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+    box-shadow:0 8px 28px rgba(0,0,0,.5);
+  }
+  .update.on{display:flex}
+  .update button{
+    border:0;background:var(--pupil-deep);color:var(--reflex);
+    font:inherit;padding:8px 13px;border-radius:99px;cursor:pointer;
+  }
+
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:22px 0 44px;font-size:11.5px;line-height:1.65;color:var(--taupe-dim)}
+  footer strong{color:var(--taupe);font-weight:600}
+  footer a{color:var(--reflex);text-decoration:none}
+  .meta{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;line-height:2}
+
+  .empty{display:none;padding:40px 0;text-align:center;font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--taupe-dim)}
+  body.filtering .stage-note,body.filtering .chips,body.filtering .dip{display:none}
+
+  @media (prefers-reduced-motion:reduce){
+    .show.open .beam{animation:none;opacity:0}
+    *{transition:none!important}
+  }
+</style>
+</head>
+<body class="">
+
+<div class="status">Draft translation — not yet reviewed by a native speaker. Do not distribute.</div>
+
+<div class="wrap">
+
+  <header>
+    <p class="kicker"><a href="../">← All languages</a></p>
+    <h1>Tagalog<span class="en">Tagalog</span></h1>
+    <p class="scope">Brought to you by Danlin Zeng, Kim Papp (MD), Lele Xiao (MD)</p>
+    <p class="scope">
+      History, consent, and results go through a professional interpreter — PHSA Provincial
+      Language Service, <a href="tel:+18772282557">1-877-228-2557</a>.
+    </p>
+  </header>
+
+  <div class="controls">
+    <div class="row">
+      <input class="search" id="q" type="search" placeholder="Find a phrase" autocomplete="off" aria-label="Find a phrase">
+    </div>
+    <nav class="chips" id="chips" aria-label="Jump to exam stage"></nav>
+  </div>
+
+  <div id="quick"></div>
+  <main id="list"></main>
+  <p class="empty" id="empty">No match</p>
+
+  <footer>
+    <strong>How to use.</strong> Tap a phrase to fill the screen — hold it up for the patient.
+    Tap the speaker to play it aloud. This page works with no signal.<br><br>
+    <strong>No sound?</strong> Playback falls back to the phone's own Tagalog voice, and not
+    every device has one. iPhone and iPad: Settings → Accessibility → Spoken Content → Voices.
+    Recorded human audio, once added, plays on any device regardless.<br><br>
+    <strong>Found an error?</strong> <a href="mailto:danlinz@student.ubc.ca?subject=Eyelingual%20—%20Tagalog%20correction">Report a correction</a>.
+    Nothing on this page is collected, stored, or transmitted.
+    <div class="meta">
+      Last Updated: <span id="vTag">—</span><br>
+      Translations Reviewed by: <span id="rTag">not yet reviewed</span><br>
+      Page Maintained By: Danlin Zeng<br>
+      CC BY-NC-SA 4.0
+    </div>
+  </footer>
+
+</div>
+
+<div class="show" id="show" role="dialog" aria-modal="true" aria-label="Phrase shown to patient">
+  <div class="show-top">
+    <span id="showEn"></span>
+    <span>Tap to close</span>
+  </div>
+  <div class="show-mid">
+    <div class="beam" aria-hidden="true"></div>
+    <p id="showZh"></p>
+    <p id="showPy"></p>
+  </div>
+  <div class="show-bot">
+    <div class="show-btns">
+      <button class="btn primary" id="showSpeak">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.8 5.2a9 9 0 0 1 0 13.6"/></svg>
+        Play
+      </button>
+      <button class="btn" id="showClose">Close</button>
+    </div>
+    <span id="voiceTag"></span>
+  </div>
+</div>
+
+<div class="update" id="update">
+  New version
+  <button id="updateBtn">Reload</button>
+</div>
+
+<script src="phrases.js"></script>
+<script>
+const VERSION = "1 August 2026";
+const LANG = "tl";
+const TTS_PRIMARY = "fil-PH";
+const TTS_FALLBACKS = ["fil", "tl-PH", "tl"];
+const HAS_TOGGLE = false;
+const SPK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.8 5.2a9 9 0 0 1 0 13.6"/></svg>';
+
+/* `script` selects which field of a phrase to display. Mandarin is the only card
+   with two, so everywhere else this stays on "x" for the life of the page. */
+function makeCard(it){
+  const card = document.createElement("button");
+  card.className = "card";
+  card.type = "button";
+  card.dataset.hay = (it.en + " " + (it.p||"") + " " + it.x + " " + (it.t||"")).toLowerCase();
+  card.innerHTML =
+    `<span class="body">
+       <span class="en">${it.en}</span>
+       <span class="zh" data-x="${it.x}" data-t="${it.t || it.x}">${it.x}</span>
+       <span class="py">${it.p || ""}</span>
+     </span>
+     <span class="spk" data-id="${it.id}" role="button" tabindex="0" aria-label="Play audio">${SPK}</span>`;
+  card.addEventListener("click", e=>{
+    const sp = e.target.closest(".spk");
+    if(sp){ e.stopPropagation(); play(it, sp); return; }
+    openShow(it);
+  });
+  return card;
+}
+
+let script = "x";
+let recorded = new Set();
+let audioEl = null;
+const $ = id => document.getElementById(id);
+const list = $("list"), chips = $("chips");
+
+$("vTag").textContent = VERSION;
+
+/* ---------- build ---------- */
+STAGES.forEach(st=>{
+  const a = document.createElement("a");
+  a.href = "#" + st.id;
+  a.textContent = st.title;
+  chips.appendChild(a);
+
+  const sec = document.createElement("section");
+  sec.className = "stage";
+  sec.id = st.id;
+  sec.innerHTML = `<div class="stage-head"><span class="num">${st.num}</span><h2>${st.title}</h2></div>`;
+
+  if(st.note){
+    const n = document.createElement("p");
+    n.className = "stage-note";
+    n.textContent = st.note;
+    sec.appendChild(n);
+  }
+
+  const buildDip = ()=>{
+    const d = document.createElement("div");
+    d.className = "dip";
+    d.innerHTML =
+      `<div class="en">${DIP.en}</div>
+       <div class="zh" data-x="${DIP.x}" data-t="${DIP.t || DIP.x}">${DIP.x}</div>
+       <div class="dip-grid">` +
+      DIP.opts.map(o=>
+        `<div class="dip-opt">
+           <svg viewBox="0 0 100 56" fill="#F7EBDB">${o.svg}</svg>
+           <span data-x="${o.x}" data-t="${o.t || o.x}">${o.x}</span>
+           <small>${o.lab}</small>
+         </div>`).join("") + `</div>`;
+    return d;
+  };
+
+  st.items.forEach(it=>{
+    const card = makeCard(it);
+    sec.appendChild(card);
+    if(st.diplopiaAfter === it.id) sec.appendChild(buildDip());
+  });
+
+  list.appendChild(sec);
+});
+
+/* ---------- most-used panel ---------- */
+/* Built after the stages so every phrase object already exists; these cards are
+   the same ids, so a recording or a script toggle applies to both copies. */
+const byId = {};
+STAGES.forEach(st => st.items.forEach(it => { byId[it.id] = it; }));
+
+if(typeof QUICK !== "undefined" && QUICK.length){
+  const panel = document.createElement("section");
+  panel.className = "quick";
+  panel.id = "quick-panel";
+  panel.innerHTML = '<div class="quick-head"><h2>Most used</h2><span>Tap to show</span></div>';
+  QUICK.forEach(id=>{
+    const it = byId[id];
+    if(!it) return;
+    panel.appendChild(makeCard(it));
+  });
+  $("quick").appendChild(panel);
+
+  const a = document.createElement("a");
+  a.href = "#quick-panel";
+  a.textContent = "Most used";
+  chips.insertBefore(a, chips.firstChild);
+}
+
+/* ---------- which phrases have real recordings ---------- */
+fetch(`../audio/${LANG}/index.json`, {cache:"no-cache"})
+  .then(r => r.ok ? r.json() : null)
+  .then(m=>{
+    if(!m) return;
+    recorded = new Set(m.recorded || []);
+    if(m.reviewedBy) $("rTag").textContent = m.reviewedBy;
+    document.querySelectorAll(".spk").forEach(sp=>{
+      if(recorded.has(sp.dataset.id)) sp.classList.add("rec");
+    });
+    if(recorded.size) document.body.classList.remove("novoice");
+  })
+  .catch(()=>{});
+
+/* ---------- playback: recorded first, device voice as fallback ---------- */
+let voices = [];
+const loadVoices = ()=>{
+  voices = window.speechSynthesis ? speechSynthesis.getVoices() : [];
+  if(voices.length) document.body.classList.toggle("novoice", !findVoice());
+};
+loadVoices();
+if(window.speechSynthesis) speechSynthesis.onvoiceschanged = loadVoices;
+
+function stopAll(){
+  if(window.speechSynthesis) speechSynthesis.cancel();
+  if(audioEl){ audioEl.pause(); audioEl = null; }
+}
+
+function findVoice(){
+  for(const w of [TTS_PRIMARY].concat(TTS_FALLBACKS)){
+    const v = voices.find(x => x.lang && x.lang.replace("_","-").toLowerCase().startsWith(w.toLowerCase()));
+    if(v) return v;
+  }
+  return null;
+}
+
+function speak(text, btn, tag){
+  if(!window.speechSynthesis){ if(tag) tag.textContent = "No audio on this device"; return; }
+  const voice = findVoice();
+  /* Critical: if there is no voice for this language, say nothing at all.
+     Handing Tagalog text to whatever default voice the device has produces
+     an English speaker mumbling the punctuation, which is worse than silence
+     and can mislead a patient. */
+  if(!voice){
+    if(tag) tag.textContent = "No Tagalog voice on this phone";
+    document.body.classList.add("novoice");
+    return;
+  }
+  const u = new SpeechSynthesisUtterance(text);
+  u.voice = voice;
+  u.lang = voice.lang || TTS_PRIMARY;
+  u.rate = 0.82;
+  if(tag) tag.textContent = "Device voice";
+  if(btn){
+    btn.classList.add("on");
+    u.onend = u.onerror = ()=>btn.classList.remove("on");
+  }
+  speechSynthesis.speak(u);
+}
+
+function play(item, btn, tag){
+  stopAll();
+  if(tag) tag.textContent = "";
+  if(recorded.has(item.id)){
+    audioEl = new Audio(`../audio/${LANG}/${item.id}.m4a`);
+    if(btn) btn.classList.add("on");
+    if(tag) tag.textContent = "Recorded voice";
+    const done = ()=>{ if(btn) btn.classList.remove("on"); };
+    audioEl.onended = done;
+    audioEl.onerror = ()=>{ done(); speak(item[script], btn, tag); };
+    audioEl.play().catch(()=>{ done(); speak(item[script], btn, tag); });
+  }else{
+    speak(item[script], btn, tag);
+  }
+}
+
+/* ---------- script toggle (Mandarin only) ---------- */
+if(HAS_TOGGLE){
+  const setScript = v=>{
+    script = v;
+    $("btnS").setAttribute("aria-pressed", v === "x");
+    $("btnT").setAttribute("aria-pressed", v === "t");
+    document.querySelectorAll("[data-x]").forEach(el=>{ el.textContent = el.dataset[v]; });
+    if(current) $("showZh").textContent = current[script];
+  };
+  $("btnS").addEventListener("click", ()=>setScript("x"));
+  $("btnT").addEventListener("click", ()=>setScript("t"));
+}
+
+/* ---------- search ---------- */
+$("q").addEventListener("input", e=>{
+  const v = e.target.value.trim().toLowerCase();
+  document.body.classList.toggle("filtering", !!v);
+  let any = false;
+  document.querySelectorAll(".stage").forEach(sec=>{
+    let shown = 0;
+    sec.querySelectorAll(".card").forEach(c=>{
+      const hit = !v || c.dataset.hay.includes(v);
+      c.style.display = hit ? "" : "none";
+      if(hit) shown++;
+    });
+    sec.style.display = shown ? "" : "none";
+    if(shown) any = true;
+  });
+  $("empty").style.display = any ? "none" : "block";
+});
+
+/* ---------- patient fullscreen ---------- */
+let current = null;
+const show = $("show");
+
+function openShow(it){
+  current = it;
+  $("showEn").textContent = it.en;
+  $("showZh").textContent = it[script];
+  $("showPy").textContent = it.p || "";
+  $("voiceTag").textContent = "";
+  show.classList.remove("open");
+  void show.offsetWidth;                 // restart the beam sweep
+  show.classList.add("open");
+  $("showSpeak").focus();
+}
+function closeShow(){
+  show.classList.remove("open");
+  stopAll();
+  current = null;
+}
+show.addEventListener("click", e=>{
+  if(e.target.closest("#showSpeak")){ play(current, null, $("voiceTag")); return; }
+  closeShow();
+});
+document.addEventListener("keydown", e=>{ if(e.key === "Escape") closeShow(); });
+
+/* ---------- service worker ---------- */
+if("serviceWorker" in navigator){
+  window.addEventListener("load", ()=>{
+    navigator.serviceWorker.register("../sw.js", {scope:"../", updateViaCache:"none"}).then(reg=>{
+      reg.update();
+      reg.addEventListener("updatefound", ()=>{
+        const nw = reg.installing;
+        if(!nw) return;
+        nw.addEventListener("statechange", ()=>{
+          if(nw.state === "installed" && navigator.serviceWorker.controller){
+            $("update").classList.add("on");
+          }
+        });
+      });
+    }).catch(()=>{});
+    $("updateBtn").addEventListener("click", ()=>{
+      navigator.serviceWorker.getRegistration().then(reg=>{
+        if(reg && reg.waiting) reg.waiting.postMessage("skipWaiting");
+        setTimeout(()=>location.reload(), 120);
+      });
+    });
+    let reloading = false;
+    navigator.serviceWorker.addEventListener("controllerchange", ()=>{
+      if(reloading) return; reloading = true; location.reload();
+    });
+  });
+}
+</script>
+</body>
+</html>
