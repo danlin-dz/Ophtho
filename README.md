@@ -1,48 +1,44 @@
 # Eyelingual
 
 Cards for an ophthalmic examination. Can be used offline with no service.
-Pick a language, tap a phrase, it fills the screen.
+Pick a language, tap a phrase, it fills the screen with options to enlarge the text.
+3 text sizes are available. 
 The patient can read the phrase, or tap the speaker and it plays aloud.
 
 9 languages: Mandarin, Cantonese, Punjabi, Farsi, Arabic, Korean, Japanese,
-Vietnamese, Tagalog. Each card opens with a **Most used** panel at the top with
-the seven direction and eyelid commands that come up on nearly every exam.
+Vietnamese, Tagalog. Each card opens with a **Most used** panel at the top 
+with the 7 commands that come up on nearly every exam.
 
-**Scope is deliberately narrow.** Instructions and closed questions only —
-"chin on the rest", "look at my nose", "do not rub your eyes". Every phrase is
-either a command the patient can act on or a question answerable by nodding,
-shaking, or pointing. History, consent, findings, and plan go through a professional
-interpreter. In BC that is the PHSA Provincial Language Service, 1-877-228-2557.
+**Scope is deliberately narrow.** Every phrase is either an instruction 
+the patient can act on, or a question answerable by nodding, shaking, or pointing. 
+History, consent, findings, or plan go through a professional interpreter. 
+In BC, that is the PHSA Provincial Language Service, 1-877-228-2557.
 
 Site contains no analytics, no data collection of any kind.
-
 ---
 
-## Read this before you deploy
+**8/9 pages have not yet been reviewed by a native speaker.**
 
-**8/9 pages have not been reviewed by a native speaker.**
-Only Mandarin has. The other eight carry a red "Draft translation — do not
-distribute" banner and a *Draft* badge on the homepage tile. That is not a bug,
-and the banner should stay until a real speaker has read the card.
+Only Mandarin has, by Danlin Zeng. The other 8 pages carry a "Draft translation — do not
+distribute" banner and a *Draft* badge on the homepage. That is not a bug,
+and the banner will stay until a real speaker has reviewed and approved the card.
 
 To clear a banner, set `reviewedBy` and `reviewedOn` in
 `audio/<code>/index.json` and rebuild.
 
 Also before going live:
-
 - [ ] Buy a domain before printing any QR codes
 - [ ] Generate or record the audio: 4/9 languages are silent on a stock Apple device without it
 
 ## Build
 
-Everything is generated from one template, so the nine cards cannot drift apart.
+Everything is generated from one template, so the 9 cards cannot drift apart.
 
     python3 tools/build.py              # regenerate pages (leaves phrases alone)
     python3 tools/build.py --phrases    # also regenerate phrase files from tools/langdata.py
 
 Edit `_template/card.html` once and rebuild; every card changes together. Edit a
-`<code>/phrases.js` directly for wording fixes — the plain build will not
-overwrite it.
+`<code>/phrases.js` directly for wording fixes — the plain build will not overwrite it.
 
 ## Deploy
 
@@ -60,9 +56,8 @@ Cloudflare Pages, free tier — unlimited bandwidth, custom domains, automatic S
 
 ## Exam order
 
-Nine stages: intro, visual acuity, pupils, eye movements, intraocular pressure,
-confrontation fields, drops, slit lamp, closing. Pressure is measured before any
-dilating drop. 47 phrases per language.
+9 stages: intro, visual acuity, pupils, eye movements, intraocular pressure,
+confrontation fields, dilating drops, slit lamp, closing. 47 phrases per language.
 
 Phrase ids are stable semantic slugs (`vis-fingers`, `iop-check`), not positions.
 Reordering a stage or inserting a phrase never renames anything, so recorded
@@ -70,39 +65,35 @@ audio stays attached to its phrase.
 
 ## The image pickers
 
-Two pickers sit in the Vision stage. The symptom grid renders directly beneath
-the question that introduces it; the diplopia picker after "Do you see two of
-me?". Both are anchored by phrase id in `tools/langdata.py`, so moving either is
-one field, not a code change.
+Images (14 symptom tiles and 3 diplopia tiles) in the Vision stage. 
+This is the strongest case for imagery on the whole site. 
+Perceptual experiences are difficult to describe in any language.
+A picture asks it better than a sentence can.
 
-This is the strongest case for imagery on the whole site. Perceptual experience
-has no gesture equivalent and is clumsy to describe in any language, so a picture
-asks it better than a sentence can.
+2 source photographs, provided by Danlin Zeng:
 
-Two source photographs, on purpose:
+- `_src/scene.jpg` — a view of Vancouver with fine linear detail from the utility poles.
+  Blur and distortion are only legible against straight lines.
+- `_src/dip.jpg` — a vertical silhouette and one discrete bright disc from the sunset against
+  the Toronto skyline, so the doubling is unambiguous: two towers, two suns.
 
-- `_src/scene.jpg` — a wide view with fine linear detail. Blur and distortion are
-  only legible against straight lines; a soft landscape shows nothing.
-- `_src/dip.jpg` — a hard vertical silhouette and one discrete bright disc against
-  near-empty sky, so the doubling is unambiguous: two towers, two suns. Soft
-  repeating texture is the thing to avoid; a crop on tree foliage was tried and
-  read as one blurry tree rather than two.
+A locally recognizable scene was used as it may work better than a generic one.
+A patient who has stood on that street maps their own experience onto it faster.
 
-Fourteen symptom tiles and three diplopia tiles. Regenerate both sets with
-`python3 tools/make-symptom-images.py _src/scene.jpg _src/dip.jpg`. A locally
-recognisable scene works better than a generic one — a patient who has stood on
-that street maps their own experience onto it faster.
+. Regenerate both sets with
+`python3 tools/make-symptom-images.py _src/scene.jpg _src/dip.jpg`. 
 
-### Why field loss is not drawn black
 
-**Do not reintroduce black.** The black-tunnel image used almost everywhere
-online is not merely stylised, it is misleading, and the evidence against it is
+### Visual field loss
+
+**It is intentionally not black.** The black-tunnel image used almost everywhere
+online is not merely stylized, it is misleading, and the evidence against it is
 direct.
 
 Crabb DP, Smith ND, Glen FC, Burton R, Garway-Heath DF. *How does glaucoma look?
 Patient perception of visual field loss.* Ophthalmology. 2013;120(6):1120–6.
-PMID 23415421. Fifty patients aged 52–82 with a range of glaucomatous field
-defects were shown six renderings and asked which matched their own vision. The
+PMID 23415421. A total of 50 patients aged 52–82 with a range of glaucomatous field
+defects were shown 6 renderings and asked which matched their own vision. The
 authors concluded that patients do not perceive their loss as a black tunnel or
 as black patches. Patients compare the standard depiction against their own
 sight, conclude they cannot have glaucoma, and stop their drops.
@@ -125,20 +116,16 @@ That rules out a hard black edge; it does not positively validate any particular
 rendering.
 
 **What these tiles actually do:** field loss (hemianopia, quadrantanopia,
-scotoma, tunnel) is drawn darkened and blurred together, with a soft gradient
-edge. Detail goes before luminance, and nothing has a hard boundary. This is a
+scotoma, tunnel) is drawn darkened and blurred, with a soft gradient. 
+Detail goes before luminance, and nothing has a hard boundary. This is a
 compromise — closer to "absent" than black, and legible at thumbnail size where
-pure blur is not. It is informed by the evidence above rather than validated by
-it, and a reviewer may reasonably want it softer still.
+pure blur is not. It is informed by the evidence above rather than validated by it.
 
-**A detachment curtain does render dark**, because that is the word patients
-use — a shadow or curtain coming across. Different phenomenon, different
-reasoning.
+**A detachment curtain does render black/dark**, because that is the word patients
+use — a shadow or curtain coming across.
 
-Scope caveat: the symptom picker edges toward history taking, which the rest of
-the card defers to an interpreter. It is meant for triage when no interpreter is
-immediately to hand, and what the patient points at still needs confirming
-through one.
+The images are meant for triaging when no interpreter is immediately available. 
+What the patient points at still needs confirming through a professional interpreter.
 
 ## Structure
 
@@ -165,11 +152,10 @@ through one.
 The cards fall back to the Web Speech API, which can only use voices already
 installed on the listener's device. Apple ships Arabic, Mandarin, Japanese and
 Korean; it does not ship Punjabi, Farsi, Cantonese or Filipino. On a stock Mac or
-iPhone those four are silent — which defeats the point of the site.
+iPhone those four are silent.
 
-The fix is to generate the audio once and commit the files. The card already
-prefers a recorded file over the device voice, so this removes the listener's
-device from the equation entirely.
+The fix is to generate the audio once and commit the files. If we have a recorded 
+file, this removes the listener's device from the equation entirely.
 
     pip install edge-tts
     python3 tools/make-audio.py --list      # check voice availability first
@@ -183,9 +169,9 @@ the punctuation and nothing else, which is worse than saying nothing.
 That uses Microsoft's neural voices through the same free endpoint Edge's
 read-aloud uses. No API key, no cost, network needed only at generation time.
 
-Human recordings are the next step — synthetic voices flatten prosody and carry
-none of the warmth an anxious eighty-year-old responds to. Replace files with
-real recordings as speakers become available.
+Human recordings are the next step. Synthetic voices flatten prosody and carry
+none of the warmth an anxious 80-year-old patient responds to. We will replace 
+all files with real recordings as speakers become available.
 
 ### Recording humans instead
 
@@ -196,9 +182,9 @@ real recordings as speakers become available.
 4. Bump `CACHE` in `tools/build.py` and rebuild.
 
 Anything not listed in `recorded` falls back to the device voice, so partial sets
-ship fine. Phrases with a real recording show a dot on the speaker button.
+ship fine. Phrases with a real recording will show a dot on the speaker button.
 
-Phrase IDs are identical across all nine languages: `vis-fingers` in Korean is
+Phrase IDs are identical across all 9 languages: `vis-fingers` in Korean is
 the same sentence as `vis-fingers` in Arabic. That keeps the recording scripts
 comparable and means audio folders share filenames.
 
@@ -206,51 +192,41 @@ comparable and means audio folders share filenames.
 
 The palette is taken from a dilated fundus — pupil black, red reflex orange,
 optic disc cream. Light text on dark is a deliberate choice: exams are often
-conducted in dim settings, a bright phone ruins dark adaptation, and the
-patient is often photophobic, and reduced glare scatter helps anyone with a cataract.
+conducted in dim settings where a bright phone ruins dark adaptation, and the
+patient is often photophobic. Also, reduced glare scatter helps patients with cataracts.
 
 Every foreground and background pair passes WCAG AA under normal vision and under
 simulated protanopia, deuteranopia and tritanopia. Nothing conveys meaning by
 colour alone. `python3 tools/check-colours.py` re-runs the audit and exits
 non-zero on failure, so it doubles as a pre-deploy check.
 
-The one animation, a narrow band of light sweeping the phrase when it opens
+The animation of a narrow band of light sweeping the phrase when it opens
 fullscreen, is mimicking a slit lamp. It also signals to the patient and
 healthcare provider that the screen has changed.
 
-The patient-facing fullscreen view has three text sizes, up to roughly 170px.
-This is chiefly for patients who cannot hear — the screen is the whole channel
-then, and it has to be readable at arm's length by someone whose vision is also
-the problem.
+The patient-facing fullscreen view has 3 text sizes, up to ~170px.
+This is to accommodate patients with visual difficulties or who cannot hear — 
+The largest text size should be readable at arm's length by a patient 
+whose vision is poor.
 
-The line under each phrase is an English-friendly phonetic respelling, not a
-scholarly romanisation — "jow fye hoe lah" rather than "Zau6 faai3 hou2 laa3",
-because tone numbers and diacritics tell a non-speaker nothing. Tone is not
-represented, so for Mandarin, Cantonese, and Vietnamese these get you close but
-not accurate. The scholarly romanizations are preserved in `tools/langdata.py`.
+The line under each phrase is an English-friendly phonetic re-spelling. 
+Tone is not represented, so for Mandarin, Cantonese, and Vietnamese these get you close 
+but not accurate. The scholarly romanizations are preserved in `tools/langdata.py`.
 
-Punjabi is written to avoid speaker-gender marking entirely. Punjabi inflects
-first-person futures and some participles for the speaker's gender, which would
-otherwise mean a female clinician reading masculine forms. Four phrases needed
-rewording — `vis-double`, `drp-putting`, `slit-touch-lid`, `close-interpreter` —
-each moving agreement onto a noun or an impersonal construction. The rest are
-imperatives or agree with a noun, so they were already neutral. One form now
-works for male or female. A first-person future will reintroduce the problem, so
-keep it in mind when editing Punjabi wording.
+Typically, Punjabi inflects first-person futures and some participles for the
+speaker's gender. Punjabi is written to avoid speaker-gender marking entirely.  
+One form now works for male or female clinicians.
 
-Search matches the English label only. Searching the target script or the
-phonetic respelling turns up matches the clinician cannot read back, and the
-respellings in particular produce noise — "kahn" hits half the Mandarin card.
+Search function corresponds to the English phrase only, not the translated script 
+or the phonetic respelling
 
-Mandarin has a simplified/traditional (简 / 繁) toggle, and uses one font for both
-so punctuation does not shift position when you switch.
-Cantonese is traditional only.
+Mandarin has a simplified/traditional (简 / 繁) toggle. Cantonese is traditional only.
 Farsi and Arabic render right-to-left; their romanization lines stay left-to-right.
 
 ## Licence
 
-CC BY-NC-SA 4.0. Adapt it, translate it, use it in your department. Don't sell
-it, and pass on the same terms.
+CC BY-NC-SA 4.0. Adapt it, translate it, use it in your Ophthalmology department. 
+Don't sell it, and pass on the same terms.
 
 Translations are provided in good faith and are not a substitute for a
 professional interpreter.
