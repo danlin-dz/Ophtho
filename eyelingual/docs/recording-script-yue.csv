@@ -2,6 +2,7 @@ id,file,stage,english,target,romanisation
 "intro-doctor","intro-doctor.m4a","Intro","I am your eye doctor.","我係你嘅眼科醫生。","ngaw high nay geh ngahn-faw yee-sahng"
 "intro-sit","intro-sit.m4a","Intro","Please sit here.","請坐喺呢度。","ching chaw high nee-doh"
 "intro-pain","intro-pain.m4a","Intro","Does it hurt? Point to where.","痛唔痛？邊度痛？指俾我睇。","tung mm tung? bin-doh tung? jee bay ngaw tye"
+"intro-fam-glaucoma","intro-fam-glaucoma.m4a","Intro","Do you have a family history of glaucoma?","你家人有冇人生過青光眼？","nay gah-yun yow-moe yun sahng gaw ching-gwong-ngahn?"
 "vis-glasses-on","vis-glasses-on.m4a","Vision","Put your glasses on.","請戴返眼鏡。","ching dye-fahn ngahn-geng"
 "vis-cover-left","vis-cover-left.m4a","Vision","Cover your left eye.","請遮住左眼。","ching jeh-jyu jaw ngahn"
 "vis-cover-right","vis-cover-right.m4a","Vision","Cover your right eye.","請遮住右眼。","ching jeh-jyu yow ngahn"

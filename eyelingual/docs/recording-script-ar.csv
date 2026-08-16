@@ -2,6 +2,7 @@ id,file,stage,english,target,romanisation
 "intro-doctor","intro-doctor.m4a","Intro","I am your eye doctor.","أنا طبيب العيون.","ah-nah ta-beeb al-oo-yoon"
 "intro-sit","intro-sit.m4a","Intro","Please sit here.","من فضلك اجلس هنا.","min fad-lik ij-lis hoo-nah"
 "intro-pain","intro-pain.m4a","Intro","Does it hurt? Point to where.","هل تشعر بألم؟ أشر إلى مكانه.","hal tash-oor bee-ah-lam? ah-sheer ee-lah mah-kah-nih"
+"intro-fam-glaucoma","intro-fam-glaucoma.m4a","Intro","Do you have a family history of glaucoma?","هل أحد في عائلتك مصاب بالماء الأزرق (الجلوكوما)؟","hal ah-had fee ah-ee-la-tik mu-sab bil-mah al-az-rak (al-glow-koh-ma)?"
 "vis-glasses-on","vis-glasses-on.m4a","Vision","Put your glasses on.","من فضلك ضع نظارتك.","min fad-lik dah naz-zah-rah-tak"
 "vis-cover-left","vis-cover-left.m4a","Vision","Cover your left eye.","غطِّ عينك اليسرى.","ghat-tee ay-nak al-yus-rah"
 "vis-cover-right","vis-cover-right.m4a","Vision","Cover your right eye.","غطِّ عينك اليمنى.","ghat-tee ay-nak al-yum-nah"

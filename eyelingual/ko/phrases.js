@@ -20,7 +20,8 @@ const STAGES = [
     items:[
       {id:"intro-doctor", en:"I am your eye doctor.", x:"저는 안과 의사입니다.", p:"juh-nun an-gwa ee-sa-im-ni-da"},
       {id:"intro-sit", en:"Please sit here.", x:"여기 앉으세요.", p:"yuh-gee an-ju-say-yo"},
-      {id:"intro-pain", en:"Does it hurt? Point to where.", x:"아프세요? 어디가 아픈지 가리켜 주세요.", p:"ah-pu-say-yo? uh-dee-ga ah-pun-jee ga-ree-kyuh ju-say-yo"}
+      {id:"intro-pain", en:"Does it hurt? Point to where.", x:"아프세요? 어디가 아픈지 가리켜 주세요.", p:"ah-pu-say-yo? uh-dee-ga ah-pun-jee ga-ree-kyuh ju-say-yo"},
+      {id:"intro-fam-glaucoma", en:"Do you have a family history of glaucoma?", x:"가족 중에 녹내장이 있는 분이 계세요?", p:"ga-jok joong-ay nok-nae-jang-ee in-nun boo-nee gay-say-yo?"}
     ]
   },
   {

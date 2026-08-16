@@ -20,7 +20,8 @@ const STAGES = [
     items:[
       {id:"intro-doctor", en:"I am your eye doctor.", x:"ਮੈਂ ਤੁਹਾਡਾ ਅੱਖਾਂ ਦਾ ਡਾਕਟਰ ਹਾਂ।", p:"mane tu-hah-da uh-khan da dahk-tar haan"},
       {id:"intro-sit", en:"Please sit here.", x:"ਕਿਰਪਾ ਕਰਕੇ ਇੱਥੇ ਬੈਠੋ।", p:"kir-pa kar-kay ih-thay bay-toe"},
-      {id:"intro-pain", en:"Does it hurt? Point to where.", x:"ਦਰਦ ਹੈ? ਕਿੱਥੇ? ਇਸ਼ਾਰਾ ਕਰੋ।", p:"dard hay? kih-thay? ih-shah-ra kuh-roe"}
+      {id:"intro-pain", en:"Does it hurt? Point to where.", x:"ਦਰਦ ਹੈ? ਕਿੱਥੇ? ਇਸ਼ਾਰਾ ਕਰੋ।", p:"dard hay? kih-thay? ih-shah-ra kuh-roe"},
+      {id:"intro-fam-glaucoma", en:"Do you have a family history of glaucoma?", x:"ਤੁਹਾਡੇ ਪਰਿਵਾਰ ਵਿੱਚ ਕਿਸੇ ਨੂੰ ਕਾਲਾ ਮੋਤੀਆ ਹੋਇਆ ਹੈ?", p:"tu-hah-day pa-ree-vaar vich kih-say noo kah-la moe-tee-ah hoe-ee-ah hay?"}
     ]
   },
   {

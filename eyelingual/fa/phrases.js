@@ -20,7 +20,8 @@ const STAGES = [
     items:[
       {id:"intro-doctor", en:"I am your eye doctor.", x:"من چشم‌پزشک شما هستم.", p:"mun chesh-peh-zeshk-eh show-mah hass-tam"},
       {id:"intro-sit", en:"Please sit here.", x:"لطفاً اینجا بنشینید.", p:"lot-fan een-jah beh-neh-shee-need"},
-      {id:"intro-pain", en:"Does it hurt? Point to where.", x:"درد دارید؟ کجا؟ اشاره کنید.", p:"dard dah-reed? koh-jah? eh-shah-reh koh-need"}
+      {id:"intro-pain", en:"Does it hurt? Point to where.", x:"درد دارید؟ کجا؟ اشاره کنید.", p:"dard dah-reed? koh-jah? eh-shah-reh koh-need"},
+      {id:"intro-fam-glaucoma", en:"Do you have a family history of glaucoma?", x:"در خانواده شما کسی آب سیاه (گلوکوم) داشته؟", p:"dar khah-neh-vah-deh-yeh show-mah kah-see ahb-eh see-yah (gloh-kom) dahsh-teh?"}
     ]
   },
   {

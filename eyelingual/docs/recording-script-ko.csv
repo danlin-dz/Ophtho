@@ -2,6 +2,7 @@ id,file,stage,english,target,romanisation
 "intro-doctor","intro-doctor.m4a","Intro","I am your eye doctor.","저는 안과 의사입니다.","juh-nun an-gwa ee-sa-im-ni-da"
 "intro-sit","intro-sit.m4a","Intro","Please sit here.","여기 앉으세요.","yuh-gee an-ju-say-yo"
 "intro-pain","intro-pain.m4a","Intro","Does it hurt? Point to where.","아프세요? 어디가 아픈지 가리켜 주세요.","ah-pu-say-yo? uh-dee-ga ah-pun-jee ga-ree-kyuh ju-say-yo"
+"intro-fam-glaucoma","intro-fam-glaucoma.m4a","Intro","Do you have a family history of glaucoma?","가족 중에 녹내장이 있는 분이 계세요?","ga-jok joong-ay nok-nae-jang-ee in-nun boo-nee gay-say-yo?"
 "vis-glasses-on","vis-glasses-on.m4a","Vision","Put your glasses on.","안경을 쓰세요.","an-gyung-ul ssu-say-yo"
 "vis-cover-left","vis-cover-left.m4a","Vision","Cover your left eye.","왼쪽 눈을 가리세요.","wen-jjok nu-nul ga-ree-say-yo"
 "vis-cover-right","vis-cover-right.m4a","Vision","Cover your right eye.","오른쪽 눈을 가리세요.","oh-run-jjok nu-nul ga-ree-say-yo"

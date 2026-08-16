@@ -2,6 +2,7 @@ id,file,stage,english,target,romanisation
 "intro-doctor","intro-doctor.m4a","Intro","I am your eye doctor.","眼科医です。","gan-ka-ee dess"
 "intro-sit","intro-sit.m4a","Intro","Please sit here.","ここに座ってください。","koh-koh nee soo-wat-tay koo-da-sigh"
 "intro-pain","intro-pain.m4a","Intro","Does it hurt? Point to where.","痛みますか？どこか指さしてください。","ee-ta-mee-mass ka? doh-koh ka yoo-bee-sa-shee-tay koo-da-sigh"
+"intro-fam-glaucoma","intro-fam-glaucoma.m4a","Intro","Do you have a family history of glaucoma?","ご家族に緑内障の方はいますか？","goh-ka-zoh-koo nee ryoh-koo-nigh-shoh no ka-ta wa ee-mass ka?"
 "vis-glasses-on","vis-glasses-on.m4a","Vision","Put your glasses on.","眼鏡をかけてください。","meh-ga-nay oh ka-kay-tay koo-da-sigh"
 "vis-cover-left","vis-cover-left.m4a","Vision","Cover your left eye.","左目を隠してください。","hee-da-ree-may oh ka-koo-shee-tay koo-da-sigh"
 "vis-cover-right","vis-cover-right.m4a","Vision","Cover your right eye.","右目を隠してください。","mee-ghee-may oh ka-koo-shee-tay koo-da-sigh"

@@ -2,6 +2,7 @@ id,file,stage,english,target,romanisation
 "intro-doctor","intro-doctor.m4a","Intro","I am your eye doctor.","Ako po ang inyong doktor sa mata.","ah-ko po ang in-yong dok-tor sa ma-ta"
 "intro-sit","intro-sit.m4a","Intro","Please sit here.","Maupo po kayo rito.","ma-oo-po po ka-yo ree-to"
 "intro-pain","intro-pain.m4a","Intro","Does it hurt? Point to where.","Masakit po ba? Ituro po ninyo kung saan.","ma-sa-kit po ba? ee-too-ro po nin-yo koong sa-an"
+"intro-fam-glaucoma","intro-fam-glaucoma.m4a","Intro","Do you have a family history of glaucoma?","May kamag-anak po ba kayong may glaucoma?","my ka-mag-ah-nak po ba ka-yong my glow-ko-ma?"
 "vis-glasses-on","vis-glasses-on.m4a","Vision","Put your glasses on.","Isuot po ninyo ang inyong salamin.","ee-soo-ot po nin-yo ang in-yong sa-la-min"
 "vis-cover-left","vis-cover-left.m4a","Vision","Cover your left eye.","Takpan po ninyo ang kaliwang mata.","tak-pan po nin-yo ang ka-lee-wang ma-ta"
 "vis-cover-right","vis-cover-right.m4a","Vision","Cover your right eye.","Takpan po ninyo ang kanang mata.","tak-pan po nin-yo ang ka-nang ma-ta"

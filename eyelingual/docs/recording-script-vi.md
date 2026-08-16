@@ -1,6 +1,6 @@
 # Recording script — Vietnamese
 
-47 takes. One file per phrase, named exactly by its ID.
+48 takes. One file per phrase, named exactly by its ID.
 
 ## For the speaker
 
@@ -37,6 +37,7 @@ recording sets are fine to ship.
 | `intro-doctor` | `intro-doctor.m4a` | Tôi là bác sĩ mắt của ông/bà. | I am your eye doctor. |
 | `intro-sit` | `intro-sit.m4a` | Xin mời ngồi đây. | Please sit here. |
 | `intro-pain` | `intro-pain.m4a` | Có đau không? Xin chỉ chỗ đau. | Does it hurt? Point to where. |
+| `intro-fam-glaucoma` | `intro-fam-glaucoma.m4a` | Trong gia đình có ai bị tăng nhãn áp (cườm nước) không? | Do you have a family history of glaucoma? |
 
 ## 02 · Vision
 
@@ -124,4 +125,4 @@ recording sets are fine to ship.
 
 ---
 
-**47 takes total.** Roughly 20 minutes of recording including retakes.
+**48 takes total.** Roughly 20 minutes of recording including retakes.

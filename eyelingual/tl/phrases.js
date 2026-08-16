@@ -20,7 +20,8 @@ const STAGES = [
     items:[
       {id:"intro-doctor", en:"I am your eye doctor.", x:"Ako po ang inyong doktor sa mata.", p:"ah-ko po ang in-yong dok-tor sa ma-ta"},
       {id:"intro-sit", en:"Please sit here.", x:"Maupo po kayo rito.", p:"ma-oo-po po ka-yo ree-to"},
-      {id:"intro-pain", en:"Does it hurt? Point to where.", x:"Masakit po ba? Ituro po ninyo kung saan.", p:"ma-sa-kit po ba? ee-too-ro po nin-yo koong sa-an"}
+      {id:"intro-pain", en:"Does it hurt? Point to where.", x:"Masakit po ba? Ituro po ninyo kung saan.", p:"ma-sa-kit po ba? ee-too-ro po nin-yo koong sa-an"},
+      {id:"intro-fam-glaucoma", en:"Do you have a family history of glaucoma?", x:"May kamag-anak po ba kayong may glaucoma?", p:"my ka-mag-ah-nak po ba ka-yong my glow-ko-ma?"}
     ]
   },
   {

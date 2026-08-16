@@ -2,6 +2,7 @@ id,file,stage,english,target,romanisation
 "intro-doctor","intro-doctor.m4a","Intro","I am your eye doctor.","Tôi là bác sĩ mắt của ông/bà.","toy lah bahk see maht kwah ohng/bah"
 "intro-sit","intro-sit.m4a","Intro","Please sit here.","Xin mời ngồi đây.","sin muh-ee ngoy day"
 "intro-pain","intro-pain.m4a","Intro","Does it hurt? Point to where.","Có đau không? Xin chỉ chỗ đau.","kaw dow khohng? sin chee choh dow"
+"intro-fam-glaucoma","intro-fam-glaucoma.m4a","Intro","Do you have a family history of glaucoma?","Trong gia đình có ai bị tăng nhãn áp (cườm nước) không?","chong yah din kaw eye bee tahng nyahn ahp (kuhm nook) khohng?"
 "vis-glasses-on","vis-glasses-on.m4a","Vision","Put your glasses on.","Xin đeo kính vào.","sin day-oh king vow"
 "vis-cover-left","vis-cover-left.m4a","Vision","Cover your left eye.","Xin che mắt trái lại.","sin cheh maht chai lai"
 "vis-cover-right","vis-cover-right.m4a","Vision","Cover your right eye.","Xin che mắt phải lại.","sin cheh maht fai lai"

@@ -1,6 +1,6 @@
 # Recording script — Farsi
 
-47 takes. One file per phrase, named exactly by its ID.
+48 takes. One file per phrase, named exactly by its ID.
 
 ## For the speaker
 
@@ -37,6 +37,7 @@ recording sets are fine to ship.
 | `intro-doctor` | `intro-doctor.m4a` | من چشم‌پزشک شما هستم. | I am your eye doctor. |
 | `intro-sit` | `intro-sit.m4a` | لطفاً اینجا بنشینید. | Please sit here. |
 | `intro-pain` | `intro-pain.m4a` | درد دارید؟ کجا؟ اشاره کنید. | Does it hurt? Point to where. |
+| `intro-fam-glaucoma` | `intro-fam-glaucoma.m4a` | در خانواده شما کسی آب سیاه (گلوکوم) داشته؟ | Do you have a family history of glaucoma? |
 
 ## 02 · Vision
 
@@ -124,4 +125,4 @@ recording sets are fine to ship.
 
 ---
 
-**47 takes total.** Roughly 20 minutes of recording including retakes.
+**48 takes total.** Roughly 20 minutes of recording including retakes.

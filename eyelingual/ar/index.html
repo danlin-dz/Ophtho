@@ -44,15 +44,6 @@
   }
   .wrap{max-width:640px;margin:0 auto;padding:0 18px}
 
-  /* ---------- review status ---------- */
-  .status{
-    font-family:var(--f-mono);font-size:10px;letter-spacing:.16em;
-    text-transform:uppercase;padding:11px 18px;text-align:center;line-height:1.5;
-    background:#2E1210;color:var(--disc);font-weight:600;
-    border-bottom:3px solid var(--vessel);
-  }
-  .status::before{content:"\25B2\00a0\00a0"}   /* a shape, so the warning does not rest on colour */
-
   /* ---------- masthead ---------- */
   header{padding:26px 0 18px;border-bottom:1px solid var(--line)}
   .kicker{
@@ -318,8 +309,6 @@
 </head>
 <body class="rtl">
 
-<div class="status">Draft translation — not yet reviewed by a native speaker. Do not distribute.</div>
-
 <div class="wrap">
 
   <header>
@@ -401,7 +390,7 @@
 
 <script src="phrases.js"></script>
 <script>
-const VERSION = "9 Aug 2026";
+const VERSION = "Aug 15 2026";
 const LANG = "ar";
 const TTS_PRIMARY = "ar-SA";
 const TTS_FALLBACKS = ["ar"];

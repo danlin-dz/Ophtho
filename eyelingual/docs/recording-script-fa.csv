@@ -2,6 +2,7 @@ id,file,stage,english,target,romanisation
 "intro-doctor","intro-doctor.m4a","Intro","I am your eye doctor.","من چشم‌پزشک شما هستم.","mun chesh-peh-zeshk-eh show-mah hass-tam"
 "intro-sit","intro-sit.m4a","Intro","Please sit here.","لطفاً اینجا بنشینید.","lot-fan een-jah beh-neh-shee-need"
 "intro-pain","intro-pain.m4a","Intro","Does it hurt? Point to where.","درد دارید؟ کجا؟ اشاره کنید.","dard dah-reed? koh-jah? eh-shah-reh koh-need"
+"intro-fam-glaucoma","intro-fam-glaucoma.m4a","Intro","Do you have a family history of glaucoma?","در خانواده شما کسی آب سیاه (گلوکوم) داشته؟","dar khah-neh-vah-deh-yeh show-mah kah-see ahb-eh see-yah (gloh-kom) dahsh-teh?"
 "vis-glasses-on","vis-glasses-on.m4a","Vision","Put your glasses on.","لطفاً عینک خود را بزنید.","lot-fan ay-nak-eh khod rah beh-zah-need"
 "vis-cover-left","vis-cover-left.m4a","Vision","Cover your left eye.","چشم چپ خود را بپوشانید.","chesh-meh chap-eh khod rah beh-poo-shah-need"
 "vis-cover-right","vis-cover-right.m4a","Vision","Cover your right eye.","چشم راست خود را بپوشانید.","chesh-meh rahst-eh khod rah beh-poo-shah-need"

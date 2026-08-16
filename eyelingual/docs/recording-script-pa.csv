@@ -2,6 +2,7 @@ id,file,stage,english,target,romanisation
 "intro-doctor","intro-doctor.m4a","Intro","I am your eye doctor.","ਮੈਂ ਤੁਹਾਡਾ ਅੱਖਾਂ ਦਾ ਡਾਕਟਰ ਹਾਂ।","mane tu-hah-da uh-khan da dahk-tar haan"
 "intro-sit","intro-sit.m4a","Intro","Please sit here.","ਕਿਰਪਾ ਕਰਕੇ ਇੱਥੇ ਬੈਠੋ।","kir-pa kar-kay ih-thay bay-toe"
 "intro-pain","intro-pain.m4a","Intro","Does it hurt? Point to where.","ਦਰਦ ਹੈ? ਕਿੱਥੇ? ਇਸ਼ਾਰਾ ਕਰੋ।","dard hay? kih-thay? ih-shah-ra kuh-roe"
+"intro-fam-glaucoma","intro-fam-glaucoma.m4a","Intro","Do you have a family history of glaucoma?","ਤੁਹਾਡੇ ਪਰਿਵਾਰ ਵਿੱਚ ਕਿਸੇ ਨੂੰ ਕਾਲਾ ਮੋਤੀਆ ਹੋਇਆ ਹੈ?","tu-hah-day pa-ree-vaar vich kih-say noo kah-la moe-tee-ah hoe-ee-ah hay?"
 "vis-glasses-on","vis-glasses-on.m4a","Vision","Put your glasses on.","ਕਿਰਪਾ ਕਰਕੇ ਐਨਕ ਲਗਾਓ।","kir-pa kar-kay eye-nak lug-ah-oh"
 "vis-cover-left","vis-cover-left.m4a","Vision","Cover your left eye.","ਖੱਬੀ ਅੱਖ ਢੱਕੋ।","khub-bee ukh dhuk-koe"
 "vis-cover-right","vis-cover-right.m4a","Vision","Cover your right eye.","ਸੱਜੀ ਅੱਖ ਢੱਕੋ।","suj-jee ukh dhuk-koe"

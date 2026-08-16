@@ -20,7 +20,8 @@ const STAGES = [
     items:[
       {id:"intro-doctor", en:"I am your eye doctor.", x:"我係你嘅眼科醫生。", p:"ngaw high nay geh ngahn-faw yee-sahng"},
       {id:"intro-sit", en:"Please sit here.", x:"請坐喺呢度。", p:"ching chaw high nee-doh"},
-      {id:"intro-pain", en:"Does it hurt? Point to where.", x:"痛唔痛？邊度痛？指俾我睇。", p:"tung mm tung? bin-doh tung? jee bay ngaw tye"}
+      {id:"intro-pain", en:"Does it hurt? Point to where.", x:"痛唔痛？邊度痛？指俾我睇。", p:"tung mm tung? bin-doh tung? jee bay ngaw tye"},
+      {id:"intro-fam-glaucoma", en:"Do you have a family history of glaucoma?", x:"你家人有冇人生過青光眼？", p:"nay gah-yun yow-moe yun sahng gaw ching-gwong-ngahn?"}
     ]
   },
   {

@@ -24,7 +24,7 @@ from langdata import (LANGS, GRID, STAGES, EN, DIP_EN, DIP_LABELS, DATA, QUICK, 
 from phonetics import PHON
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-VERSION = "9 Aug 2026"
+VERSION = "Aug 15 2026"
 CACHE = "eyelingual-2026-08-02"
 WRITE_PHRASES = "--phrases" in sys.argv or "--all" in sys.argv
 
@@ -199,8 +199,7 @@ TOGGLE_NOTE = """    <strong>简 / 繁.</strong> Simplified for mainland China a
     Cantonese speakers from Hong Kong read traditional but will not follow spoken Mandarin.<br><br>
 """
 
-BANNER = ('<div class="status">Draft translation — not yet reviewed by a native speaker. '
-          'Do not distribute.</div>\n')
+# The review state is carried by the footer line alone now; there is no banner.
 
 
 def build_card(lang, template):
@@ -219,12 +218,11 @@ def build_card(lang, template):
         "__BODYCLASS__": " ".join(body_classes),
         "__TOGGLE__": TOGGLE_HTML if lang["scriptToggle"] else "",
         "__FOOTNOTE__": TOGGLE_NOTE if lang["scriptToggle"] else "",
-        "__STATUSBANNER__": "" if lang["reviewedBy"] else BANNER,
         "__REVIEWED__": lang["reviewedBy"] or "not yet reviewed",
     }
     # an empty optional block should take its whole line with it, so pages that
     # omit the toggle don't carry a stray blank line
-    for k in ("__TOGGLE__", "__FOOTNOTE__", "__STATUSBANNER__"):
+    for k in ("__TOGGLE__", "__FOOTNOTE__"):
         if reps[k] == "":
             s = s.replace(k + "\n", "")
     for k, v in reps.items():
@@ -294,10 +292,6 @@ HOME = """<!DOCTYPE html>
     margin-top:8px;font-size:13px;font-weight:500;color:var(--taupe);
     line-height:1.3;display:block;word-break:keep-all;
   }
-  .tile .draft{
-    margin-top:6px;font-family:var(--f-mono);font-size:7px;letter-spacing:.12em;
-    text-transform:uppercase;color:var(--taupe-dim);
-  }
 
   footer{border-top:1px solid var(--line);margin-top:36px;padding:22px 0 44px;
          font-size:11.5px;line-height:1.65;color:var(--taupe-dim)}
@@ -361,14 +355,13 @@ def build_home():
     for row in GRID:
         for code in row:
             l = by_code[code]
-            draft = "" if l["reviewedBy"] else '\n      <span class="draft">Draft</span>'
             tiles.append(
                 '    <a class="tile" href="%s/" lang="%s"%s>\n'
                 '      <span class="eng">%s</span>\n'
-                '      <span class="nat">%s</span>%s\n'
+                '      <span class="nat">%s</span>\n'
                 '    </a>' % (l["slug"], l["htmlLang"],
                               ' dir="rtl"' if l["dir"] == "rtl" else "",
-                              l["english"], l["native"], draft))
+                              l["english"], l["native"]))
     return HOME.replace("__TILES__", "\n".join(tiles)).replace("__VERSION__", VERSION)
 
 
