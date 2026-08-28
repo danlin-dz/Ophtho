@@ -29,13 +29,14 @@ const STAGES = [
     diplopiaAfter:"vis-double",
     symptomsAfter:"sym-ask",
     items:[
-      {id:"vis-glasses-on", en:"Put your glasses on.", x:"眼鏡をかけてください。", p:"meh-ga-nay oh ka-kay-tay koo-da-sigh"},
+      {id:"vis-glasses-on", en:"Put your glasses on.", x:"眼鏡をかけてください。", p:"meh-ga-nay oh ka-kay-tay koo-da-sigh", icon:"glasses"},
       {id:"vis-cover-left", en:"Cover your left eye.", x:"左目を隠してください。", p:"hee-da-ree-may oh ka-koo-shee-tay koo-da-sigh"},
       {id:"vis-cover-right", en:"Cover your right eye.", x:"右目を隠してください。", p:"mee-ghee-may oh ka-koo-shee-tay koo-da-sigh"},
       {id:"sym-ask", en:"Does your vision look like any of these? Point to the closest one.", x:"どれに近いですか？一番近いものを指さしてください。", p:"doh-ray nee chee-kigh dess ka? ee-chee-ban chee-kigh moh-no oh yoo-bee-sa-shee-tay koo-da-sigh"},
       {id:"vis-read-line", en:"Please read the smallest line you can see.", x:"見える一番小さい行を読んでください。", p:"mee-eh-roo ee-chee-ban chee-sigh gyoh oh yon-day koo-da-sigh"},
       {id:"vis-pinhole", en:"Try to look through the tiny hole. It may make your vision clearer.", x:"小さな穴から見てください。よく見えるかもしれません。", p:"chee-sa-na ah-na ka-ra mee-tay koo-da-sigh. yoh-koo mee-eh-roo ka-moh shee-ray-ma-sen"},
       {id:"vis-fingers", en:"How many fingers?", x:"指は何本ですか？", p:"yoo-bee wa nan-bon dess ka?"},
+      {id:"vis-hand-motion", en:"Do you see my hand moving?", x:"手が動いているのが見えますか？", p:"tay ga oo-goy-tay ee-roo no ga mee-eh-mass ka?"},
       {id:"vis-see-this", en:"Can you see this?", x:"これが見えますか？", p:"koh-ray ga mee-eh-mass ka?"},
       {id:"vis-light-move", en:"Tell me if you see the light move.", x:"光が動いたら教えてください。", p:"hee-ka-ree ga oo-goy-ta-ra oh-shee-eh-tay koo-da-sigh"},
       {id:"vis-look-nose", en:"Look at my nose.", x:"私の鼻を見てください。", p:"wa-ta-shee no ha-na oh mee-tay koo-da-sigh"},
@@ -49,18 +50,19 @@ const STAGES = [
     items:[
       {id:"pup-shine", en:"I am going to shine a light in your eyes. Please look at the wall behind me.", x:"目に光を当てます。私の後ろの壁を見てください。", p:"may nee hee-ka-ree oh ah-tay-mass. wa-ta-shee no oo-shee-roh no ka-bay oh mee-tay koo-da-sigh"},
       {id:"pup-dont-look-light", en:"Do not look at the light. Keep looking far away.", x:"光を見ないで、遠くを見ていてください。", p:"hee-ka-ree oh mee-nigh-day, toh-koo oh mee-tay ee-tay koo-da-sigh"},
-      {id:"pup-both-open", en:"Keep both eyes open.", x:"両目を開けたままにしてください。", p:"ryoh-may oh ah-kay-ta ma-ma nee shee-tay koo-da-sigh"}
+      {id:"pup-both-open", en:"Keep both eyes open.", x:"両目を開けたままにしてください。", p:"ryoh-may oh ah-kay-ta ma-ma nee shee-tay koo-da-sigh", icon:"eye-open"}
     ]
   },
   {
     id:"motility", num:"04", title:"Eye movements",
     note:"Demonstrate and the patient will mirror you.",
     items:[
+      {id:"mot-look-here", en:"Look here.", x:"ここを見てください。", p:"koh-koh oh mee-tay koo-da-sigh"},
       {id:"mot-finger", en:"Look at my finger. Do not move your head.", x:"私の指を見てください。頭は動かさないでください。", p:"wa-ta-shee no yoo-bee oh mee-tay koo-da-sigh. ah-ta-ma wa oo-goh-ka-sa-nigh-day koo-da-sigh"},
-      {id:"mot-up", en:"Look up.", x:"上を見てください。", p:"oo-eh oh mee-tay koo-da-sigh"},
-      {id:"mot-down", en:"Look down.", x:"下を見てください。", p:"shta oh mee-tay koo-da-sigh"},
-      {id:"mot-left", en:"Look left.", x:"左を見てください。", p:"hee-da-ree oh mee-tay koo-da-sigh"},
-      {id:"mot-right", en:"Look right.", x:"右を見てください。", p:"mee-ghee oh mee-tay koo-da-sigh"},
+      {id:"mot-up", en:"Look up.", x:"上を見てください。", p:"oo-eh oh mee-tay koo-da-sigh", icon:"up"},
+      {id:"mot-down", en:"Look down.", x:"下を見てください。", p:"shta oh mee-tay koo-da-sigh", icon:"down"},
+      {id:"mot-left", en:"Look left.", x:"左を見てください。", p:"hee-da-ree oh mee-tay koo-da-sigh", icon:"left"},
+      {id:"mot-right", en:"Look right.", x:"右を見てください。", p:"mee-ghee oh mee-tay koo-da-sigh", icon:"right"},
       {id:"mot-straight", en:"Look straight ahead.", x:"まっすぐ前を見てください。", p:"mahs-soo-goo mah-eh oh mee-tay koo-da-sigh"}
     ]
   },
@@ -85,12 +87,12 @@ const STAGES = [
     id:"drops", num:"07", title:"Drops",
     items:[
       {id:"drp-allergy", en:"Are you allergic to any medications?", x:"薬のアレルギーはありますか？", p:"koo-soo-ree no ah-ray-roo-ghee wa ah-ree-mass ka?"},
-      {id:"drp-putting", en:"I'm going to put drops in your eye.", x:"目薬をさします。", p:"meh-goo-soo-ree oh sa-shee-mass"},
-      {id:"drp-look-up", en:"Please look up.", x:"上を見てください。", p:"oo-eh oh mee-tay koo-da-sigh"},
+      {id:"drp-putting", en:"I'm going to put drops in your eye.", x:"目薬をさします。", p:"meh-goo-soo-ree oh sa-shee-mass", icon:"dropper"},
+      {id:"drp-look-up", en:"Please look up.", x:"上を見てください。", p:"oo-eh oh mee-tay koo-da-sigh", icon:"up"},
       {id:"drp-anaesthetic", en:"This is an analgesic for your eyes. It may sting for a few seconds.", x:"目の麻酔薬です。数秒しみることがあります。", p:"may no ma-soo-ee-ya-koo dess. soo-byoh shee-mee-roo koh-toh ga ah-ree-mass"},
       {id:"drp-dilate", en:"This drop will dilate your pupils.", x:"この目薬は瞳孔を広げます。", p:"koh-no meh-goo-soo-ree wa doh-koh oh hee-roh-gay-mass"},
       {id:"drp-blurry", en:"Your vision will be blurry for about 6 hours.", x:"約6時間、見えにくくなります。", p:"ya-koo roh-koo-jee-kan, mee-eh-nee-koo-koo na-ree-mass"},
-      {id:"drp-close", en:"Please close your eyes.", x:"目を閉じてください。", p:"may oh toh-jee-tay koo-da-sigh"},
+      {id:"drp-close", en:"Please close your eyes.", x:"目を閉じてください。", p:"may oh toh-jee-tay koo-da-sigh", icon:"eye-shut"},
       {id:"drp-no-rub", en:"Don't rub your eyes.", x:"目をこすらないでください。", p:"may oh koh-soo-ra-nigh-day koo-da-sigh"}
     ]
   },
@@ -98,10 +100,10 @@ const STAGES = [
     id:"slitlamp", num:"08", title:"Slit lamp",
     items:[
       {id:"slit-chin", en:"Chin on the rest, forehead against the bar.", x:"顎をここに乗せ、額をここにつけてください。", p:"ah-goh oh koh-koh nee no-say, hee-tigh oh koh-koh nee tsoo-kay-tay koo-da-sigh"},
-      {id:"slit-open", en:"Open your eyes wide.", x:"目を大きく開けてください。", p:"may oh oh-kee-koo ah-kay-tay koo-da-sigh"},
+      {id:"slit-open", en:"Open your eyes wide.", x:"目を大きく開けてください。", p:"may oh oh-kee-koo ah-kay-tay koo-da-sigh", icon:"eye-open"},
       {id:"slit-no-pull-back", en:"Don't pull your head back.", x:"頭を後ろに引かないでください。", p:"ah-ta-ma oh oo-shee-roh nee hee-ka-nigh-day koo-da-sigh"},
       {id:"slit-bright", en:"The light is bright. Please bear with it.", x:"光が眩しいです。少し我慢してください。", p:"hee-ka-ree ga ma-boo-shee dess. skoh-shee ga-man shtay koo-da-sigh"},
-      {id:"slit-ear", en:"Look at my ear.", x:"私の耳を見てください。", p:"wa-ta-shee no mee-mee oh mee-tay koo-da-sigh"},
+      {id:"slit-ear", en:"Look at my ear.", x:"私の耳を見てください。", p:"wa-ta-shee no mee-mee oh mee-tay koo-da-sigh", icon:"ear"},
       {id:"slit-touch-lid", en:"I'm going to touch your eyelid.", x:"まぶたに触ります。", p:"ma-boo-ta nee sa-wa-ree-mass"},
       {id:"slit-almost", en:"Almost done.", x:"もうすぐ終わります。", p:"moh-soo-goo oh-wa-ree-mass"}
     ]
@@ -110,6 +112,8 @@ const STAGES = [
     id:"closing", num:"09", title:"Closing",
     items:[
       {id:"close-finished", en:"The exam is finished. Thank you.", x:"診察は終わりです。ありがとうございました。", p:"shin-sa-tsu wa oh-wa-ree dess. ah-ree-ga-toh goh-zigh-ma-shta"},
+      {id:"close-healthy", en:"Your eyes are healthy.", x:"目は健康です。", p:"may wa ken-koh dess", icon:"check"},
+      {id:"close-consult", en:"I will have to speak to another doctor about your eyes. I will be back.", x:"目のことを別の医師と相談します。すぐ戻ります。", p:"may no koh-toh oh bets-oo no ee-shee toh soh-dan shee-mass. soo-goo moh-doh-ree-mass"},
       {id:"close-interpreter", en:"We will use an interpreter to explain the results.", x:"結果は通訳を通して説明します。", p:"kek-ka wa tsoo-ya-koo oh toh-shtay set-soo-may shee-mass"}
     ]
   }
@@ -145,7 +149,9 @@ const SYMPTOMS = [
 /* The eleven phrases that come up most, surfaced in a panel at the top of
    the card so they are reachable without scrolling. These are references, not
    copies: same ids, same audio, same wording as the stage they belong to. */
-const QUICK = ["mot-up", "mot-down", "mot-left", "mot-right", "mot-straight", "slit-open", "drp-close"];
+const QUICK = ["mot-look-here", "mot-up", "mot-down", "mot-left", "mot-right", "mot-straight", "slit-open", "drp-close"];
+
+const QUICKNAV = [{stage:"acuity", icon:"glasses"}, {stage:"drops", icon:"dropper"}, {stage:"slitlamp", icon:"lamp"}];
 
 /* The one pictogram on the card. Diplopia geometry is a perceptual judgement
    with no gesture equivalent and clumsy phrasing in any language, so a picture

@@ -107,6 +107,21 @@
     text-transform:uppercase;color:var(--taupe-dim);
   }
   .quick .card{background:rgba(255,138,76,.06);border-color:rgba(255,138,76,.2)}
+  /* Jump targets for the three stages reached most often mid-exam. */
+  .quick-nav{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:13px 0 6px}
+  .quick-nav a{
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;
+    padding:16px 6px 13px;text-decoration:none;color:var(--reflex);
+    border:1px solid rgba(255,138,76,.3);border-radius:14px;
+    background:rgba(255,138,76,.06);
+  }
+  .quick-nav a:active{background:rgba(255,138,76,.16);border-color:var(--reflex)}
+  .quick-nav a:focus-visible{outline:2px solid var(--reflex);outline-offset:2px}
+  .quick-nav svg{width:38px;height:38px;display:block}
+  .quick-nav .lab{
+    font-family:var(--f-mono);font-size:9.5px;letter-spacing:.13em;
+    text-transform:uppercase;color:var(--taupe);line-height:1.35;text-align:center;
+  }
   .quick .card:active{background:rgba(255,138,76,.13);border-color:rgba(255,138,76,.42)}
 
   /* ---------- stages ---------- */
@@ -129,6 +144,16 @@
   .card:active{background:var(--choroid-hi);border-color:var(--line-hi)}
   .card:focus-visible{outline:2px solid var(--reflex);outline-offset:2px}
   .card .body{flex:1;min-width:0}
+  /* Redundant with the text on purpose. An arrow alone is ambiguous between
+     "your eyes go up" and "the thing is up there", and an object icon is worse —
+     a bottle names a noun while the clinical content is the instruction attached
+     to it. These reinforce a phrase and make its card findable at a glance; they
+     are never something to point at instead of the words. */
+  .card .ic{
+    flex:none;width:30px;height:30px;margin-right:2px;
+    color:var(--reflex);opacity:.85;display:grid;place-items:center;
+  }
+  .card .ic svg{width:26px;height:26px;display:block}
   .card .en{
     display:block;font-family:var(--f-mono);font-size:10px;letter-spacing:.16em;
     text-transform:uppercase;color:var(--taupe-dim);margin-bottom:7px;
@@ -406,6 +431,40 @@ const SPK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-w
 
 /* `script` selects which field of a phrase to display. Mandarin is the only card
    with two, so everywhere else this stays on "x" for the life of the page. */
+const ICON_PATHS = {
+  up:    '<path d="M12 20V5M12 4l-6 6M12 4l6 6"/>',
+  down:  '<path d="M12 4v15M12 20l-6-6M12 20l6-6"/>',
+  left:  '<path d="M20 12H5M4 12l6-6M4 12l6 6"/>',
+  right: '<path d="M4 12h15M20 12l-6-6M20 12l-6 6"/>',
+  "eye-open": '<path d="M2 12s3.6-6.2 10-6.2S22 12 22 12s-3.6 6.2-10 6.2S2 12 2 12z"/>'
+            + '<circle cx="12" cy="12" r="2.9"/>',
+  "eye-shut": '<path d="M2.5 11.5s3.8 5.2 9.5 5.2 9.5-5.2 9.5-5.2"/>'
+            + '<path d="M4.6 15.2 3 17.9M9.1 17.3 8.4 20.3M14.9 17.3l.7 3M19.4 15.2l1.6 2.7"/>',
+  // Lenses as rounded rectangles rather than circles: reads as spectacles at
+  // 26px, where two circles read as goggles.
+  glasses: '<rect x="2.4" y="9.8" width="8" height="6" rx="2.4"/>'
+         + '<rect x="13.6" y="9.8" width="8" height="6" rx="2.4"/>'
+         + '<path d="M10.4 12.4c1-.5 2.2-.5 3.2 0"/>',
+  // Tilted, with the drop leaving the tip — a bottle drawn upright reads as a pen.
+  dropper: '<g transform="rotate(32 12 9)">'
+         + '<path d="M9.6 0.9h4.8v10.5a2.4 2.4 0 0 1-4.8 0z"/>'
+         + '<path d="M11 11.2h2v4.4h-2z"/></g>'
+         + '<path d="M7.7 18.7c1 1.4 1.6 2.2 1.6 2.9a1.6 1.6 0 0 1-3.2 0c0-.7.6-1.5 1.6-2.9z"/>',
+  ear:     '<path d="M6.5 8.6a6.4 6.4 0 1 1 12.8 0c0 5.9-5.9 5.9-5.9 9.8a3.45 3.45 0 1 1-6.9 0"/>'
+         + '<path d="M14.9 8.6a2.45 2.45 0 0 0-4.9 0v1a1.95 1.95 0 1 1 0 3.9"/>',
+  // A check, not a thumb. Thumbs-up is a gesture, and gestures are the one thing
+  // that does not travel — it is obscene in parts of the Middle East and West
+  // Africa, which includes languages this card serves. A star or sparkle borrows
+  // "rated highly" or "new" from consumer apps and does not mean healthy to
+  // anyone outside that convention.
+  check:   '<circle cx="12" cy="12" r="8.8"/><path d="M8 12.3l2.8 2.8L16.2 9.7"/>',
+  lamp:    '<circle cx="12" cy="12" r="4.2"/>'
+         + '<path d="M12 1.9v2.7M12 19.4V22M4.4 4.4l1.9 1.9M17.7 17.7l1.9 1.9'
+         + 'M1.9 12h2.7M19.4 12H22M4.4 19.6l1.9-1.9M17.7 6.3l1.9-1.9"/>'
+};
+const dirSvg = k => `<span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"
+  stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${ICON_PATHS[k]}</svg></span>`;
+
 function makeCard(it){
   const card = document.createElement("button");
   card.className = "card";
@@ -415,6 +474,7 @@ function makeCard(it){
      particular produces noise: "kahn" hits half the Mandarin card. */
   card.dataset.hay = it.en.toLowerCase();
   card.innerHTML =
+    (it.icon && ICON_PATHS[it.icon] ? dirSvg(it.icon) : "") +
     `<span class="body">
        <span class="en">${it.en}</span>
        <span class="zh" data-x="${it.x}" data-t="${it.t || it.x}">${it.x}</span>
@@ -518,6 +578,24 @@ if(typeof QUICK !== "undefined" && QUICK.length){
     if(!it) return;
     panel.appendChild(makeCard(it));
   });
+  if(typeof QUICKNAV !== "undefined" && QUICKNAV.length){
+    const nav = document.createElement("div");
+    nav.className = "quick-nav";
+    QUICKNAV.forEach(n=>{
+      const st = STAGES.find(x => x.id === n.stage);
+      if(!st || !ICON_PATHS[n.icon]) return;
+      const a = document.createElement("a");
+      a.href = "#" + st.id;
+      a.setAttribute("aria-label", "Jump to " + st.title);
+      a.innerHTML =
+        `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+           stroke-linecap="round" stroke-linejoin="round">${ICON_PATHS[n.icon]}</svg>
+         <span class="lab">${st.num} ${st.title}</span>`;
+      nav.appendChild(a);
+    });
+    panel.appendChild(nav);
+  }
+
   $("quick").appendChild(panel);
 
   const a = document.createElement("a");

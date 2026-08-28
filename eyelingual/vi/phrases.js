@@ -29,13 +29,14 @@ const STAGES = [
     diplopiaAfter:"vis-double",
     symptomsAfter:"sym-ask",
     items:[
-      {id:"vis-glasses-on", en:"Put your glasses on.", x:"Xin đeo kính vào.", p:"sin day-oh king vow"},
+      {id:"vis-glasses-on", en:"Put your glasses on.", x:"Xin đeo kính vào.", p:"sin day-oh king vow", icon:"glasses"},
       {id:"vis-cover-left", en:"Cover your left eye.", x:"Xin che mắt trái lại.", p:"sin cheh maht chai lai"},
       {id:"vis-cover-right", en:"Cover your right eye.", x:"Xin che mắt phải lại.", p:"sin cheh maht fai lai"},
       {id:"sym-ask", en:"Does your vision look like any of these? Point to the closest one.", x:"Mắt ông/bà giống hình nào? Xin chỉ hình giống nhất.", p:"maht ohng/bah yohng hin now? sin chee hin yohng nyut"},
       {id:"vis-read-line", en:"Please read the smallest line you can see.", x:"Xin đọc dòng nhỏ nhất mà ông/bà nhìn thấy.", p:"sin dawk yawng nyaw nyut mah ohng/bah nyin thay"},
       {id:"vis-pinhole", en:"Try to look through the tiny hole. It may make your vision clearer.", x:"Xin nhìn qua lỗ nhỏ, có thể rõ hơn.", p:"sin nyin kwah loh nyaw, kaw theh raw huhn"},
       {id:"vis-fingers", en:"How many fingers?", x:"Mấy ngón tay?", p:"may ngawn tie?"},
+      {id:"vis-hand-motion", en:"Do you see my hand moving?", x:"Ông/bà có thấy tay tôi đang di chuyển không?", p:"ohng/bah kaw thay tie toy dahng yee chwee-en khohng?"},
       {id:"vis-see-this", en:"Can you see this?", x:"Ông/bà có thấy cái này không?", p:"ohng/bah kaw thay kai nay khohng?"},
       {id:"vis-light-move", en:"Tell me if you see the light move.", x:"Nếu thấy ánh sáng di chuyển, xin cho tôi biết.", p:"nay-oo thay ang sahng yee chwee-en, sin chaw toy bee-et"},
       {id:"vis-look-nose", en:"Look at my nose.", x:"Xin nhìn vào mũi tôi.", p:"sin nyin vow moo-ee toy"},
@@ -49,18 +50,19 @@ const STAGES = [
     items:[
       {id:"pup-shine", en:"I am going to shine a light in your eyes. Please look at the wall behind me.", x:"Tôi sẽ chiếu đèn vào mắt. Xin nhìn vào bức tường sau lưng tôi.", p:"toy seh chee-oo den vow maht. sin nyin vow buke tuong sow lung toy"},
       {id:"pup-dont-look-light", en:"Do not look at the light. Keep looking far away.", x:"Đừng nhìn đèn, xin nhìn ra xa.", p:"dung nyin den, sin nyin rah sah"},
-      {id:"pup-both-open", en:"Keep both eyes open.", x:"Xin mở cả hai mắt.", p:"sin muh kah high maht"}
+      {id:"pup-both-open", en:"Keep both eyes open.", x:"Xin mở cả hai mắt.", p:"sin muh kah high maht", icon:"eye-open"}
     ]
   },
   {
     id:"motility", num:"04", title:"Eye movements",
     note:"Demonstrate and the patient will mirror you.",
     items:[
+      {id:"mot-look-here", en:"Look here.", x:"Nhìn vào đây.", p:"nyin vow day"},
       {id:"mot-finger", en:"Look at my finger. Do not move your head.", x:"Xin nhìn ngón tay tôi. Đừng quay đầu.", p:"sin nyin ngawn tie toy. dung kway dow"},
-      {id:"mot-up", en:"Look up.", x:"Nhìn lên.", p:"nyin len"},
-      {id:"mot-down", en:"Look down.", x:"Nhìn xuống.", p:"nyin soo-ong"},
-      {id:"mot-left", en:"Look left.", x:"Nhìn sang trái.", p:"nyin sahng chai"},
-      {id:"mot-right", en:"Look right.", x:"Nhìn sang phải.", p:"nyin sahng fai"},
+      {id:"mot-up", en:"Look up.", x:"Nhìn lên.", p:"nyin len", icon:"up"},
+      {id:"mot-down", en:"Look down.", x:"Nhìn xuống.", p:"nyin soo-ong", icon:"down"},
+      {id:"mot-left", en:"Look left.", x:"Nhìn sang trái.", p:"nyin sahng chai", icon:"left"},
+      {id:"mot-right", en:"Look right.", x:"Nhìn sang phải.", p:"nyin sahng fai", icon:"right"},
       {id:"mot-straight", en:"Look straight ahead.", x:"Nhìn thẳng phía trước.", p:"nyin thahng fee-a chuke"}
     ]
   },
@@ -85,12 +87,12 @@ const STAGES = [
     id:"drops", num:"07", title:"Drops",
     items:[
       {id:"drp-allergy", en:"Are you allergic to any medications?", x:"Ông/bà có dị ứng thuốc nào không?", p:"ohng/bah kaw yee ung too-ok now khohng?"},
-      {id:"drp-putting", en:"I'm going to put drops in your eye.", x:"Tôi sẽ nhỏ thuốc vào mắt.", p:"toy seh nyaw too-ok vow maht"},
-      {id:"drp-look-up", en:"Please look up.", x:"Xin nhìn lên.", p:"sin nyin len"},
+      {id:"drp-putting", en:"I'm going to put drops in your eye.", x:"Tôi sẽ nhỏ thuốc vào mắt.", p:"toy seh nyaw too-ok vow maht", icon:"dropper"},
+      {id:"drp-look-up", en:"Please look up.", x:"Xin nhìn lên.", p:"sin nyin len", icon:"up"},
       {id:"drp-anaesthetic", en:"This is an analgesic for your eyes. It may sting for a few seconds.", x:"Đây là thuốc tê mắt. Có thể xót vài giây.", p:"day lah too-ok tay maht. kaw theh sawt vai yay"},
       {id:"drp-dilate", en:"This drop will dilate your pupils.", x:"Thuốc này sẽ làm giãn đồng tử.", p:"too-ok nay seh lahm yahn dohng tu"},
       {id:"drp-blurry", en:"Your vision will be blurry for about 6 hours.", x:"Mắt sẽ mờ khoảng sáu tiếng.", p:"maht seh muh khwahng sow tee-eng"},
-      {id:"drp-close", en:"Please close your eyes.", x:"Xin nhắm mắt lại.", p:"sin nyam maht lai"},
+      {id:"drp-close", en:"Please close your eyes.", x:"Xin nhắm mắt lại.", p:"sin nyam maht lai", icon:"eye-shut"},
       {id:"drp-no-rub", en:"Don't rub your eyes.", x:"Đừng dụi mắt.", p:"dung yoo-ee maht"}
     ]
   },
@@ -98,10 +100,10 @@ const STAGES = [
     id:"slitlamp", num:"08", title:"Slit lamp",
     items:[
       {id:"slit-chin", en:"Chin on the rest, forehead against the bar.", x:"Đặt cằm vào đây và áp trán vào thanh này.", p:"daht kahm vow day vah ahp chahn vow tahn nay"},
-      {id:"slit-open", en:"Open your eyes wide.", x:"Xin mở mắt thật to.", p:"sin muh maht thut taw"},
+      {id:"slit-open", en:"Open your eyes wide.", x:"Xin mở mắt thật to.", p:"sin muh maht thut taw", icon:"eye-open"},
       {id:"slit-no-pull-back", en:"Don't pull your head back.", x:"Đừng ngả đầu ra sau.", p:"dung ngah dow rah sow"},
       {id:"slit-bright", en:"The light is bright. Please bear with it.", x:"Đèn rất sáng. Xin chịu khó một chút.", p:"den rut sahng. sin chee-oo khaw moht choot"},
-      {id:"slit-ear", en:"Look at my ear.", x:"Xin nhìn vào tai tôi.", p:"sin nyin vow tie toy"},
+      {id:"slit-ear", en:"Look at my ear.", x:"Xin nhìn vào tai tôi.", p:"sin nyin vow tie toy", icon:"ear"},
       {id:"slit-touch-lid", en:"I'm going to touch your eyelid.", x:"Tôi sẽ chạm vào mí mắt.", p:"toy seh chahm vow mee maht"},
       {id:"slit-almost", en:"Almost done.", x:"Sắp xong rồi.", p:"sahp sawng roy"}
     ]
@@ -110,6 +112,8 @@ const STAGES = [
     id:"closing", num:"09", title:"Closing",
     items:[
       {id:"close-finished", en:"The exam is finished. Thank you.", x:"Khám xong rồi. Cảm ơn ông/bà.", p:"khahm sawng roy. kahm uhn ohng/bah"},
+      {id:"close-healthy", en:"Your eyes are healthy.", x:"Mắt của ông/bà khỏe mạnh.", p:"maht kwah ohng/bah khwe mahn", icon:"check"},
+      {id:"close-consult", en:"I will have to speak to another doctor about your eyes. I will be back.", x:"Tôi cần trao đổi với bác sĩ khác về mắt của ông/bà. Tôi sẽ quay lại.", p:"toy kun chow doy vuh-ee bahk see khahk veh maht kwah ohng/bah. toy seh kway lai"},
       {id:"close-interpreter", en:"We will use an interpreter to explain the results.", x:"Chúng tôi sẽ nhờ thông dịch viên giải thích kết quả.", p:"choong toy seh nyuh thohng yik vee-en yai thik ket kwah"}
     ]
   }
@@ -145,7 +149,9 @@ const SYMPTOMS = [
 /* The eleven phrases that come up most, surfaced in a panel at the top of
    the card so they are reachable without scrolling. These are references, not
    copies: same ids, same audio, same wording as the stage they belong to. */
-const QUICK = ["mot-up", "mot-down", "mot-left", "mot-right", "mot-straight", "slit-open", "drp-close"];
+const QUICK = ["mot-look-here", "mot-up", "mot-down", "mot-left", "mot-right", "mot-straight", "slit-open", "drp-close"];
+
+const QUICKNAV = [{stage:"acuity", icon:"glasses"}, {stage:"drops", icon:"dropper"}, {stage:"slitlamp", icon:"lamp"}];
 
 /* The one pictogram on the card. Diplopia geometry is a perceptual judgement
    with no gesture equivalent and clumsy phrasing in any language, so a picture

@@ -1,6 +1,6 @@
 # Recording script — Vietnamese
 
-48 takes. One file per phrase, named exactly by its ID.
+52 takes. One file per phrase, named exactly by its ID.
 
 ## For the speaker
 
@@ -50,6 +50,7 @@ recording sets are fine to ship.
 | `vis-read-line` | `vis-read-line.m4a` | Xin đọc dòng nhỏ nhất mà ông/bà nhìn thấy. | Please read the smallest line you can see. |
 | `vis-pinhole` | `vis-pinhole.m4a` | Xin nhìn qua lỗ nhỏ, có thể rõ hơn. | Try to look through the tiny hole. It may make your vision clearer. |
 | `vis-fingers` | `vis-fingers.m4a` | Mấy ngón tay? | How many fingers? |
+| `vis-hand-motion` | `vis-hand-motion.m4a` | Ông/bà có thấy tay tôi đang di chuyển không? | Do you see my hand moving? |
 | `vis-see-this` | `vis-see-this.m4a` | Ông/bà có thấy cái này không? | Can you see this? |
 | `vis-light-move` | `vis-light-move.m4a` | Nếu thấy ánh sáng di chuyển, xin cho tôi biết. | Tell me if you see the light move. |
 | `vis-look-nose` | `vis-look-nose.m4a` | Xin nhìn vào mũi tôi. | Look at my nose. |
@@ -68,6 +69,7 @@ recording sets are fine to ship.
 
 | ID | File | Say this | English |
 |---|---|---|---|
+| `mot-look-here` | `mot-look-here.m4a` | Nhìn vào đây. | Look here. |
 | `mot-finger` | `mot-finger.m4a` | Xin nhìn ngón tay tôi. Đừng quay đầu. | Look at my finger. Do not move your head. |
 | `mot-up` | `mot-up.m4a` | Nhìn lên. | Look up. |
 | `mot-down` | `mot-down.m4a` | Nhìn xuống. | Look down. |
@@ -121,8 +123,10 @@ recording sets are fine to ship.
 | ID | File | Say this | English |
 |---|---|---|---|
 | `close-finished` | `close-finished.m4a` | Khám xong rồi. Cảm ơn ông/bà. | The exam is finished. Thank you. |
+| `close-healthy` | `close-healthy.m4a` | Mắt của ông/bà khỏe mạnh. | Your eyes are healthy. |
+| `close-consult` | `close-consult.m4a` | Tôi cần trao đổi với bác sĩ khác về mắt của ông/bà. Tôi sẽ quay lại. | I will have to speak to another doctor about your eyes. I will be back. |
 | `close-interpreter` | `close-interpreter.m4a` | Chúng tôi sẽ nhờ thông dịch viên giải thích kết quả. | We will use an interpreter to explain the results. |
 
 ---
 
-**48 takes total.** Roughly 20 minutes of recording including retakes.
+**52 takes total.** Roughly 20 minutes of recording including retakes.

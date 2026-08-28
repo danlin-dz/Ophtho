@@ -1,6 +1,6 @@
 # Recording script — Cantonese
 
-48 takes. One file per phrase, named exactly by its ID.
+52 takes. One file per phrase, named exactly by its ID.
 
 ## For the speaker
 
@@ -50,6 +50,7 @@ recording sets are fine to ship.
 | `vis-read-line` | `vis-read-line.m4a` | 請讀你睇到最細嗰行。 | Please read the smallest line you can see. |
 | `vis-pinhole` | `vis-pinhole.m4a` | 請透過個細窿望，可能會清楚啲。 | Try to look through the tiny hole. It may make your vision clearer. |
 | `vis-fingers` | `vis-fingers.m4a` | 幾多隻手指？ | How many fingers? |
+| `vis-hand-motion` | `vis-hand-motion.m4a` | 你見唔見到我隻手郁？ | Do you see my hand moving? |
 | `vis-see-this` | `vis-see-this.m4a` | 睇唔睇到？ | Can you see this? |
 | `vis-light-move` | `vis-light-move.m4a` | 見到光郁請話我知。 | Tell me if you see the light move. |
 | `vis-look-nose` | `vis-look-nose.m4a` | 望住我個鼻。 | Look at my nose. |
@@ -68,6 +69,7 @@ recording sets are fine to ship.
 
 | ID | File | Say this | English |
 |---|---|---|---|
+| `mot-look-here` | `mot-look-here.m4a` | 望呢度。 | Look here. |
 | `mot-finger` | `mot-finger.m4a` | 望住我隻手指，唔好郁個頭。 | Look at my finger. Do not move your head. |
 | `mot-up` | `mot-up.m4a` | 望上。 | Look up. |
 | `mot-down` | `mot-down.m4a` | 望落。 | Look down. |
@@ -121,8 +123,10 @@ recording sets are fine to ship.
 | ID | File | Say this | English |
 |---|---|---|---|
 | `close-finished` | `close-finished.m4a` | 檢查完喇，多謝。 | The exam is finished. Thank you. |
+| `close-healthy` | `close-healthy.m4a` | 你對眼好健康。 | Your eyes are healthy. |
+| `close-consult` | `close-consult.m4a` | 我要同另一位醫生傾下你對眼，我一陣返嚟。 | I will have to speak to another doctor about your eyes. I will be back. |
 | `close-interpreter` | `close-interpreter.m4a` | 我哋會搵翻譯同你解釋結果。 | We will use an interpreter to explain the results. |
 
 ---
 
-**48 takes total.** Roughly 20 minutes of recording including retakes.
+**52 takes total.** Roughly 20 minutes of recording including retakes.

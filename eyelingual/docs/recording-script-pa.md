@@ -1,6 +1,6 @@
 # Recording script — Punjabi
 
-48 takes. One file per phrase, named exactly by its ID.
+52 takes. One file per phrase, named exactly by its ID.
 
 ## For the speaker
 
@@ -50,6 +50,7 @@ recording sets are fine to ship.
 | `vis-read-line` | `vis-read-line.m4a` | ਜੋ ਸਭ ਤੋਂ ਛੋਟੀ ਲਾਈਨ ਦਿਸਦੀ ਹੈ ਉਹ ਪੜ੍ਹੋ। | Please read the smallest line you can see. |
 | `vis-pinhole` | `vis-pinhole.m4a` | ਛੋਟੀ ਮੋਰੀ ਵਿੱਚੋਂ ਦੇਖੋ, ਸ਼ਾਇਦ ਸਾਫ਼ ਦਿਸੇ। | Try to look through the tiny hole. It may make your vision clearer. |
 | `vis-fingers` | `vis-fingers.m4a` | ਕਿੰਨੀਆਂ ਉਂਗਲਾਂ? | How many fingers? |
+| `vis-hand-motion` | `vis-hand-motion.m4a` | ਕੀ ਤੁਹਾਨੂੰ ਮੇਰਾ ਹੱਥ ਹਿੱਲਦਾ ਦਿਸਦਾ ਹੈ? | Do you see my hand moving? |
 | `vis-see-this` | `vis-see-this.m4a` | ਕੀ ਇਹ ਦਿਸਦਾ ਹੈ? | Can you see this? |
 | `vis-light-move` | `vis-light-move.m4a` | ਜੇ ਰੌਸ਼ਨੀ ਹਿਲਦੀ ਦਿਸੇ ਤਾਂ ਦੱਸੋ। | Tell me if you see the light move. |
 | `vis-look-nose` | `vis-look-nose.m4a` | ਮੇਰੇ ਨੱਕ ਵੱਲ ਦੇਖੋ। | Look at my nose. |
@@ -68,6 +69,7 @@ recording sets are fine to ship.
 
 | ID | File | Say this | English |
 |---|---|---|---|
+| `mot-look-here` | `mot-look-here.m4a` | ਇੱਥੇ ਦੇਖੋ। | Look here. |
 | `mot-finger` | `mot-finger.m4a` | ਮੇਰੀ ਉਂਗਲ ਵੱਲ ਦੇਖੋ। ਸਿਰ ਨਾ ਹਿਲਾਓ। | Look at my finger. Do not move your head. |
 | `mot-up` | `mot-up.m4a` | ਉੱਪਰ ਦੇਖੋ। | Look up. |
 | `mot-down` | `mot-down.m4a` | ਹੇਠਾਂ ਦੇਖੋ। | Look down. |
@@ -121,8 +123,10 @@ recording sets are fine to ship.
 | ID | File | Say this | English |
 |---|---|---|---|
 | `close-finished` | `close-finished.m4a` | ਜਾਂਚ ਪੂਰੀ ਹੋ ਗਈ। ਧੰਨਵਾਦ। | The exam is finished. Thank you. |
+| `close-healthy` | `close-healthy.m4a` | ਤੁਹਾਡੀਆਂ ਅੱਖਾਂ ਠੀਕ ਹਨ। | Your eyes are healthy. |
+| `close-consult` | `close-consult.m4a` | ਤੁਹਾਡੀਆਂ ਅੱਖਾਂ ਬਾਰੇ ਦੂਜੇ ਡਾਕਟਰ ਨਾਲ ਗੱਲ ਕਰਨੀ ਹੈ। ਥੋੜ੍ਹੀ ਦੇਰ ਬਾਅਦ ਵਾਪਸ ਆਉਣਾ ਹੈ। | I will have to speak to another doctor about your eyes. I will be back. |
 | `close-interpreter` | `close-interpreter.m4a` | ਨਤੀਜੇ ਸਮਝਾਉਣ ਲਈ ਦੁਭਾਸ਼ੀਏ ਦੀ ਵਰਤੋਂ ਕੀਤੀ ਜਾਵੇਗੀ। | We will use an interpreter to explain the results. |
 
 ---
 
-**48 takes total.** Roughly 20 minutes of recording including retakes.
+**52 takes total.** Roughly 20 minutes of recording including retakes.

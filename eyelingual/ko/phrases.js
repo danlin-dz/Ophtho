@@ -29,13 +29,14 @@ const STAGES = [
     diplopiaAfter:"vis-double",
     symptomsAfter:"sym-ask",
     items:[
-      {id:"vis-glasses-on", en:"Put your glasses on.", x:"안경을 쓰세요.", p:"an-gyung-ul ssu-say-yo"},
+      {id:"vis-glasses-on", en:"Put your glasses on.", x:"안경을 쓰세요.", p:"an-gyung-ul ssu-say-yo", icon:"glasses"},
       {id:"vis-cover-left", en:"Cover your left eye.", x:"왼쪽 눈을 가리세요.", p:"wen-jjok nu-nul ga-ree-say-yo"},
       {id:"vis-cover-right", en:"Cover your right eye.", x:"오른쪽 눈을 가리세요.", p:"oh-run-jjok nu-nul ga-ree-say-yo"},
       {id:"sym-ask", en:"Does your vision look like any of these? Point to the closest one.", x:"어느 것과 비슷하게 보이세요? 가장 비슷한 것을 가리켜 주세요.", p:"uh-nu gut-gwa bee-su-ta-gay boh-ee-say-yo? ga-jang bee-su-tan gu-sul ga-ree-kyuh ju-say-yo"},
       {id:"vis-read-line", en:"Please read the smallest line you can see.", x:"보이는 가장 작은 줄을 읽어 주세요.", p:"boh-ee-nun ga-jang ja-gun ju-rul il-guh ju-say-yo"},
       {id:"vis-pinhole", en:"Try to look through the tiny hole. It may make your vision clearer.", x:"작은 구멍으로 보세요. 더 잘 보일 수 있습니다.", p:"ja-gun goo-mung-u-roh boh-say-yo. duh jal boh-eel su it-ssum-ni-da"},
       {id:"vis-fingers", en:"How many fingers?", x:"손가락 몇 개예요?", p:"son-ga-rak myut gae-yay-yo?"},
+      {id:"vis-hand-motion", en:"Do you see my hand moving?", x:"제 손이 움직이는 게 보이세요?", p:"jay soh-nee um-jee-gee-nun gay boh-ee-say-yo?"},
       {id:"vis-see-this", en:"Can you see this?", x:"이게 보이세요?", p:"ee-gay boh-ee-say-yo?"},
       {id:"vis-light-move", en:"Tell me if you see the light move.", x:"빛이 움직이면 말씀해 주세요.", p:"bee-chee um-jee-gee-myun mal-ssum-hae ju-say-yo"},
       {id:"vis-look-nose", en:"Look at my nose.", x:"제 코를 보세요.", p:"jay koh-rul boh-say-yo"},
@@ -49,18 +50,19 @@ const STAGES = [
     items:[
       {id:"pup-shine", en:"I am going to shine a light in your eyes. Please look at the wall behind me.", x:"눈에 빛을 비추겠습니다. 제 뒤의 벽을 보세요.", p:"nu-nay bee-chul bee-choo-ge-ssum-ni-da. jay dwee-ay byuh-gul boh-say-yo"},
       {id:"pup-dont-look-light", en:"Do not look at the light. Keep looking far away.", x:"빛을 보지 마시고 멀리 보세요.", p:"bee-chul boh-jee ma-shee-goh mull-lee boh-say-yo"},
-      {id:"pup-both-open", en:"Keep both eyes open.", x:"두 눈을 모두 뜨고 계세요.", p:"doo nu-nul moh-doo ttu-goh gay-say-yo"}
+      {id:"pup-both-open", en:"Keep both eyes open.", x:"두 눈을 모두 뜨고 계세요.", p:"doo nu-nul moh-doo ttu-goh gay-say-yo", icon:"eye-open"}
     ]
   },
   {
     id:"motility", num:"04", title:"Eye movements",
     note:"Demonstrate and the patient will mirror you.",
     items:[
+      {id:"mot-look-here", en:"Look here.", x:"여기를 보세요.", p:"yuh-gee-rul boh-say-yo"},
       {id:"mot-finger", en:"Look at my finger. Do not move your head.", x:"제 손가락을 보세요. 고개를 움직이지 마세요.", p:"jay son-ga-ra-gul boh-say-yo. goh-gae-rul um-jee-gee-jee ma-say-yo"},
-      {id:"mot-up", en:"Look up.", x:"위를 보세요.", p:"wee-rul boh-say-yo"},
-      {id:"mot-down", en:"Look down.", x:"아래를 보세요.", p:"ah-rae-rul boh-say-yo"},
-      {id:"mot-left", en:"Look left.", x:"왼쪽을 보세요.", p:"wen-jjoh-gul boh-say-yo"},
-      {id:"mot-right", en:"Look right.", x:"오른쪽을 보세요.", p:"oh-run-jjoh-gul boh-say-yo"},
+      {id:"mot-up", en:"Look up.", x:"위를 보세요.", p:"wee-rul boh-say-yo", icon:"up"},
+      {id:"mot-down", en:"Look down.", x:"아래를 보세요.", p:"ah-rae-rul boh-say-yo", icon:"down"},
+      {id:"mot-left", en:"Look left.", x:"왼쪽을 보세요.", p:"wen-jjoh-gul boh-say-yo", icon:"left"},
+      {id:"mot-right", en:"Look right.", x:"오른쪽을 보세요.", p:"oh-run-jjoh-gul boh-say-yo", icon:"right"},
       {id:"mot-straight", en:"Look straight ahead.", x:"정면을 보세요.", p:"jung-myun-ul boh-say-yo"}
     ]
   },
@@ -85,12 +87,12 @@ const STAGES = [
     id:"drops", num:"07", title:"Drops",
     items:[
       {id:"drp-allergy", en:"Are you allergic to any medications?", x:"약물 알레르기가 있으세요?", p:"yang-mul al-le-ru-gee-ga ee-ssu-say-yo?"},
-      {id:"drp-putting", en:"I'm going to put drops in your eye.", x:"눈에 안약을 넣겠습니다.", p:"nu-nay an-ya-gul nuh-ke-ssum-ni-da"},
-      {id:"drp-look-up", en:"Please look up.", x:"위를 봐 주세요.", p:"wee-rul bwah ju-say-yo"},
+      {id:"drp-putting", en:"I'm going to put drops in your eye.", x:"눈에 안약을 넣겠습니다.", p:"nu-nay an-ya-gul nuh-ke-ssum-ni-da", icon:"dropper"},
+      {id:"drp-look-up", en:"Please look up.", x:"위를 봐 주세요.", p:"wee-rul bwah ju-say-yo", icon:"up"},
       {id:"drp-anaesthetic", en:"This is an analgesic for your eyes. It may sting for a few seconds.", x:"눈 마취약입니다. 몇 초 동안 따끔할 수 있습니다.", p:"nun ma-chwee-ya-gim-ni-da. myut choh dong-an tta-kkum-hal su it-ssum-ni-da"},
       {id:"drp-dilate", en:"This drop will dilate your pupils.", x:"이 안약은 동공을 확장시킵니다.", p:"ee an-ya-gun dong-gong-ul hwak-jang-shi-kim-ni-da"},
       {id:"drp-blurry", en:"Your vision will be blurry for about 6 hours.", x:"약 6시간 동안 시야가 흐려집니다.", p:"yak yook-shee-gan dong-an shee-ya-ga hu-ryuh-jim-ni-da"},
-      {id:"drp-close", en:"Please close your eyes.", x:"눈을 감아 주세요.", p:"nu-nul ga-ma ju-say-yo"},
+      {id:"drp-close", en:"Please close your eyes.", x:"눈을 감아 주세요.", p:"nu-nul ga-ma ju-say-yo", icon:"eye-shut"},
       {id:"drp-no-rub", en:"Don't rub your eyes.", x:"눈을 비비지 마세요.", p:"nu-nul bee-bee-jee ma-say-yo"}
     ]
   },
@@ -98,10 +100,10 @@ const STAGES = [
     id:"slitlamp", num:"08", title:"Slit lamp",
     items:[
       {id:"slit-chin", en:"Chin on the rest, forehead against the bar.", x:"턱을 여기에 대고 이마를 여기에 붙이세요.", p:"tuh-gul yuh-gee-ay dae-goh ee-ma-rul yuh-gee-ay boo-chee-say-yo"},
-      {id:"slit-open", en:"Open your eyes wide.", x:"눈을 크게 뜨세요.", p:"nu-nul ku-gay ttu-say-yo"},
+      {id:"slit-open", en:"Open your eyes wide.", x:"눈을 크게 뜨세요.", p:"nu-nul ku-gay ttu-say-yo", icon:"eye-open"},
       {id:"slit-no-pull-back", en:"Don't pull your head back.", x:"머리를 뒤로 빼지 마세요.", p:"muh-ree-rul dwee-roh ppae-jee ma-say-yo"},
       {id:"slit-bright", en:"The light is bright. Please bear with it.", x:"빛이 밝습니다. 조금만 참아 주세요.", p:"bee-chee bak-ssum-ni-da. joh-gum-man cha-ma ju-say-yo"},
-      {id:"slit-ear", en:"Look at my ear.", x:"제 귀를 보세요.", p:"jay gwee-rul boh-say-yo"},
+      {id:"slit-ear", en:"Look at my ear.", x:"제 귀를 보세요.", p:"jay gwee-rul boh-say-yo", icon:"ear"},
       {id:"slit-touch-lid", en:"I'm going to touch your eyelid.", x:"눈꺼풀을 만지겠습니다.", p:"nun-kkuh-pu-rul man-jee-ge-ssum-ni-da"},
       {id:"slit-almost", en:"Almost done.", x:"거의 다 됐습니다.", p:"guh-ee da dwae-ssum-ni-da"}
     ]
@@ -110,6 +112,8 @@ const STAGES = [
     id:"closing", num:"09", title:"Closing",
     items:[
       {id:"close-finished", en:"The exam is finished. Thank you.", x:"검사가 끝났습니다. 감사합니다.", p:"gum-sa-ga kkun-nat-ssum-ni-da. gam-sa-ham-ni-da"},
+      {id:"close-healthy", en:"Your eyes are healthy.", x:"눈은 건강합니다.", p:"nu-nun gun-gang-ham-ni-da", icon:"check"},
+      {id:"close-consult", en:"I will have to speak to another doctor about your eyes. I will be back.", x:"다른 의사와 눈에 대해 상의하겠습니다. 곧 돌아오겠습니다.", p:"da-run ee-sa-wa nu-nay dae-hae sang-ee-ha-ge-ssum-ni-da. got doh-ra-oh-ge-ssum-ni-da"},
       {id:"close-interpreter", en:"We will use an interpreter to explain the results.", x:"통역사를 통해 결과를 설명해 드리겠습니다.", p:"tong-yuk-sa-rul tong-hae gyul-gwa-rul sul-myung-hae du-ree-ge-ssum-ni-da"}
     ]
   }
@@ -145,7 +149,9 @@ const SYMPTOMS = [
 /* The eleven phrases that come up most, surfaced in a panel at the top of
    the card so they are reachable without scrolling. These are references, not
    copies: same ids, same audio, same wording as the stage they belong to. */
-const QUICK = ["mot-up", "mot-down", "mot-left", "mot-right", "mot-straight", "slit-open", "drp-close"];
+const QUICK = ["mot-look-here", "mot-up", "mot-down", "mot-left", "mot-right", "mot-straight", "slit-open", "drp-close"];
+
+const QUICKNAV = [{stage:"acuity", icon:"glasses"}, {stage:"drops", icon:"dropper"}, {stage:"slitlamp", icon:"lamp"}];
 
 /* The one pictogram on the card. Diplopia geometry is a perceptual judgement
    with no gesture equivalent and clumsy phrasing in any language, so a picture

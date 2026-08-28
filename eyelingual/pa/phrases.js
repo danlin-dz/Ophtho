@@ -29,13 +29,14 @@ const STAGES = [
     diplopiaAfter:"vis-double",
     symptomsAfter:"sym-ask",
     items:[
-      {id:"vis-glasses-on", en:"Put your glasses on.", x:"ਕਿਰਪਾ ਕਰਕੇ ਐਨਕ ਲਗਾਓ।", p:"kir-pa kar-kay eye-nak lug-ah-oh"},
+      {id:"vis-glasses-on", en:"Put your glasses on.", x:"ਕਿਰਪਾ ਕਰਕੇ ਐਨਕ ਲਗਾਓ।", p:"kir-pa kar-kay eye-nak lug-ah-oh", icon:"glasses"},
       {id:"vis-cover-left", en:"Cover your left eye.", x:"ਖੱਬੀ ਅੱਖ ਢੱਕੋ।", p:"khub-bee ukh dhuk-koe"},
       {id:"vis-cover-right", en:"Cover your right eye.", x:"ਸੱਜੀ ਅੱਖ ਢੱਕੋ।", p:"suj-jee ukh dhuk-koe"},
       {id:"sym-ask", en:"Does your vision look like any of these? Point to the closest one.", x:"ਤੁਹਾਡੀ ਨਜ਼ਰ ਕਿਹੜੀ ਵਰਗੀ ਹੈ? ਸਭ ਤੋਂ ਨੇੜੇ ਵਾਲੀ ਵੱਲ ਇਸ਼ਾਰਾ ਕਰੋ।", p:"tu-hah-dee nuh-zar keh-ree var-gee hay? sub tone nay-ray vah-lee vull ih-shah-ra kuh-roe"},
       {id:"vis-read-line", en:"Please read the smallest line you can see.", x:"ਜੋ ਸਭ ਤੋਂ ਛੋਟੀ ਲਾਈਨ ਦਿਸਦੀ ਹੈ ਉਹ ਪੜ੍ਹੋ।", p:"joe sub tone choh-tee line dis-dee hay oh puh-roe"},
       {id:"vis-pinhole", en:"Try to look through the tiny hole. It may make your vision clearer.", x:"ਛੋਟੀ ਮੋਰੀ ਵਿੱਚੋਂ ਦੇਖੋ, ਸ਼ਾਇਦ ਸਾਫ਼ ਦਿਸੇ।", p:"choh-tee moh-ree vich-ohn day-koe, shy-ad saaf dis-say"},
       {id:"vis-fingers", en:"How many fingers?", x:"ਕਿੰਨੀਆਂ ਉਂਗਲਾਂ?", p:"kin-nee-yan oong-lan?"},
+      {id:"vis-hand-motion", en:"Do you see my hand moving?", x:"ਕੀ ਤੁਹਾਨੂੰ ਮੇਰਾ ਹੱਥ ਹਿੱਲਦਾ ਦਿਸਦਾ ਹੈ?", p:"kee tu-hah-noo may-ra hutth hil-da dis-da hay?"},
       {id:"vis-see-this", en:"Can you see this?", x:"ਕੀ ਇਹ ਦਿਸਦਾ ਹੈ?", p:"kee ih dis-dah hay?"},
       {id:"vis-light-move", en:"Tell me if you see the light move.", x:"ਜੇ ਰੌਸ਼ਨੀ ਹਿਲਦੀ ਦਿਸੇ ਤਾਂ ਦੱਸੋ।", p:"jay rowsh-nee hil-dee dis-say tahn dus-so"},
       {id:"vis-look-nose", en:"Look at my nose.", x:"ਮੇਰੇ ਨੱਕ ਵੱਲ ਦੇਖੋ।", p:"may-ray nuck vull day-koe"},
@@ -49,18 +50,19 @@ const STAGES = [
     items:[
       {id:"pup-shine", en:"I am going to shine a light in your eyes. Please look at the wall behind me.", x:"ਹੁਣ ਅੱਖਾਂ ਵਿੱਚ ਰੌਸ਼ਨੀ ਪਾਉਣੀ ਹੈ। ਮੇਰੇ ਪਿੱਛੇ ਕੰਧ ਵੱਲ ਦੇਖੋ।", p:"hun uh-khan vich rowsh-nee pow-nee hay. may-ray pih-chay kundh vull day-koe"},
       {id:"pup-dont-look-light", en:"Do not look at the light. Keep looking far away.", x:"ਰੌਸ਼ਨੀ ਵੱਲ ਨਾ ਦੇਖੋ, ਦੂਰ ਦੇਖਦੇ ਰਹੋ।", p:"rowsh-nee vull na day-koe, door day-kh-day ruh-hoe"},
-      {id:"pup-both-open", en:"Keep both eyes open.", x:"ਦੋਵੇਂ ਅੱਖਾਂ ਖੁੱਲ੍ਹੀਆਂ ਰੱਖੋ।", p:"doe-ven uh-khan khul-lee-yan ruh-koe"}
+      {id:"pup-both-open", en:"Keep both eyes open.", x:"ਦੋਵੇਂ ਅੱਖਾਂ ਖੁੱਲ੍ਹੀਆਂ ਰੱਖੋ।", p:"doe-ven uh-khan khul-lee-yan ruh-koe", icon:"eye-open"}
     ]
   },
   {
     id:"motility", num:"04", title:"Eye movements",
     note:"Demonstrate and the patient will mirror you.",
     items:[
+      {id:"mot-look-here", en:"Look here.", x:"ਇੱਥੇ ਦੇਖੋ।", p:"ih-thay day-koe"},
       {id:"mot-finger", en:"Look at my finger. Do not move your head.", x:"ਮੇਰੀ ਉਂਗਲ ਵੱਲ ਦੇਖੋ। ਸਿਰ ਨਾ ਹਿਲਾਓ।", p:"may-ree oon-gal vull day-koe. sir na hih-lah-oh"},
-      {id:"mot-up", en:"Look up.", x:"ਉੱਪਰ ਦੇਖੋ।", p:"oop-par day-koe"},
-      {id:"mot-down", en:"Look down.", x:"ਹੇਠਾਂ ਦੇਖੋ।", p:"hay-thaan day-koe"},
-      {id:"mot-left", en:"Look left.", x:"ਖੱਬੇ ਦੇਖੋ।", p:"khub-bay day-koe"},
-      {id:"mot-right", en:"Look right.", x:"ਸੱਜੇ ਦੇਖੋ।", p:"suj-jay day-koe"},
+      {id:"mot-up", en:"Look up.", x:"ਉੱਪਰ ਦੇਖੋ।", p:"oop-par day-koe", icon:"up"},
+      {id:"mot-down", en:"Look down.", x:"ਹੇਠਾਂ ਦੇਖੋ।", p:"hay-thaan day-koe", icon:"down"},
+      {id:"mot-left", en:"Look left.", x:"ਖੱਬੇ ਦੇਖੋ।", p:"khub-bay day-koe", icon:"left"},
+      {id:"mot-right", en:"Look right.", x:"ਸੱਜੇ ਦੇਖੋ।", p:"suj-jay day-koe", icon:"right"},
       {id:"mot-straight", en:"Look straight ahead.", x:"ਸਿੱਧਾ ਸਾਹਮਣੇ ਦੇਖੋ।", p:"sid-dha saah-muh-nay day-koe"}
     ]
   },
@@ -85,12 +87,12 @@ const STAGES = [
     id:"drops", num:"07", title:"Drops",
     items:[
       {id:"drp-allergy", en:"Are you allergic to any medications?", x:"ਕੀ ਤੁਹਾਨੂੰ ਕਿਸੇ ਦਵਾਈ ਤੋਂ ਐਲਰਜੀ ਹੈ?", p:"kee tu-hah-noo kih-say duh-vye tone al-ler-jee hay?"},
-      {id:"drp-putting", en:"I'm going to put drops in your eye.", x:"ਹੁਣ ਤੁਹਾਡੀ ਅੱਖ ਵਿੱਚ ਬੂੰਦਾਂ ਪਾਉਣੀਆਂ ਹਨ।", p:"hun tu-hah-dee ukh vich boon-daan pow-nee-yan hun"},
-      {id:"drp-look-up", en:"Please look up.", x:"ਕਿਰਪਾ ਕਰਕੇ ਉੱਪਰ ਦੇਖੋ।", p:"kir-pa kar-kay oop-par day-koe"},
+      {id:"drp-putting", en:"I'm going to put drops in your eye.", x:"ਹੁਣ ਤੁਹਾਡੀ ਅੱਖ ਵਿੱਚ ਬੂੰਦਾਂ ਪਾਉਣੀਆਂ ਹਨ।", p:"hun tu-hah-dee ukh vich boon-daan pow-nee-yan hun", icon:"dropper"},
+      {id:"drp-look-up", en:"Please look up.", x:"ਕਿਰਪਾ ਕਰਕੇ ਉੱਪਰ ਦੇਖੋ।", p:"kir-pa kar-kay oop-par day-koe", icon:"up"},
       {id:"drp-anaesthetic", en:"This is an analgesic for your eyes. It may sting for a few seconds.", x:"ਇਹ ਅੱਖ ਸੁੰਨ ਕਰਨ ਵਾਲੀ ਦਵਾਈ ਹੈ। ਕੁਝ ਸਕਿੰਟ ਚੁਭ ਸਕਦੀ ਹੈ।", p:"ih ukh soon kuh-ran vah-lee duh-vye hay. kuj sa-kint chubh suk-dee hay"},
       {id:"drp-dilate", en:"This drop will dilate your pupils.", x:"ਇਹ ਬੂੰਦ ਪੁਤਲੀ ਖੋਲ੍ਹ ਦੇਵੇਗੀ।", p:"ih boond poot-lee kohl day-vay-gee"},
       {id:"drp-blurry", en:"Your vision will be blurry for about 6 hours.", x:"ਨਜ਼ਰ ਲਗਭਗ ਛੇ ਘੰਟੇ ਧੁੰਦਲੀ ਰਹੇਗੀ।", p:"nuh-zar lug-bhug chay ghun-tay dhoond-lee ruh-hay-gee"},
-      {id:"drp-close", en:"Please close your eyes.", x:"ਕਿਰਪਾ ਕਰਕੇ ਅੱਖਾਂ ਬੰਦ ਕਰੋ।", p:"kir-pa kar-kay uh-khan bund kuh-roe"},
+      {id:"drp-close", en:"Please close your eyes.", x:"ਕਿਰਪਾ ਕਰਕੇ ਅੱਖਾਂ ਬੰਦ ਕਰੋ।", p:"kir-pa kar-kay uh-khan bund kuh-roe", icon:"eye-shut"},
       {id:"drp-no-rub", en:"Don't rub your eyes.", x:"ਅੱਖਾਂ ਨਾ ਮਲੋ।", p:"uh-khan na mah-loe"}
     ]
   },
@@ -98,10 +100,10 @@ const STAGES = [
     id:"slitlamp", num:"08", title:"Slit lamp",
     items:[
       {id:"slit-chin", en:"Chin on the rest, forehead against the bar.", x:"ਠੋਡੀ ਇੱਥੇ ਰੱਖੋ, ਮੱਥਾ ਇਸ ਪੱਟੀ ਨਾਲ ਲਗਾਓ।", p:"toe-dee ih-thay ruh-koe, mut-tha iss put-tee null lug-ah-oh"},
-      {id:"slit-open", en:"Open your eyes wide.", x:"ਅੱਖਾਂ ਪੂਰੀਆਂ ਖੋਲ੍ਹੋ।", p:"uh-khan poo-ree-yan koh-loe"},
+      {id:"slit-open", en:"Open your eyes wide.", x:"ਅੱਖਾਂ ਪੂਰੀਆਂ ਖੋਲ੍ਹੋ।", p:"uh-khan poo-ree-yan koh-loe", icon:"eye-open"},
       {id:"slit-no-pull-back", en:"Don't pull your head back.", x:"ਸਿਰ ਪਿੱਛੇ ਨਾ ਕਰੋ।", p:"sir pih-chay na kuh-roe"},
       {id:"slit-bright", en:"The light is bright. Please bear with it.", x:"ਰੌਸ਼ਨੀ ਤੇਜ਼ ਹੈ। ਥੋੜ੍ਹਾ ਬਰਦਾਸ਼ਤ ਕਰੋ।", p:"rowsh-nee tayz hay. tore-ha bar-dasht kuh-roe"},
-      {id:"slit-ear", en:"Look at my ear.", x:"ਮੇਰੇ ਕੰਨ ਵੱਲ ਦੇਖੋ।", p:"may-ray kunn vull day-koe"},
+      {id:"slit-ear", en:"Look at my ear.", x:"ਮੇਰੇ ਕੰਨ ਵੱਲ ਦੇਖੋ।", p:"may-ray kunn vull day-koe", icon:"ear"},
       {id:"slit-touch-lid", en:"I'm going to touch your eyelid.", x:"ਹੁਣ ਤੁਹਾਡੀ ਪਲਕ ਨੂੰ ਛੂਹਣਾ ਹੈ।", p:"hun tu-hah-dee puh-luck noo chooh-na hay"},
       {id:"slit-almost", en:"Almost done.", x:"ਲਗਭਗ ਹੋ ਗਿਆ।", p:"lug-bhug hoe gee-ah"}
     ]
@@ -110,6 +112,8 @@ const STAGES = [
     id:"closing", num:"09", title:"Closing",
     items:[
       {id:"close-finished", en:"The exam is finished. Thank you.", x:"ਜਾਂਚ ਪੂਰੀ ਹੋ ਗਈ। ਧੰਨਵਾਦ।", p:"jaanch poo-ree hoe guy. dhun-vaad"},
+      {id:"close-healthy", en:"Your eyes are healthy.", x:"ਤੁਹਾਡੀਆਂ ਅੱਖਾਂ ਠੀਕ ਹਨ।", p:"tu-hah-dee-yan uh-khan teek hun", icon:"check"},
+      {id:"close-consult", en:"I will have to speak to another doctor about your eyes. I will be back.", x:"ਤੁਹਾਡੀਆਂ ਅੱਖਾਂ ਬਾਰੇ ਦੂਜੇ ਡਾਕਟਰ ਨਾਲ ਗੱਲ ਕਰਨੀ ਹੈ। ਥੋੜ੍ਹੀ ਦੇਰ ਬਾਅਦ ਵਾਪਸ ਆਉਣਾ ਹੈ।", p:"tu-hah-dee-yan uh-khan bah-ray doo-jay dahk-tar naal gull kar-nee hay. tore-hee dare baad vah-pas ow-na hay"},
       {id:"close-interpreter", en:"We will use an interpreter to explain the results.", x:"ਨਤੀਜੇ ਸਮਝਾਉਣ ਲਈ ਦੁਭਾਸ਼ੀਏ ਦੀ ਵਰਤੋਂ ਕੀਤੀ ਜਾਵੇਗੀ।", p:"nuh-tee-jay sum-jhown lye du-bhah-shee-yay dee var-tone kee-tee jah-vay-gee"}
     ]
   }
@@ -145,7 +149,9 @@ const SYMPTOMS = [
 /* The eleven phrases that come up most, surfaced in a panel at the top of
    the card so they are reachable without scrolling. These are references, not
    copies: same ids, same audio, same wording as the stage they belong to. */
-const QUICK = ["mot-up", "mot-down", "mot-left", "mot-right", "mot-straight", "slit-open", "drp-close"];
+const QUICK = ["mot-look-here", "mot-up", "mot-down", "mot-left", "mot-right", "mot-straight", "slit-open", "drp-close"];
+
+const QUICKNAV = [{stage:"acuity", icon:"glasses"}, {stage:"drops", icon:"dropper"}, {stage:"slitlamp", icon:"lamp"}];
 
 /* The one pictogram on the card. Diplopia geometry is a perceptual judgement
    with no gesture equivalent and clumsy phrasing in any language, so a picture

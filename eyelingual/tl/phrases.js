@@ -29,13 +29,14 @@ const STAGES = [
     diplopiaAfter:"vis-double",
     symptomsAfter:"sym-ask",
     items:[
-      {id:"vis-glasses-on", en:"Put your glasses on.", x:"Isuot po ninyo ang inyong salamin.", p:"ee-soo-ot po nin-yo ang in-yong sa-la-min"},
+      {id:"vis-glasses-on", en:"Put your glasses on.", x:"Isuot po ninyo ang inyong salamin.", p:"ee-soo-ot po nin-yo ang in-yong sa-la-min", icon:"glasses"},
       {id:"vis-cover-left", en:"Cover your left eye.", x:"Takpan po ninyo ang kaliwang mata.", p:"tak-pan po nin-yo ang ka-lee-wang ma-ta"},
       {id:"vis-cover-right", en:"Cover your right eye.", x:"Takpan po ninyo ang kanang mata.", p:"tak-pan po nin-yo ang ka-nang ma-ta"},
       {id:"sym-ask", en:"Does your vision look like any of these? Point to the closest one.", x:"Alin po ang pinakamalapit sa nakikita ninyo? Ituro po ninyo.", p:"ah-lin po ang pee-na-ka-ma-la-pit sa na-kee-kee-ta nin-yo? ee-too-ro po nin-yo"},
       {id:"vis-read-line", en:"Please read the smallest line you can see.", x:"Pakibasa po ang pinakamaliit na linyang nakikita ninyo.", p:"pa-kee-ba-sa po ang pee-na-ka-ma-lee-eet na lin-yang na-kee-kee-ta nin-yo"},
       {id:"vis-pinhole", en:"Try to look through the tiny hole. It may make your vision clearer.", x:"Tingnan po ninyo sa maliit na butas, baka mas linaw.", p:"ting-nan po nin-yo sa ma-lee-eet na boo-tas, ba-ka mas lee-now"},
       {id:"vis-fingers", en:"How many fingers?", x:"Ilang daliri po?", p:"ee-lang da-lee-ree po?"},
+      {id:"vis-hand-motion", en:"Do you see my hand moving?", x:"Nakikita po ba ninyong gumagalaw ang kamay ko?", p:"na-kee-kee-ta po ba nin-yong goo-ma-ga-low ang ka-my ko?"},
       {id:"vis-see-this", en:"Can you see this?", x:"Nakikita po ba ninyo ito?", p:"na-kee-kee-ta po ba nin-yo ee-to?"},
       {id:"vis-light-move", en:"Tell me if you see the light move.", x:"Sabihin po ninyo kung gumagalaw ang ilaw.", p:"sa-bee-hin po nin-yo koong goo-ma-ga-low ang ee-low"},
       {id:"vis-look-nose", en:"Look at my nose.", x:"Tingnan po ninyo ang ilong ko.", p:"ting-nan po nin-yo ang ee-long ko"},
@@ -49,18 +50,19 @@ const STAGES = [
     items:[
       {id:"pup-shine", en:"I am going to shine a light in your eyes. Please look at the wall behind me.", x:"Tatapatan ko po ng ilaw ang mga mata ninyo. Tingnan po ninyo ang pader sa likod ko.", p:"ta-ta-pa-tan ko po nang ee-low ang ma-nga ma-ta nin-yo. ting-nan po nin-yo ang pa-der sa lee-kod ko"},
       {id:"pup-dont-look-light", en:"Do not look at the light. Keep looking far away.", x:"Huwag po tingnan ang ilaw, tumingin po sa malayo.", p:"hoo-wag po ting-nan ang ee-low, too-ming-in po sa ma-la-yo"},
-      {id:"pup-both-open", en:"Keep both eyes open.", x:"Imulat po ninyo ang dalawang mata.", p:"ee-moo-lat po nin-yo ang da-la-wang ma-ta"}
+      {id:"pup-both-open", en:"Keep both eyes open.", x:"Imulat po ninyo ang dalawang mata.", p:"ee-moo-lat po nin-yo ang da-la-wang ma-ta", icon:"eye-open"}
     ]
   },
   {
     id:"motility", num:"04", title:"Eye movements",
     note:"Demonstrate and the patient will mirror you.",
     items:[
+      {id:"mot-look-here", en:"Look here.", x:"Tingnan po ninyo dito.", p:"ting-nan po nin-yo dee-to"},
       {id:"mot-finger", en:"Look at my finger. Do not move your head.", x:"Tingnan po ninyo ang daliri ko. Huwag pong igalaw ang ulo.", p:"ting-nan po nin-yo ang da-lee-ree ko. hoo-wag pong ee-ga-low ang oo-lo"},
-      {id:"mot-up", en:"Look up.", x:"Tumingin po sa itaas.", p:"too-ming-in po sa ee-ta-as"},
-      {id:"mot-down", en:"Look down.", x:"Tumingin po sa ibaba.", p:"too-ming-in po sa ee-ba-ba"},
-      {id:"mot-left", en:"Look left.", x:"Tumingin po sa kaliwa.", p:"too-ming-in po sa ka-lee-wa"},
-      {id:"mot-right", en:"Look right.", x:"Tumingin po sa kanan.", p:"too-ming-in po sa ka-nan"},
+      {id:"mot-up", en:"Look up.", x:"Tumingin po sa itaas.", p:"too-ming-in po sa ee-ta-as", icon:"up"},
+      {id:"mot-down", en:"Look down.", x:"Tumingin po sa ibaba.", p:"too-ming-in po sa ee-ba-ba", icon:"down"},
+      {id:"mot-left", en:"Look left.", x:"Tumingin po sa kaliwa.", p:"too-ming-in po sa ka-lee-wa", icon:"left"},
+      {id:"mot-right", en:"Look right.", x:"Tumingin po sa kanan.", p:"too-ming-in po sa ka-nan", icon:"right"},
       {id:"mot-straight", en:"Look straight ahead.", x:"Tumingin po sa harap.", p:"too-ming-in po sa ha-rap"}
     ]
   },
@@ -85,12 +87,12 @@ const STAGES = [
     id:"drops", num:"07", title:"Drops",
     items:[
       {id:"drp-allergy", en:"Are you allergic to any medications?", x:"May allergy po ba kayo sa kahit anong gamot?", p:"my a-ler-jee po ba ka-yo sa ka-hit ah-nong ga-mot?"},
-      {id:"drp-putting", en:"I'm going to put drops in your eye.", x:"Lalagyan ko po ng patak ang mata ninyo.", p:"la-lag-yan ko po nang pa-tak ang ma-ta nin-yo"},
-      {id:"drp-look-up", en:"Please look up.", x:"Tumingin po sa itaas.", p:"too-ming-in po sa ee-ta-as"},
+      {id:"drp-putting", en:"I'm going to put drops in your eye.", x:"Lalagyan ko po ng patak ang mata ninyo.", p:"la-lag-yan ko po nang pa-tak ang ma-ta nin-yo", icon:"dropper"},
+      {id:"drp-look-up", en:"Please look up.", x:"Tumingin po sa itaas.", p:"too-ming-in po sa ee-ta-as", icon:"up"},
       {id:"drp-anaesthetic", en:"This is an analgesic for your eyes. It may sting for a few seconds.", x:"Pampamanhid po ito sa mata. Maaaring humapdi ng ilang segundo.", p:"pam-pa-man-hid po ee-to sa ma-ta. ma-ah-ring hoo-map-dee nang ee-lang se-goon-do"},
       {id:"drp-dilate", en:"This drop will dilate your pupils.", x:"Palalakihin po nito ang balintataw ninyo.", p:"pa-la-la-kee-hin po nee-to ang ba-lin-ta-tow nin-yo"},
       {id:"drp-blurry", en:"Your vision will be blurry for about 6 hours.", x:"Malalabo po ang paningin ninyo nang humigit-kumulang anim na oras.", p:"ma-la-la-bo po ang pa-ning-in nin-yo nang hoo-mee-git-koo-moo-lang ah-nim na o-ras"},
-      {id:"drp-close", en:"Please close your eyes.", x:"Ipikit po ninyo ang mga mata.", p:"ee-pee-kit po nin-yo ang ma-nga ma-ta"},
+      {id:"drp-close", en:"Please close your eyes.", x:"Ipikit po ninyo ang mga mata.", p:"ee-pee-kit po nin-yo ang ma-nga ma-ta", icon:"eye-shut"},
       {id:"drp-no-rub", en:"Don't rub your eyes.", x:"Huwag pong kuskusin ang mata.", p:"hoo-wag pong koos-koo-sin ang ma-ta"}
     ]
   },
@@ -98,10 +100,10 @@ const STAGES = [
     id:"slitlamp", num:"08", title:"Slit lamp",
     items:[
       {id:"slit-chin", en:"Chin on the rest, forehead against the bar.", x:"Ipatong po ang baba dito at idikit ang noo sa bar.", p:"ee-pa-tong po ang ba-ba dee-to at ee-dee-kit ang no-o sa bar"},
-      {id:"slit-open", en:"Open your eyes wide.", x:"Imulat po ninyo nang maluwang ang mga mata.", p:"ee-moo-lat po nin-yo nang ma-loo-wang ang ma-nga ma-ta"},
+      {id:"slit-open", en:"Open your eyes wide.", x:"Imulat po ninyo nang maluwang ang mga mata.", p:"ee-moo-lat po nin-yo nang ma-loo-wang ang ma-nga ma-ta", icon:"eye-open"},
       {id:"slit-no-pull-back", en:"Don't pull your head back.", x:"Huwag pong iurong ang ulo.", p:"hoo-wag pong ee-oo-rong ang oo-lo"},
       {id:"slit-bright", en:"The light is bright. Please bear with it.", x:"Maliwanag po ang ilaw. Pasensya po sandali.", p:"ma-lee-wa-nag po ang ee-low. pa-sen-sha po san-da-lee"},
-      {id:"slit-ear", en:"Look at my ear.", x:"Tingnan po ninyo ang tainga ko.", p:"ting-nan po nin-yo ang ta-ing-a ko"},
+      {id:"slit-ear", en:"Look at my ear.", x:"Tingnan po ninyo ang tainga ko.", p:"ting-nan po nin-yo ang ta-ing-a ko", icon:"ear"},
       {id:"slit-touch-lid", en:"I'm going to touch your eyelid.", x:"Hahawakan ko po ang talukap ng mata ninyo.", p:"ha-ha-wa-kan ko po ang ta-loo-kap nang ma-ta nin-yo"},
       {id:"slit-almost", en:"Almost done.", x:"Malapit na pong tapos.", p:"ma-la-pit na pong ta-pos"}
     ]
@@ -110,6 +112,8 @@ const STAGES = [
     id:"closing", num:"09", title:"Closing",
     items:[
       {id:"close-finished", en:"The exam is finished. Thank you.", x:"Tapos na po ang pagsusuri. Salamat po.", p:"ta-pos na po ang pag-soo-soo-ree. sa-la-mat po"},
+      {id:"close-healthy", en:"Your eyes are healthy.", x:"Malusog po ang mga mata ninyo.", p:"ma-loo-sog po ang ma-nga ma-ta nin-yo", icon:"check"},
+      {id:"close-consult", en:"I will have to speak to another doctor about your eyes. I will be back.", x:"Kakausapin ko po ang ibang doktor tungkol sa mata ninyo. Babalik po ako.", p:"ka-ka-oo-sa-pin ko po ang ee-bang dok-tor toong-kol sa ma-ta nin-yo. ba-ba-lik po ah-ko"},
       {id:"close-interpreter", en:"We will use an interpreter to explain the results.", x:"Gagamit po tayo ng interpreter para ipaliwanag ang resulta.", p:"ga-ga-mit po ta-yo nang in-ter-pre-ter pa-ra ee-pa-lee-wa-nag ang re-sool-ta"}
     ]
   }
@@ -145,7 +149,9 @@ const SYMPTOMS = [
 /* The eleven phrases that come up most, surfaced in a panel at the top of
    the card so they are reachable without scrolling. These are references, not
    copies: same ids, same audio, same wording as the stage they belong to. */
-const QUICK = ["mot-up", "mot-down", "mot-left", "mot-right", "mot-straight", "slit-open", "drp-close"];
+const QUICK = ["mot-look-here", "mot-up", "mot-down", "mot-left", "mot-right", "mot-straight", "slit-open", "drp-close"];
+
+const QUICKNAV = [{stage:"acuity", icon:"glasses"}, {stage:"drops", icon:"dropper"}, {stage:"slitlamp", icon:"lamp"}];
 
 /* The one pictogram on the card. Diplopia geometry is a perceptual judgement
    with no gesture equivalent and clumsy phrasing in any language, so a picture

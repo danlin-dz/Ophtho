@@ -1,6 +1,6 @@
 # Recording script — Mandarin
 
-48 takes. One file per phrase, named exactly by its ID.
+52 takes. One file per phrase, named exactly by its ID.
 
 ## For the speaker
 
@@ -50,6 +50,7 @@ recording sets are fine to ship.
 | `vis-read-line` | `vis-read-line.m4a` | 请念您能看到的最小的一行。 | Please read the smallest line you can see. |
 | `vis-pinhole` | `vis-pinhole.m4a` | 请透过小孔看，可能会更清楚。 | Try to look through the tiny hole. It may make your vision clearer. |
 | `vis-fingers` | `vis-fingers.m4a` | 几根手指？ | How many fingers? |
+| `vis-hand-motion` | `vis-hand-motion.m4a` | 您看到我的手在动吗？ | Do you see my hand moving? |
 | `vis-see-this` | `vis-see-this.m4a` | 看得见吗？ | Can you see this? |
 | `vis-light-move` | `vis-light-move.m4a` | 看到光移动请告诉我。 | Tell me if you see the light move. |
 | `vis-look-nose` | `vis-look-nose.m4a` | 请看我的鼻子。 | Look at my nose. |
@@ -68,6 +69,7 @@ recording sets are fine to ship.
 
 | ID | File | Say this | English |
 |---|---|---|---|
+| `mot-look-here` | `mot-look-here.m4a` | 请看这里。 | Look here. |
 | `mot-finger` | `mot-finger.m4a` | 请看我的手指，头不要动。 | Look at my finger. Do not move your head. |
 | `mot-up` | `mot-up.m4a` | 往上看。 | Look up. |
 | `mot-down` | `mot-down.m4a` | 往下看。 | Look down. |
@@ -121,8 +123,10 @@ recording sets are fine to ship.
 | ID | File | Say this | English |
 |---|---|---|---|
 | `close-finished` | `close-finished.m4a` | 检查完了，谢谢您。 | The exam is finished. Thank you. |
+| `close-healthy` | `close-healthy.m4a` | 您的眼睛很健康。 | Your eyes are healthy. |
+| `close-consult` | `close-consult.m4a` | 我需要和另一位医生讨论您的眼睛，我一会儿回来。 | I will have to speak to another doctor about your eyes. I will be back. |
 | `close-interpreter` | `close-interpreter.m4a` | 我们会用翻译跟您解释检查结果。 | We will use an interpreter to explain the results. |
 
 ---
 
-**48 takes total.** Roughly 20 minutes of recording including retakes.
+**52 takes total.** Roughly 20 minutes of recording including retakes.

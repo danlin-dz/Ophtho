@@ -1,6 +1,6 @@
 # Recording script — Japanese
 
-48 takes. One file per phrase, named exactly by its ID.
+52 takes. One file per phrase, named exactly by its ID.
 
 ## For the speaker
 
@@ -50,6 +50,7 @@ recording sets are fine to ship.
 | `vis-read-line` | `vis-read-line.m4a` | 見える一番小さい行を読んでください。 | Please read the smallest line you can see. |
 | `vis-pinhole` | `vis-pinhole.m4a` | 小さな穴から見てください。よく見えるかもしれません。 | Try to look through the tiny hole. It may make your vision clearer. |
 | `vis-fingers` | `vis-fingers.m4a` | 指は何本ですか？ | How many fingers? |
+| `vis-hand-motion` | `vis-hand-motion.m4a` | 手が動いているのが見えますか？ | Do you see my hand moving? |
 | `vis-see-this` | `vis-see-this.m4a` | これが見えますか？ | Can you see this? |
 | `vis-light-move` | `vis-light-move.m4a` | 光が動いたら教えてください。 | Tell me if you see the light move. |
 | `vis-look-nose` | `vis-look-nose.m4a` | 私の鼻を見てください。 | Look at my nose. |
@@ -68,6 +69,7 @@ recording sets are fine to ship.
 
 | ID | File | Say this | English |
 |---|---|---|---|
+| `mot-look-here` | `mot-look-here.m4a` | ここを見てください。 | Look here. |
 | `mot-finger` | `mot-finger.m4a` | 私の指を見てください。頭は動かさないでください。 | Look at my finger. Do not move your head. |
 | `mot-up` | `mot-up.m4a` | 上を見てください。 | Look up. |
 | `mot-down` | `mot-down.m4a` | 下を見てください。 | Look down. |
@@ -121,8 +123,10 @@ recording sets are fine to ship.
 | ID | File | Say this | English |
 |---|---|---|---|
 | `close-finished` | `close-finished.m4a` | 診察は終わりです。ありがとうございました。 | The exam is finished. Thank you. |
+| `close-healthy` | `close-healthy.m4a` | 目は健康です。 | Your eyes are healthy. |
+| `close-consult` | `close-consult.m4a` | 目のことを別の医師と相談します。すぐ戻ります。 | I will have to speak to another doctor about your eyes. I will be back. |
 | `close-interpreter` | `close-interpreter.m4a` | 結果は通訳を通して説明します。 | We will use an interpreter to explain the results. |
 
 ---
 
-**48 takes total.** Roughly 20 minutes of recording including retakes.
+**52 takes total.** Roughly 20 minutes of recording including retakes.

@@ -1,6 +1,6 @@
 # Recording script — Farsi
 
-48 takes. One file per phrase, named exactly by its ID.
+52 takes. One file per phrase, named exactly by its ID.
 
 ## For the speaker
 
@@ -50,6 +50,7 @@ recording sets are fine to ship.
 | `vis-read-line` | `vis-read-line.m4a` | کوچک‌ترین خطی که می‌بینید بخوانید. | Please read the smallest line you can see. |
 | `vis-pinhole` | `vis-pinhole.m4a` | از سوراخ کوچک نگاه کنید، شاید واضح‌تر شود. | Try to look through the tiny hole. It may make your vision clearer. |
 | `vis-fingers` | `vis-fingers.m4a` | چند انگشت؟ | How many fingers? |
+| `vis-hand-motion` | `vis-hand-motion.m4a` | حرکت دست من را می‌بینید؟ | Do you see my hand moving? |
 | `vis-see-this` | `vis-see-this.m4a` | این را می‌بینید؟ | Can you see this? |
 | `vis-light-move` | `vis-light-move.m4a` | اگر نور حرکت کرد به من بگویید. | Tell me if you see the light move. |
 | `vis-look-nose` | `vis-look-nose.m4a` | به بینی من نگاه کنید. | Look at my nose. |
@@ -68,6 +69,7 @@ recording sets are fine to ship.
 
 | ID | File | Say this | English |
 |---|---|---|---|
+| `mot-look-here` | `mot-look-here.m4a` | اینجا را نگاه کنید. | Look here. |
 | `mot-finger` | `mot-finger.m4a` | به انگشت من نگاه کنید. سرتان را تکان ندهید. | Look at my finger. Do not move your head. |
 | `mot-up` | `mot-up.m4a` | به بالا نگاه کنید. | Look up. |
 | `mot-down` | `mot-down.m4a` | به پایین نگاه کنید. | Look down. |
@@ -121,8 +123,10 @@ recording sets are fine to ship.
 | ID | File | Say this | English |
 |---|---|---|---|
 | `close-finished` | `close-finished.m4a` | معاینه تمام شد. متشکرم. | The exam is finished. Thank you. |
+| `close-healthy` | `close-healthy.m4a` | چشمان شما سالم است. | Your eyes are healthy. |
+| `close-consult` | `close-consult.m4a` | باید درباره چشمان شما با پزشک دیگری صحبت کنم. زود برمی‌گردم. | I will have to speak to another doctor about your eyes. I will be back. |
 | `close-interpreter` | `close-interpreter.m4a` | برای توضیح نتایج از مترجم استفاده می‌کنیم. | We will use an interpreter to explain the results. |
 
 ---
 
-**48 takes total.** Roughly 20 minutes of recording including retakes.
+**52 takes total.** Roughly 20 minutes of recording including retakes.

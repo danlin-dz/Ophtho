@@ -29,13 +29,14 @@ const STAGES = [
     diplopiaAfter:"vis-double",
     symptomsAfter:"sym-ask",
     items:[
-      {id:"vis-glasses-on", en:"Put your glasses on.", x:"من فضلك ضع نظارتك.", p:"min fad-lik dah naz-zah-rah-tak"},
+      {id:"vis-glasses-on", en:"Put your glasses on.", x:"من فضلك ضع نظارتك.", p:"min fad-lik dah naz-zah-rah-tak", icon:"glasses"},
       {id:"vis-cover-left", en:"Cover your left eye.", x:"غطِّ عينك اليسرى.", p:"ghat-tee ay-nak al-yus-rah"},
       {id:"vis-cover-right", en:"Cover your right eye.", x:"غطِّ عينك اليمنى.", p:"ghat-tee ay-nak al-yum-nah"},
       {id:"sym-ask", en:"Does your vision look like any of these? Point to the closest one.", x:"هل ترى مثل إحدى هذه؟ أشر إلى الأقرب.", p:"hal ta-rah mith-la ih-dah hah-thih? ah-sheer ee-lah al-ak-rab"},
       {id:"vis-read-line", en:"Please read the smallest line you can see.", x:"اقرأ أصغر سطر تراه.", p:"ik-rah as-ghar satr tah-rah"},
       {id:"vis-pinhole", en:"Try to look through the tiny hole. It may make your vision clearer.", x:"انظر من الثقب الصغير، قد ترى أوضح.", p:"oon-zur min ath-thukb as-sa-gheer, kad ta-rah aw-dah"},
       {id:"vis-fingers", en:"How many fingers?", x:"كم إصبعاً؟", p:"kam is-bah-an?"},
+      {id:"vis-hand-motion", en:"Do you see my hand moving?", x:"هل ترى يدي تتحرك؟", p:"hal ta-rah ya-dee ta-ta-har-rak?"},
       {id:"vis-see-this", en:"Can you see this?", x:"هل ترى هذا؟", p:"hal tah-rah hah-thah?"},
       {id:"vis-light-move", en:"Tell me if you see the light move.", x:"أخبرني إذا رأيت الضوء يتحرك.", p:"akh-bir-nee ee-thah rah-ay-ta ad-dow ya-ta-har-rak"},
       {id:"vis-look-nose", en:"Look at my nose.", x:"انظر إلى أنفي.", p:"oon-zur ee-lah an-fee"},
@@ -49,18 +50,19 @@ const STAGES = [
     items:[
       {id:"pup-shine", en:"I am going to shine a light in your eyes. Please look at the wall behind me.", x:"سأسلط ضوءاً على عينيك. انظر إلى الحائط خلفي.", p:"sa-oo-sal-lit dow-an ah-lah ay-nayk. oon-zur ee-lah al-hah-it khal-fee"},
       {id:"pup-dont-look-light", en:"Do not look at the light. Keep looking far away.", x:"لا تنظر إلى الضوء، انظر إلى البعيد.", p:"lah tan-zur ee-lah ad-dow, oon-zur ee-lah al-bah-eed"},
-      {id:"pup-both-open", en:"Keep both eyes open.", x:"أبقِ كلتا عينيك مفتوحتين.", p:"ab-kee kil-tah ay-nayk maf-too-ha-tayn"}
+      {id:"pup-both-open", en:"Keep both eyes open.", x:"أبقِ كلتا عينيك مفتوحتين.", p:"ab-kee kil-tah ay-nayk maf-too-ha-tayn", icon:"eye-open"}
     ]
   },
   {
     id:"motility", num:"04", title:"Eye movements",
     note:"Demonstrate and the patient will mirror you.",
     items:[
+      {id:"mot-look-here", en:"Look here.", x:"انظر هنا.", p:"oon-zur hoo-nah"},
       {id:"mot-finger", en:"Look at my finger. Do not move your head.", x:"انظر إلى إصبعي. لا تحرك رأسك.", p:"oon-zur ee-lah is-bah-ee. lah too-har-rik rah-sak"},
-      {id:"mot-up", en:"Look up.", x:"انظر إلى الأعلى.", p:"oon-zur ee-lah al-ah-lah"},
-      {id:"mot-down", en:"Look down.", x:"انظر إلى الأسفل.", p:"oon-zur ee-lah al-as-fal"},
-      {id:"mot-left", en:"Look left.", x:"انظر إلى اليسار.", p:"oon-zur ee-lah al-ya-sar"},
-      {id:"mot-right", en:"Look right.", x:"انظر إلى اليمين.", p:"oon-zur ee-lah al-ya-meen"},
+      {id:"mot-up", en:"Look up.", x:"انظر إلى الأعلى.", p:"oon-zur ee-lah al-ah-lah", icon:"up"},
+      {id:"mot-down", en:"Look down.", x:"انظر إلى الأسفل.", p:"oon-zur ee-lah al-as-fal", icon:"down"},
+      {id:"mot-left", en:"Look left.", x:"انظر إلى اليسار.", p:"oon-zur ee-lah al-ya-sar", icon:"left"},
+      {id:"mot-right", en:"Look right.", x:"انظر إلى اليمين.", p:"oon-zur ee-lah al-ya-meen", icon:"right"},
       {id:"mot-straight", en:"Look straight ahead.", x:"انظر إلى الأمام مباشرة.", p:"oon-zur ee-lah al-ah-mahm mu-bah-sha-ra"}
     ]
   },
@@ -85,12 +87,12 @@ const STAGES = [
     id:"drops", num:"07", title:"Drops",
     items:[
       {id:"drp-allergy", en:"Are you allergic to any medications?", x:"هل لديك حساسية من أي دواء؟", p:"hal la-dayk has-sah-see-ya min ayy da-wah?"},
-      {id:"drp-putting", en:"I'm going to put drops in your eye.", x:"سأضع قطرة في عينك.", p:"sa-ah-dah kat-ra fee ay-nak"},
-      {id:"drp-look-up", en:"Please look up.", x:"من فضلك انظر إلى الأعلى.", p:"min fad-lik oon-zur ee-lah al-ah-lah"},
+      {id:"drp-putting", en:"I'm going to put drops in your eye.", x:"سأضع قطرة في عينك.", p:"sa-ah-dah kat-ra fee ay-nak", icon:"dropper"},
+      {id:"drp-look-up", en:"Please look up.", x:"من فضلك انظر إلى الأعلى.", p:"min fad-lik oon-zur ee-lah al-ah-lah", icon:"up"},
       {id:"drp-anaesthetic", en:"This is an analgesic for your eyes. It may sting for a few seconds.", x:"هذه قطرة مخدرة للعين. قد تسبب وخزاً لبضع ثوانٍ.", p:"hah-thi-hi kat-ra mu-khad-di-ra lil-ayn. kad tu-sab-bib wakh-zan li-bid thah-wan"},
       {id:"drp-dilate", en:"This drop will dilate your pupils.", x:"هذه القطرة توسع حدقة العين.", p:"hah-thi-hi al-kat-ra tu-was-see ha-da-kat al-ayn"},
       {id:"drp-blurry", en:"Your vision will be blurry for about 6 hours.", x:"ستكون رؤيتك ضبابية نحو ست ساعات.", p:"sa-ta-koon roo-ya-tak da-bah-bee-ya nah-wa sitt sah-aht"},
-      {id:"drp-close", en:"Please close your eyes.", x:"من فضلك أغمض عينيك.", p:"min fad-lik agh-mid ay-nayk"},
+      {id:"drp-close", en:"Please close your eyes.", x:"من فضلك أغمض عينيك.", p:"min fad-lik agh-mid ay-nayk", icon:"eye-shut"},
       {id:"drp-no-rub", en:"Don't rub your eyes.", x:"لا تفرك عينيك.", p:"lah taf-ruk ay-nayk"}
     ]
   },
@@ -98,10 +100,10 @@ const STAGES = [
     id:"slitlamp", num:"08", title:"Slit lamp",
     items:[
       {id:"slit-chin", en:"Chin on the rest, forehead against the bar.", x:"ضع ذقنك هنا وألصق جبهتك بهذا الشريط.", p:"dah thak-nak hoo-nah wa-al-sik jab-ha-tak bee-hah-thah ash-sha-reet"},
-      {id:"slit-open", en:"Open your eyes wide.", x:"افتح عينيك جيداً.", p:"if-tah ay-nayk jay-yi-dan"},
+      {id:"slit-open", en:"Open your eyes wide.", x:"افتح عينيك جيداً.", p:"if-tah ay-nayk jay-yi-dan", icon:"eye-open"},
       {id:"slit-no-pull-back", en:"Don't pull your head back.", x:"لا تسحب رأسك للخلف.", p:"lah tas-hab rah-sak lil-khalf"},
       {id:"slit-bright", en:"The light is bright. Please bear with it.", x:"الضوء ساطع. تحمل قليلاً.", p:"ad-dow sah-tee. ta-ham-mal ka-lee-lan"},
-      {id:"slit-ear", en:"Look at my ear.", x:"انظر إلى أذني.", p:"oon-zur ee-lah uth-nee"},
+      {id:"slit-ear", en:"Look at my ear.", x:"انظر إلى أذني.", p:"oon-zur ee-lah uth-nee", icon:"ear"},
       {id:"slit-touch-lid", en:"I'm going to touch your eyelid.", x:"سألمس جفنك.", p:"sa-al-mus jaf-nak"},
       {id:"slit-almost", en:"Almost done.", x:"أوشكنا على الانتهاء.", p:"aw-shak-nah ah-lah al-in-ti-hah"}
     ]
@@ -110,6 +112,8 @@ const STAGES = [
     id:"closing", num:"09", title:"Closing",
     items:[
       {id:"close-finished", en:"The exam is finished. Thank you.", x:"انتهى الفحص. شكراً لك.", p:"in-ta-hah al-fahs. shook-ran lak"},
+      {id:"close-healthy", en:"Your eyes are healthy.", x:"عيناك سليمتان.", p:"ay-nak sa-lee-ma-tan", icon:"check"},
+      {id:"close-consult", en:"I will have to speak to another doctor about your eyes. I will be back.", x:"سأتحدث مع طبيب آخر عن عينيك. سأعود قريباً.", p:"sa-ata-had-dath mah ta-beeb ah-khar an ay-nayk. sa-ah-ood ka-ree-ban"},
       {id:"close-interpreter", en:"We will use an interpreter to explain the results.", x:"سنستعين بمترجم لشرح النتائج.", p:"sa-nas-ta-een bee-mu-tar-jim li-sharh an-na-tah-ij"}
     ]
   }
@@ -145,7 +149,9 @@ const SYMPTOMS = [
 /* The eleven phrases that come up most, surfaced in a panel at the top of
    the card so they are reachable without scrolling. These are references, not
    copies: same ids, same audio, same wording as the stage they belong to. */
-const QUICK = ["mot-up", "mot-down", "mot-left", "mot-right", "mot-straight", "slit-open", "drp-close"];
+const QUICK = ["mot-look-here", "mot-up", "mot-down", "mot-left", "mot-right", "mot-straight", "slit-open", "drp-close"];
+
+const QUICKNAV = [{stage:"acuity", icon:"glasses"}, {stage:"drops", icon:"dropper"}, {stage:"slitlamp", icon:"lamp"}];
 
 /* The one pictogram on the card. Diplopia geometry is a perceptual judgement
    with no gesture equivalent and clumsy phrasing in any language, so a picture

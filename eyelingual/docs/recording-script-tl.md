@@ -1,6 +1,6 @@
 # Recording script — Tagalog
 
-48 takes. One file per phrase, named exactly by its ID.
+52 takes. One file per phrase, named exactly by its ID.
 
 ## For the speaker
 
@@ -50,6 +50,7 @@ recording sets are fine to ship.
 | `vis-read-line` | `vis-read-line.m4a` | Pakibasa po ang pinakamaliit na linyang nakikita ninyo. | Please read the smallest line you can see. |
 | `vis-pinhole` | `vis-pinhole.m4a` | Tingnan po ninyo sa maliit na butas, baka mas linaw. | Try to look through the tiny hole. It may make your vision clearer. |
 | `vis-fingers` | `vis-fingers.m4a` | Ilang daliri po? | How many fingers? |
+| `vis-hand-motion` | `vis-hand-motion.m4a` | Nakikita po ba ninyong gumagalaw ang kamay ko? | Do you see my hand moving? |
 | `vis-see-this` | `vis-see-this.m4a` | Nakikita po ba ninyo ito? | Can you see this? |
 | `vis-light-move` | `vis-light-move.m4a` | Sabihin po ninyo kung gumagalaw ang ilaw. | Tell me if you see the light move. |
 | `vis-look-nose` | `vis-look-nose.m4a` | Tingnan po ninyo ang ilong ko. | Look at my nose. |
@@ -68,6 +69,7 @@ recording sets are fine to ship.
 
 | ID | File | Say this | English |
 |---|---|---|---|
+| `mot-look-here` | `mot-look-here.m4a` | Tingnan po ninyo dito. | Look here. |
 | `mot-finger` | `mot-finger.m4a` | Tingnan po ninyo ang daliri ko. Huwag pong igalaw ang ulo. | Look at my finger. Do not move your head. |
 | `mot-up` | `mot-up.m4a` | Tumingin po sa itaas. | Look up. |
 | `mot-down` | `mot-down.m4a` | Tumingin po sa ibaba. | Look down. |
@@ -121,8 +123,10 @@ recording sets are fine to ship.
 | ID | File | Say this | English |
 |---|---|---|---|
 | `close-finished` | `close-finished.m4a` | Tapos na po ang pagsusuri. Salamat po. | The exam is finished. Thank you. |
+| `close-healthy` | `close-healthy.m4a` | Malusog po ang mga mata ninyo. | Your eyes are healthy. |
+| `close-consult` | `close-consult.m4a` | Kakausapin ko po ang ibang doktor tungkol sa mata ninyo. Babalik po ako. | I will have to speak to another doctor about your eyes. I will be back. |
 | `close-interpreter` | `close-interpreter.m4a` | Gagamit po tayo ng interpreter para ipaliwanag ang resulta. | We will use an interpreter to explain the results. |
 
 ---
 
-**48 takes total.** Roughly 20 minutes of recording including retakes.
+**52 takes total.** Roughly 20 minutes of recording including retakes.

@@ -29,13 +29,14 @@ const STAGES = [
     diplopiaAfter:"vis-double",
     symptomsAfter:"sym-ask",
     items:[
-      {id:"vis-glasses-on", en:"Put your glasses on.", x:"请把眼镜戴上。", t:"請把眼鏡戴上。", p:"ching bah yen-jing dye shahng"},
+      {id:"vis-glasses-on", en:"Put your glasses on.", x:"请把眼镜戴上。", t:"請把眼鏡戴上。", p:"ching bah yen-jing dye shahng", icon:"glasses"},
       {id:"vis-cover-left", en:"Cover your left eye.", x:"请遮住左眼。", t:"請遮住左眼。", p:"ching juh-joo dzwaw yen"},
       {id:"vis-cover-right", en:"Cover your right eye.", x:"请遮住右眼。", t:"請遮住右眼。", p:"ching juh-joo yoe yen"},
       {id:"sym-ask", en:"Does your vision look like any of these? Point to the closest one.", x:"您的视力像哪一个？请指最接近的。", t:"您的視力像哪一個？請指最接近的。", p:"nin duh shr-lee shyahng nah yee-guh? ching jr dzway jyeh-jin duh"},
       {id:"vis-read-line", en:"Please read the smallest line you can see.", x:"请念您能看到的最小的一行。", t:"請念您能看到的最小的一行。", p:"ching nyen nin nung kahn-dow duh dzway shyow duh ee hahng"},
       {id:"vis-pinhole", en:"Try to look through the tiny hole. It may make your vision clearer.", x:"请透过小孔看，可能会更清楚。", t:"請透過小孔看，可能會更清楚。", p:"ching toe-gwaw shyow-kong kahn, kuh-nung hway gung ching-choo"},
       {id:"vis-fingers", en:"How many fingers?", x:"几根手指？", t:"幾根手指？", p:"jee gun show-jr?"},
+      {id:"vis-hand-motion", en:"Do you see my hand moving?", x:"您看到我的手在动吗？", t:"您看到我的手在動嗎？", p:"nin kahn-dow waw duh show dzye dong mah?"},
       {id:"vis-see-this", en:"Can you see this?", x:"看得见吗？", t:"看得見嗎？", p:"kahn duh jyen mah?"},
       {id:"vis-light-move", en:"Tell me if you see the light move.", x:"看到光移动请告诉我。", t:"看到光移動請告訴我。", p:"kahn-dow gwahng yee-dong ching gow-soo waw"},
       {id:"vis-look-nose", en:"Look at my nose.", x:"请看我的鼻子。", t:"請看我的鼻子。", p:"ching kahn waw duh bee-dzuh"},
@@ -49,18 +50,19 @@ const STAGES = [
     items:[
       {id:"pup-shine", en:"I am going to shine a light in your eyes. Please look at the wall behind me.", x:"我要用灯照您的眼睛，请看我身后的墙。", t:"我要用燈照您的眼睛，請看我身後的牆。", p:"waw yow yong dung jow nin duh yen-jing, ching kahn waw shun-hoe duh chyahng"},
       {id:"pup-dont-look-light", en:"Do not look at the light. Keep looking far away.", x:"不要看灯，一直看远处。", t:"不要看燈，一直看遠處。", p:"boo-yow kahn dung, yee-jr kahn ywen-choo"},
-      {id:"pup-both-open", en:"Keep both eyes open.", x:"两只眼睛都睁开。", t:"兩隻眼睛都睜開。", p:"lyahng jr yen-jing doe jung-kye"}
+      {id:"pup-both-open", en:"Keep both eyes open.", x:"两只眼睛都睁开。", t:"兩隻眼睛都睜開。", p:"lyahng jr yen-jing doe jung-kye", icon:"eye-open"}
     ]
   },
   {
     id:"motility", num:"04", title:"Eye movements",
     note:"Demonstrate and the patient will mirror you.",
     items:[
+      {id:"mot-look-here", en:"Look here.", x:"请看这里。", t:"請看這裡。", p:"ching kahn jur-lee"},
       {id:"mot-finger", en:"Look at my finger. Do not move your head.", x:"请看我的手指，头不要动。", t:"請看我的手指，頭不要動。", p:"ching kahn waw duh show-jr, toe boo-yow dong"},
-      {id:"mot-up", en:"Look up.", x:"往上看。", t:"往上看。", p:"wahng shahng kahn"},
-      {id:"mot-down", en:"Look down.", x:"往下看。", t:"往下看。", p:"wahng shyah kahn"},
-      {id:"mot-left", en:"Look left.", x:"往左看。", t:"往左看。", p:"wahng dzwaw kahn"},
-      {id:"mot-right", en:"Look right.", x:"往右看。", t:"往右看。", p:"wahng yoe kahn"},
+      {id:"mot-up", en:"Look up.", x:"往上看。", t:"往上看。", p:"wahng shahng kahn", icon:"up"},
+      {id:"mot-down", en:"Look down.", x:"往下看。", t:"往下看。", p:"wahng shyah kahn", icon:"down"},
+      {id:"mot-left", en:"Look left.", x:"往左看。", t:"往左看。", p:"wahng dzwaw kahn", icon:"left"},
+      {id:"mot-right", en:"Look right.", x:"往右看。", t:"往右看。", p:"wahng yoe kahn", icon:"right"},
       {id:"mot-straight", en:"Look straight ahead.", x:"请看正前方。", t:"請看正前方。", p:"ching kahn jung chyen-fahng"}
     ]
   },
@@ -85,12 +87,12 @@ const STAGES = [
     id:"drops", num:"07", title:"Drops",
     items:[
       {id:"drp-allergy", en:"Are you allergic to any medications?", x:"您对药物过敏吗？", t:"您對藥物過敏嗎？", p:"nin dway yow-woo gwaw-min mah?"},
-      {id:"drp-putting", en:"I'm going to put drops in your eye.", x:"我要给您点眼药水。", t:"我要給您點眼藥水。", p:"waw yow gay nin dyen yen-yow-shway"},
-      {id:"drp-look-up", en:"Please look up.", x:"请往上看。", t:"請往上看。", p:"ching wahng shahng kahn"},
+      {id:"drp-putting", en:"I'm going to put drops in your eye.", x:"我要给您点眼药水。", t:"我要給您點眼藥水。", p:"waw yow gay nin dyen yen-yow-shway", icon:"dropper"},
+      {id:"drp-look-up", en:"Please look up.", x:"请往上看。", t:"請往上看。", p:"ching wahng shahng kahn", icon:"up"},
       {id:"drp-anaesthetic", en:"This is an analgesic for your eyes. It may sting for a few seconds.", x:"这是眼睛的麻药，可能会刺痛几秒钟。", t:"這是眼睛的麻藥，可能會刺痛幾秒鐘。", p:"juh shr yen-jing duh mah-yow, kuh-nung hway tsz-tong jee myow-jong"},
       {id:"drp-dilate", en:"This drop will dilate your pupils.", x:"这是散瞳药水。", t:"這是散瞳藥水。", p:"juh shr sahn-tong yow-shway"},
       {id:"drp-blurry", en:"Your vision will be blurry for about 6 hours.", x:"您的视力会模糊大约六个小时。", t:"您的視力會模糊大約六個小時。", p:"nin duh shr-lee hway maw-hoo dah-yweh lyo guh shyow-shr"},
-      {id:"drp-close", en:"Please close your eyes.", x:"请闭上眼睛。", t:"請閉上眼睛。", p:"ching bee shahng yen-jing"},
+      {id:"drp-close", en:"Please close your eyes.", x:"请闭上眼睛。", t:"請閉上眼睛。", p:"ching bee shahng yen-jing", icon:"eye-shut"},
       {id:"drp-no-rub", en:"Don't rub your eyes.", x:"不要揉眼睛。", t:"不要揉眼睛。", p:"boo-yow roe yen-jing"}
     ]
   },
@@ -98,10 +100,10 @@ const STAGES = [
     id:"slitlamp", num:"08", title:"Slit lamp",
     items:[
       {id:"slit-chin", en:"Chin on the rest, forehead against the bar.", x:"下巴放在这里，额头靠着这里。", t:"下巴放在這裡，額頭靠著這裡。", p:"shyah-bah fahng dzye jur-lee, uh-toe kow-juh jur-lee"},
-      {id:"slit-open", en:"Open your eyes wide.", x:"请把眼睛睁大。", t:"請把眼睛睜大。", p:"ching bah yen-jing jung dah"},
+      {id:"slit-open", en:"Open your eyes wide.", x:"请把眼睛睁大。", t:"請把眼睛睜大。", p:"ching bah yen-jing jung dah", icon:"eye-open"},
       {id:"slit-no-pull-back", en:"Don't pull your head back.", x:"头不要往后退。", t:"頭不要往後退。", p:"toe boo-yow wahng hoe tway"},
       {id:"slit-bright", en:"The light is bright. Please bear with it.", x:"灯会很亮，请忍一下。", t:"燈會很亮，請忍一下。", p:"dung hway hun lyahng, ching run yee-shyah"},
-      {id:"slit-ear", en:"Look at my ear.", x:"请看我的耳朵。", t:"請看我的耳朵。", p:"ching kahn waw duh are-dwaw"},
+      {id:"slit-ear", en:"Look at my ear.", x:"请看我的耳朵。", t:"請看我的耳朵。", p:"ching kahn waw duh are-dwaw", icon:"ear"},
       {id:"slit-touch-lid", en:"I'm going to touch your eyelid.", x:"我要碰一下您的眼皮。", t:"我要碰一下您的眼皮。", p:"waw yow pung yee-shyah nin duh yen-pee"},
       {id:"slit-almost", en:"Almost done.", x:"快好了。", t:"快好了。", p:"kwye how luh"}
     ]
@@ -110,6 +112,8 @@ const STAGES = [
     id:"closing", num:"09", title:"Closing",
     items:[
       {id:"close-finished", en:"The exam is finished. Thank you.", x:"检查完了，谢谢您。", t:"檢查完了，謝謝您。", p:"jyen-chah wahn luh, shyeh-shyeh nin"},
+      {id:"close-healthy", en:"Your eyes are healthy.", x:"您的眼睛很健康。", t:"您的眼睛很健康。", p:"nin duh yen-jing hun jyen-kahng", icon:"check"},
+      {id:"close-consult", en:"I will have to speak to another doctor about your eyes. I will be back.", x:"我需要和另一位医生讨论您的眼睛，我一会儿回来。", t:"我需要和另一位醫生討論您的眼睛，我一會兒回來。", p:"waw shyu-yow huh ling-yee-way yee-shung tao-lwun nin duh yen-jing, waw yee-hwar hway-lye"},
       {id:"close-interpreter", en:"We will use an interpreter to explain the results.", x:"我们会用翻译跟您解释检查结果。", t:"我們會用翻譯跟您解釋檢查結果。", p:"waw-mun hway yong fahn-ee gun nin jyeh-shr jyen-chah jyeh-gwaw"}
     ]
   }
@@ -145,7 +149,9 @@ const SYMPTOMS = [
 /* The eleven phrases that come up most, surfaced in a panel at the top of
    the card so they are reachable without scrolling. These are references, not
    copies: same ids, same audio, same wording as the stage they belong to. */
-const QUICK = ["mot-up", "mot-down", "mot-left", "mot-right", "mot-straight", "slit-open", "drp-close"];
+const QUICK = ["mot-look-here", "mot-up", "mot-down", "mot-left", "mot-right", "mot-straight", "slit-open", "drp-close"];
+
+const QUICKNAV = [{stage:"acuity", icon:"glasses"}, {stage:"drops", icon:"dropper"}, {stage:"slitlamp", icon:"lamp"}];
 
 /* The one pictogram on the card. Diplopia geometry is a perceptual judgement
    with no gesture equivalent and clumsy phrasing in any language, so a picture

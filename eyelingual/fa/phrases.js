@@ -29,13 +29,14 @@ const STAGES = [
     diplopiaAfter:"vis-double",
     symptomsAfter:"sym-ask",
     items:[
-      {id:"vis-glasses-on", en:"Put your glasses on.", x:"لطفاً عینک خود را بزنید.", p:"lot-fan ay-nak-eh khod rah beh-zah-need"},
+      {id:"vis-glasses-on", en:"Put your glasses on.", x:"لطفاً عینک خود را بزنید.", p:"lot-fan ay-nak-eh khod rah beh-zah-need", icon:"glasses"},
       {id:"vis-cover-left", en:"Cover your left eye.", x:"چشم چپ خود را بپوشانید.", p:"chesh-meh chap-eh khod rah beh-poo-shah-need"},
       {id:"vis-cover-right", en:"Cover your right eye.", x:"چشم راست خود را بپوشانید.", p:"chesh-meh rahst-eh khod rah beh-poo-shah-need"},
       {id:"sym-ask", en:"Does your vision look like any of these? Point to the closest one.", x:"دید شما شبیه کدام است؟ به نزدیک‌ترین اشاره کنید.", p:"dee-deh show-mah sheh-bee-heh koh-dahm ast? beh naz-deek-tah-reen eh-shah-reh koh-need"},
       {id:"vis-read-line", en:"Please read the smallest line you can see.", x:"کوچک‌ترین خطی که می‌بینید بخوانید.", p:"koo-chak-tah-reen khat-tee keh mee-bee-need beh-khah-need"},
       {id:"vis-pinhole", en:"Try to look through the tiny hole. It may make your vision clearer.", x:"از سوراخ کوچک نگاه کنید، شاید واضح‌تر شود.", p:"az soo-rahkh koo-chak neh-gah koh-need, shy-ad vah-zeh-tar shah-vad"},
       {id:"vis-fingers", en:"How many fingers?", x:"چند انگشت؟", p:"chand an-gosht?"},
+      {id:"vis-hand-motion", en:"Do you see my hand moving?", x:"حرکت دست من را می‌بینید؟", p:"hah-reh-kat-eh dast-eh mun rah mee-bee-need?"},
       {id:"vis-see-this", en:"Can you see this?", x:"این را می‌بینید؟", p:"een rah mee-bee-need?"},
       {id:"vis-light-move", en:"Tell me if you see the light move.", x:"اگر نور حرکت کرد به من بگویید.", p:"ah-gar noor hah-reh-kat kard beh mun beh-goo-yeed"},
       {id:"vis-look-nose", en:"Look at my nose.", x:"به بینی من نگاه کنید.", p:"beh bee-nee-yeh mun neh-gah koh-need"},
@@ -49,18 +50,19 @@ const STAGES = [
     items:[
       {id:"pup-shine", en:"I am going to shine a light in your eyes. Please look at the wall behind me.", x:"با چراغ به چشمانتان نور می‌تابانم. به دیوار پشت سر من نگاه کنید.", p:"bah cheh-rahgh beh chesh-mah-neh-tahn noor mee-tah-bah-nam. beh dee-vahr posht-eh sar-eh mun neh-gah koh-need"},
       {id:"pup-dont-look-light", en:"Do not look at the light. Keep looking far away.", x:"به نور نگاه نکنید، به دور نگاه کنید.", p:"beh noor neh-gah nah-koh-need, beh door neh-gah koh-need"},
-      {id:"pup-both-open", en:"Keep both eyes open.", x:"هر دو چشم را باز نگه دارید.", p:"har doe chesh-m rah bahz neh-geh dah-reed"}
+      {id:"pup-both-open", en:"Keep both eyes open.", x:"هر دو چشم را باز نگه دارید.", p:"har doe chesh-m rah bahz neh-geh dah-reed", icon:"eye-open"}
     ]
   },
   {
     id:"motility", num:"04", title:"Eye movements",
     note:"Demonstrate and the patient will mirror you.",
     items:[
+      {id:"mot-look-here", en:"Look here.", x:"اینجا را نگاه کنید.", p:"een-jah rah neh-gah koh-need"},
       {id:"mot-finger", en:"Look at my finger. Do not move your head.", x:"به انگشت من نگاه کنید. سرتان را تکان ندهید.", p:"beh an-gosht-eh mun neh-gah koh-need. sah-reh-tahn rah teh-kahn nah-dah-heed"},
-      {id:"mot-up", en:"Look up.", x:"به بالا نگاه کنید.", p:"beh bah-lah neh-gah koh-need"},
-      {id:"mot-down", en:"Look down.", x:"به پایین نگاه کنید.", p:"beh pah-een neh-gah koh-need"},
-      {id:"mot-left", en:"Look left.", x:"به چپ نگاه کنید.", p:"beh chap neh-gah koh-need"},
-      {id:"mot-right", en:"Look right.", x:"به راست نگاه کنید.", p:"beh rahst neh-gah koh-need"},
+      {id:"mot-up", en:"Look up.", x:"به بالا نگاه کنید.", p:"beh bah-lah neh-gah koh-need", icon:"up"},
+      {id:"mot-down", en:"Look down.", x:"به پایین نگاه کنید.", p:"beh pah-een neh-gah koh-need", icon:"down"},
+      {id:"mot-left", en:"Look left.", x:"به چپ نگاه کنید.", p:"beh chap neh-gah koh-need", icon:"left"},
+      {id:"mot-right", en:"Look right.", x:"به راست نگاه کنید.", p:"beh rahst neh-gah koh-need", icon:"right"},
       {id:"mot-straight", en:"Look straight ahead.", x:"مستقیم به جلو نگاه کنید.", p:"moss-tah-gheem beh jeh-loh neh-gah koh-need"}
     ]
   },
@@ -85,12 +87,12 @@ const STAGES = [
     id:"drops", num:"07", title:"Drops",
     items:[
       {id:"drp-allergy", en:"Are you allergic to any medications?", x:"به دارویی حساسیت دارید؟", p:"beh dah-roo-yee hass-sah-see-yat dah-reed?"},
-      {id:"drp-putting", en:"I'm going to put drops in your eye.", x:"در چشم شما قطره می‌ریزم.", p:"dar chesh-meh show-mah ghat-reh mee-ree-zam"},
-      {id:"drp-look-up", en:"Please look up.", x:"لطفاً به بالا نگاه کنید.", p:"lot-fan beh bah-lah neh-gah koh-need"},
+      {id:"drp-putting", en:"I'm going to put drops in your eye.", x:"در چشم شما قطره می‌ریزم.", p:"dar chesh-meh show-mah ghat-reh mee-ree-zam", icon:"dropper"},
+      {id:"drp-look-up", en:"Please look up.", x:"لطفاً به بالا نگاه کنید.", p:"lot-fan beh bah-lah neh-gah koh-need", icon:"up"},
       {id:"drp-anaesthetic", en:"This is an analgesic for your eyes. It may sting for a few seconds.", x:"این قطره بی‌حسی چشم است. ممکن است چند ثانیه بسوزد.", p:"een ghat-reh bee-hess-see-yeh cheshm ast. mom-ken ast chand sah-nee-yeh beh-soo-zad"},
       {id:"drp-dilate", en:"This drop will dilate your pupils.", x:"این قطره مردمک را گشاد می‌کند.", p:"een ghat-reh mar-doh-mak rah goh-shahd mee-koh-nad"},
       {id:"drp-blurry", en:"Your vision will be blurry for about 6 hours.", x:"دید شما حدود شش ساعت تار خواهد بود.", p:"dee-deh show-mah hoh-doo-deh shesh sah-at tar khah-had bood"},
-      {id:"drp-close", en:"Please close your eyes.", x:"لطفاً چشمانتان را ببندید.", p:"lot-fan chesh-mah-neh-tahn rah beh-ban-deed"},
+      {id:"drp-close", en:"Please close your eyes.", x:"لطفاً چشمانتان را ببندید.", p:"lot-fan chesh-mah-neh-tahn rah beh-ban-deed", icon:"eye-shut"},
       {id:"drp-no-rub", en:"Don't rub your eyes.", x:"چشمانتان را نمالید.", p:"chesh-mah-neh-tahn rah nah-mah-leed"}
     ]
   },
@@ -98,10 +100,10 @@ const STAGES = [
     id:"slitlamp", num:"08", title:"Slit lamp",
     items:[
       {id:"slit-chin", en:"Chin on the rest, forehead against the bar.", x:"چانه را اینجا بگذارید و پیشانی را به این میله تکیه دهید.", p:"chah-neh rah een-jah bog-zah-reed va pee-shah-nee rah beh een mee-leh tek-yeh dah-heed"},
-      {id:"slit-open", en:"Open your eyes wide.", x:"چشمانتان را کاملاً باز کنید.", p:"chesh-mah-neh-tahn rah kah-meh-lan bahz koh-need"},
+      {id:"slit-open", en:"Open your eyes wide.", x:"چشمانتان را کاملاً باز کنید.", p:"chesh-mah-neh-tahn rah kah-meh-lan bahz koh-need", icon:"eye-open"},
       {id:"slit-no-pull-back", en:"Don't pull your head back.", x:"سرتان را عقب نکشید.", p:"sah-reh-tahn rah ah-ghab nah-keh-sheed"},
       {id:"slit-bright", en:"The light is bright. Please bear with it.", x:"نور تند است. کمی تحمل کنید.", p:"noor tond ast. kah-mee tah-ham-mol koh-need"},
-      {id:"slit-ear", en:"Look at my ear.", x:"به گوش من نگاه کنید.", p:"beh goo-sheh mun neh-gah koh-need"},
+      {id:"slit-ear", en:"Look at my ear.", x:"به گوش من نگاه کنید.", p:"beh goo-sheh mun neh-gah koh-need", icon:"ear"},
       {id:"slit-touch-lid", en:"I'm going to touch your eyelid.", x:"پلک شما را لمس می‌کنم.", p:"pel-keh show-mah rah lams mee-koh-nam"},
       {id:"slit-almost", en:"Almost done.", x:"تقریباً تمام شد.", p:"tagh-ree-ban tah-mahm shod"}
     ]
@@ -110,6 +112,8 @@ const STAGES = [
     id:"closing", num:"09", title:"Closing",
     items:[
       {id:"close-finished", en:"The exam is finished. Thank you.", x:"معاینه تمام شد. متشکرم.", p:"moh-eye-eh-neh tah-mahm shod. moh-teh-shak-keh-ram"},
+      {id:"close-healthy", en:"Your eyes are healthy.", x:"چشمان شما سالم است.", p:"chesh-mahn-eh show-mah sah-lem ast", icon:"check"},
+      {id:"close-consult", en:"I will have to speak to another doctor about your eyes. I will be back.", x:"باید درباره چشمان شما با پزشک دیگری صحبت کنم. زود برمی‌گردم.", p:"bah-yad dar-bah-reh-yeh chesh-mahn-eh show-mah bah peh-zeshk-eh dee-gah-ree soh-bat koh-nam. zood bar-mee-gar-dam"},
       {id:"close-interpreter", en:"We will use an interpreter to explain the results.", x:"برای توضیح نتایج از مترجم استفاده می‌کنیم.", p:"bah-rah-yeh tow-zee-heh nah-tah-yej az moh-tar-jem es-teh-fah-deh mee-koh-neem"}
     ]
   }
@@ -145,7 +149,9 @@ const SYMPTOMS = [
 /* The eleven phrases that come up most, surfaced in a panel at the top of
    the card so they are reachable without scrolling. These are references, not
    copies: same ids, same audio, same wording as the stage they belong to. */
-const QUICK = ["mot-up", "mot-down", "mot-left", "mot-right", "mot-straight", "slit-open", "drp-close"];
+const QUICK = ["mot-look-here", "mot-up", "mot-down", "mot-left", "mot-right", "mot-straight", "slit-open", "drp-close"];
+
+const QUICKNAV = [{stage:"acuity", icon:"glasses"}, {stage:"drops", icon:"dropper"}, {stage:"slitlamp", icon:"lamp"}];
 
 /* The one pictogram on the card. Diplopia geometry is a perceptual judgement
    with no gesture equivalent and clumsy phrasing in any language, so a picture

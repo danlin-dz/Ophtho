@@ -19,7 +19,7 @@ Writes:
 """
 import json, os, sys, shutil
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from langdata import (LANGS, GRID, STAGES, EN, DIP_EN, DIP_LABELS, DATA, QUICK, EXTRAS,
+from langdata import (LANGS, GRID, STAGES, EN, DIP_EN, DIP_LABELS, DATA, QUICK, QUICKNAV, EXTRAS, ICONS,
                       SYM, SYMPTOM_TILES, SYMPTOM_GROUPS)
 from phonetics import PHON
 
@@ -97,15 +97,17 @@ def build_phrases(lang):
         rows = []
         for pid in st["ids"]:
             rec = phrases[pid]
+            ic = ICONS.get(pid)
+            icon = ', icon:"%s"' % ic if ic else ""
             p = phon[pid]                      # English-friendly respelling, not the
             if two:                            # scholarly romanisation in langdata.py
                 x, t, _ = rec
-                rows.append('      {id:"%s", en:"%s", x:"%s", t:"%s", p:"%s"}'
-                            % (pid, esc(EN[pid]), esc(x), esc(t), esc(p)))
+                rows.append('      {id:"%s", en:"%s", x:"%s", t:"%s", p:"%s"%s}'
+                            % (pid, esc(EN[pid]), esc(x), esc(t), esc(p), icon))
             else:
                 x, _ = rec
-                rows.append('      {id:"%s", en:"%s", x:"%s", p:"%s"}'
-                            % (pid, esc(EN[pid]), esc(x), esc(p)))
+                rows.append('      {id:"%s", en:"%s", x:"%s", p:"%s"%s}'
+                            % (pid, esc(EN[pid]), esc(x), esc(p), icon))
         out.append("\n" + ",\n".join(rows) + "\n    ]\n  }" + ("," if si < len(STAGES) - 1 else ""))
     out.append("\n];\n")
 
@@ -166,6 +168,8 @@ def build_phrases(lang):
 
     out.append("\n/* The eleven phrases that come up most, surfaced in a panel at the top of\n   the card so they are reachable without scrolling. These are references, not\n   copies: same ids, same audio, same wording as the stage they belong to. */\n"
                "const QUICK = [%s];\n" % ", ".join('"%s"' % q for q in QUICK))
+    out.append("\nconst QUICKNAV = [%s];\n"
+               % ", ".join('{stage:"%s", icon:"%s"}' % (a, b) for a, b in QUICKNAV))
 
     out.append('\n/* The one pictogram on the card. Diplopia geometry is a perceptual judgement\n'
                '   with no gesture equivalent and clumsy phrasing in any language, so a picture\n'

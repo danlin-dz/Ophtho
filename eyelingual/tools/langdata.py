@@ -76,11 +76,11 @@ STAGES = [
     dict(id="intro", num="01", title="Intro", note=None,
          ids=["intro-doctor", "intro-sit", "intro-pain", "intro-fam-glaucoma"]),
     dict(id="acuity", num="02", title="Vision", note=None, symptomsAfter="sym-ask", diplopiaAfter="vis-double",
-         ids=["vis-glasses-on", "vis-cover-left", "vis-cover-right", "sym-ask", "vis-read-line", "vis-pinhole", "vis-fingers", "vis-see-this", "vis-light-move", "vis-look-nose", "vis-double", "vis-worse-direction"]),
+         ids=["vis-glasses-on", "vis-cover-left", "vis-cover-right", "sym-ask", "vis-read-line", "vis-pinhole", "vis-fingers", "vis-hand-motion", "vis-see-this", "vis-light-move", "vis-look-nose", "vis-double", "vis-worse-direction"]),
     dict(id="pupils", num="03", title="Pupils", note="Before any dilating drop goes in.",
          ids=["pup-shine", "pup-dont-look-light", "pup-both-open"]),
     dict(id="motility", num="04", title="Eye movements", note="Demonstrate and the patient will mirror you.",
-         ids=["mot-finger", "mot-up", "mot-down", "mot-left", "mot-right", "mot-straight"]),
+         ids=["mot-look-here", "mot-finger", "mot-up", "mot-down", "mot-left", "mot-right", "mot-straight"]),
     dict(id="pressure", num="05", title="Eye pressure", note="Also before dilation.",
          ids=["iop-check", "iop-no-hurt", "iop-still"]),
     dict(id="fields", num="06", title="Visual fields", note=None,
@@ -90,7 +90,7 @@ STAGES = [
     dict(id="slitlamp", num="08", title="Slit lamp", note=None,
          ids=["slit-chin", "slit-open", "slit-no-pull-back", "slit-bright", "slit-ear", "slit-touch-lid", "slit-almost"]),
     dict(id="closing", num="09", title="Closing", note=None,
-         ids=["close-finished", "close-interpreter"]),
+         ids=["close-finished", "close-healthy", "close-consult", "close-interpreter"]),
 ]
 
 # Phrases reachable from the Most used panel without appearing in any stage.
@@ -99,9 +99,33 @@ STAGES = [
 EXTRAS = []
 
 # the phrases surfaced in the panel at the top of every card
+# A glyph for the phrases whose meaning IS a direction. Nouns do not get icons —
+# see the README.
+ICONS = {
+    # Direction: the glyph IS the meaning.
+    "mot-up": "up", "mot-down": "down", "mot-left": "left", "mot-right": "right",
+    "drp-look-up": "up",
+    # Object and action markers. These do not carry the meaning on their own — a
+    # bottle could equally mean "these are drops", "I am putting drops in", or
+    # "do you use drops at home". They sit beside the phrase as a scan marker,
+    # never as something to point at instead of the words.
+    "vis-glasses-on": "glasses",
+    "drp-putting": "dropper",
+    "slit-ear": "ear",
+    "slit-open": "eye-open",
+    "pup-both-open": "eye-open",
+    "drp-close": "eye-shut",
+    "close-healthy": "check",
+}
+
+# Shortcuts at the foot of the Most used panel. Navigation, not communication —
+# the clinician is the reader here, so an icon standing in for a whole stage is
+# doing the job icons are actually good at.
+QUICKNAV = [("acuity", "glasses"), ("drops", "dropper"), ("slitlamp", "lamp")]
+
 QUICK = [
-    "mot-up", "mot-down", "mot-left", "mot-right",
-    "mot-straight", "slit-open", "drp-close",
+    "mot-look-here", "mot-up", "mot-down", "mot-left",
+    "mot-right", "mot-straight", "slit-open", "drp-close",
 ]
 
 SYMPTOM_TILES = [
@@ -131,6 +155,10 @@ EN = {
  "intro-sit":"Please sit here.",
  "intro-pain":"Does it hurt? Point to where.",
  "intro-fam-glaucoma":"Do you have a family history of glaucoma?",
+ "mot-look-here":"Look here.",
+ "vis-hand-motion":"Do you see my hand moving?",
+ "close-healthy":"Your eyes are healthy.",
+ "close-consult":"I will have to speak to another doctor about your eyes. I will be back.",
  "vis-glasses-on":"Put your glasses on.",
  "vis-cover-left":"Cover your left eye.",
  "vis-cover-right":"Cover your right eye.",
@@ -187,6 +215,10 @@ ZH = {
  "intro-sit":("请坐这里。","請坐這裡。","Qǐng zuò zhèlǐ."),
  "intro-pain":("痛吗？哪里痛？请指一下。","痛嗎？哪裡痛？請指一下。","Tòng ma? Nǎlǐ tòng? Qǐng zhǐ yíxià."),
  "intro-fam-glaucoma":("您家里有人得过青光眼吗？","您家裡有人得過青光眼嗎？","Nín jiālǐ yǒu rén dé guò qīngguāngyǎn ma?"),
+ "mot-look-here":("请看这里。","請看這裡。","Qǐng kàn zhèlǐ."),
+ "vis-hand-motion":("您看到我的手在动吗？","您看到我的手在動嗎？","Nín kàndào wǒ de shǒu zài dòng ma?"),
+ "close-healthy":("您的眼睛很健康。","您的眼睛很健康。","Nín de yǎnjīng hěn jiànkāng."),
+ "close-consult":("我需要和另一位医生讨论您的眼睛，我一会儿回来。","我需要和另一位醫生討論您的眼睛，我一會兒回來。","Wǒ xūyào hé lìng yī wèi yīshēng tǎolùn nín de yǎnjīng, wǒ yíhuìr huílái."),
  "vis-glasses-on":("请把眼镜戴上。","請把眼鏡戴上。","Qǐng bǎ yǎnjìng dài shàng."),
  "vis-cover-left":("请遮住左眼。","請遮住左眼。","Qǐng zhē zhù zuǒ yǎn."),
  "vis-cover-right":("请遮住右眼。","請遮住右眼。","Qǐng zhē zhù yòu yǎn."),
@@ -243,6 +275,10 @@ YUE = {
  "intro-sit":("請坐喺呢度。","Cing2 co5 hai2 ni1dou6."),
  "intro-pain":("痛唔痛？邊度痛？指俾我睇。","Tung3 m4 tung3? Bin1dou6 tung3? Zi2 bei2 ngo5 tai2."),
  "intro-fam-glaucoma":("你家人有冇人生過青光眼？","Nei5 gaa1jan4 jau5mou5 jan4 saang1 gwo3 cing1gwong1ngaan5?"),
+ "mot-look-here":("望呢度。","Mong6 ni1dou6."),
+ "vis-hand-motion":("你見唔見到我隻手郁？","Nei5 gin3 m4 gin3dou2 ngo5 zek3 sau2 juk1?"),
+ "close-healthy":("你對眼好健康。","Nei5 deoi3 ngaan5 hou2 gin6hong1."),
+ "close-consult":("我要同另一位醫生傾下你對眼，我一陣返嚟。","Ngo5 jiu3 tung4 ling6 jat1 wai2 ji1sang1 king1haa5 nei5 deoi3 ngaan5, ngo5 jat1zan6 faan1lai4."),
  "vis-glasses-on":("請戴返眼鏡。","Cing2 daai3faan1 ngaan5geng2."),
  "vis-cover-left":("請遮住左眼。","Cing2 ze1zyu6 zo2 ngaan5."),
  "vis-cover-right":("請遮住右眼。","Cing2 ze1zyu6 jau6 ngaan5."),
@@ -299,6 +335,10 @@ PA = {
  "intro-sit":("ਕਿਰਪਾ ਕਰਕੇ ਇੱਥੇ ਬੈਠੋ।","Kirpa karke ithe baitho."),
  "intro-pain":("ਦਰਦ ਹੈ? ਕਿੱਥੇ? ਇਸ਼ਾਰਾ ਕਰੋ।","Dard hai? Kithe? Ishara karo."),
  "intro-fam-glaucoma":("ਤੁਹਾਡੇ ਪਰਿਵਾਰ ਵਿੱਚ ਕਿਸੇ ਨੂੰ ਕਾਲਾ ਮੋਤੀਆ ਹੋਇਆ ਹੈ?","Tuhade parivar vich kise nu kala motia hoia hai?"),
+ "mot-look-here":("ਇੱਥੇ ਦੇਖੋ।","Ithe dekho."),
+ "vis-hand-motion":("ਕੀ ਤੁਹਾਨੂੰ ਮੇਰਾ ਹੱਥ ਹਿੱਲਦਾ ਦਿਸਦਾ ਹੈ?","Ki tuhanu mera hatth hilda disda hai?"),
+ "close-healthy":("ਤੁਹਾਡੀਆਂ ਅੱਖਾਂ ਠੀਕ ਹਨ।","Tuhadian akhan theek han."),
+ "close-consult":("ਤੁਹਾਡੀਆਂ ਅੱਖਾਂ ਬਾਰੇ ਦੂਜੇ ਡਾਕਟਰ ਨਾਲ ਗੱਲ ਕਰਨੀ ਹੈ। ਥੋੜ੍ਹੀ ਦੇਰ ਬਾਅਦ ਵਾਪਸ ਆਉਣਾ ਹੈ।","Tuhadian akhan bare duje daktar nal gall karni hai. Thorhi der baad vapas auna hai."),
  "vis-glasses-on":("ਕਿਰਪਾ ਕਰਕੇ ਐਨਕ ਲਗਾਓ।","Kirpa karke ainak lagao."),
  "vis-cover-left":("ਖੱਬੀ ਅੱਖ ਢੱਕੋ।","Khabbi akh dhakko."),
  "vis-cover-right":("ਸੱਜੀ ਅੱਖ ਢੱਕੋ।","Sajji akh dhakko."),
@@ -355,6 +395,10 @@ FA = {
  "intro-sit":("لطفاً اینجا بنشینید.","Lotfan injâ beneshinid."),
  "intro-pain":("درد دارید؟ کجا؟ اشاره کنید.","Dard dârid? Kojâ? Eshâre konid."),
  "intro-fam-glaucoma":("در خانواده شما کسی آب سیاه (گلوکوم) داشته؟","Dar khânevâde-ye shomâ kasi âb-e siyâh (glokom) dâshte?"),
+ "mot-look-here":("اینجا را نگاه کنید.","Injâ râ negâh konid."),
+ "vis-hand-motion":("حرکت دست من را می‌بینید؟","Harekat-e dast-e man râ mibinid?"),
+ "close-healthy":("چشمان شما سالم است.","Cheshmân-e shomâ sâlem ast."),
+ "close-consult":("باید درباره چشمان شما با پزشک دیگری صحبت کنم. زود برمی‌گردم.","Bâyad darbâre-ye cheshmân-e shomâ bâ pezeshk-e digari sohbat konam. Zud barmigardam."),
  "vis-glasses-on":("لطفاً عینک خود را بزنید.","Lotfan eynak-e khod râ bezanid."),
  "vis-cover-left":("چشم چپ خود را بپوشانید.","Cheshm-e chap-e khod râ bepushânid."),
  "vis-cover-right":("چشم راست خود را بپوشانید.","Cheshm-e râst-e khod râ bepushânid."),
@@ -411,6 +455,10 @@ AR = {
  "intro-sit":("من فضلك اجلس هنا.","Min fadlik ijlis hunâ."),
  "intro-pain":("هل تشعر بألم؟ أشر إلى مكانه.","Hal tash'ur bi-alam? Ashir ilâ makânih."),
  "intro-fam-glaucoma":("هل أحد في عائلتك مصاب بالماء الأزرق (الجلوكوما)؟","Hal ahad fî 'â'ilatik musâb bil-mâ' al-azraq (al-glaukômâ)?"),
+ "mot-look-here":("انظر هنا.","Unzur hunâ."),
+ "vis-hand-motion":("هل ترى يدي تتحرك؟","Hal tarâ yadî tataharrak?"),
+ "close-healthy":("عيناك سليمتان.","'Aynâk salîmatân."),
+ "close-consult":("سأتحدث مع طبيب آخر عن عينيك. سأعود قريباً.","Sa-atahaddath ma' tabîb âkhar 'an 'aynayk. Sa-a'ûd qarîban."),
  "vis-glasses-on":("من فضلك ضع نظارتك.","Min fadlik da' nazzâratak."),
  "vis-cover-left":("غطِّ عينك اليسرى.","Ghatti 'aynak al-yusrâ."),
  "vis-cover-right":("غطِّ عينك اليمنى.","Ghatti 'aynak al-yumnâ."),
@@ -467,6 +515,10 @@ KO = {
  "intro-sit":("여기 앉으세요.","Yeogi anjeuseyo."),
  "intro-pain":("아프세요? 어디가 아픈지 가리켜 주세요.","Apeuseyo? Eodiga apeunji garikyeo juseyo."),
  "intro-fam-glaucoma":("가족 중에 녹내장이 있는 분이 계세요?","Gajok junge noknaejangi inneun buni gyeseyo?"),
+ "mot-look-here":("여기를 보세요.","Yeogireul boseyo."),
+ "vis-hand-motion":("제 손이 움직이는 게 보이세요?","Je soni umjigineun ge boiseyo?"),
+ "close-healthy":("눈은 건강합니다.","Nuneun geongang-hamnida."),
+ "close-consult":("다른 의사와 눈에 대해 상의하겠습니다. 곧 돌아오겠습니다.","Dareun uisawa nune daehae sang-uihagesseumnida. Got dora-ogesseumnida."),
  "vis-glasses-on":("안경을 쓰세요.","Angyeongeul sseuseyo."),
  "vis-cover-left":("왼쪽 눈을 가리세요.","Oenjjok nuneul gariseyo."),
  "vis-cover-right":("오른쪽 눈을 가리세요.","Oreunjjok nuneul gariseyo."),
@@ -523,6 +575,10 @@ JA = {
  "intro-sit":("ここに座ってください。","Koko ni suwatte kudasai."),
  "intro-pain":("痛みますか？どこか指さしてください。","Itamimasu ka? Doko ka yubisashite kudasai."),
  "intro-fam-glaucoma":("ご家族に緑内障の方はいますか？","Gokazoku ni ryokunaishô no kata wa imasu ka?"),
+ "mot-look-here":("ここを見てください。","Koko o mite kudasai."),
+ "vis-hand-motion":("手が動いているのが見えますか？","Te ga ugoite iru no ga miemasu ka?"),
+ "close-healthy":("目は健康です。","Me wa kenkô desu."),
+ "close-consult":("目のことを別の医師と相談します。すぐ戻ります。","Me no koto o betsu no ishi to sôdan shimasu. Sugu modorimasu."),
  "vis-glasses-on":("眼鏡をかけてください。","Megane o kakete kudasai."),
  "vis-cover-left":("左目を隠してください。","Hidarime o kakushite kudasai."),
  "vis-cover-right":("右目を隠してください。","Migime o kakushite kudasai."),
@@ -579,6 +635,10 @@ VI = {
  "intro-sit":("Xin mời ngồi đây.",""),
  "intro-pain":("Có đau không? Xin chỉ chỗ đau.",""),
  "intro-fam-glaucoma":("Trong gia đình có ai bị tăng nhãn áp (cườm nước) không?",""),
+ "mot-look-here":("Nhìn vào đây.",""),
+ "vis-hand-motion":("Ông/bà có thấy tay tôi đang di chuyển không?",""),
+ "close-healthy":("Mắt của ông/bà khỏe mạnh.",""),
+ "close-consult":("Tôi cần trao đổi với bác sĩ khác về mắt của ông/bà. Tôi sẽ quay lại.",""),
  "vis-glasses-on":("Xin đeo kính vào.",""),
  "vis-cover-left":("Xin che mắt trái lại.",""),
  "vis-cover-right":("Xin che mắt phải lại.",""),
@@ -635,6 +695,10 @@ TL = {
  "intro-sit":("Maupo po kayo rito.",""),
  "intro-pain":("Masakit po ba? Ituro po ninyo kung saan.",""),
  "intro-fam-glaucoma":("May kamag-anak po ba kayong may glaucoma?",""),
+ "mot-look-here":("Tingnan po ninyo dito.",""),
+ "vis-hand-motion":("Nakikita po ba ninyong gumagalaw ang kamay ko?",""),
+ "close-healthy":("Malusog po ang mga mata ninyo.",""),
+ "close-consult":("Kakausapin ko po ang ibang doktor tungkol sa mata ninyo. Babalik po ako.",""),
  "vis-glasses-on":("Isuot po ninyo ang inyong salamin.",""),
  "vis-cover-left":("Takpan po ninyo ang kaliwang mata.",""),
  "vis-cover-right":("Takpan po ninyo ang kanang mata.",""),

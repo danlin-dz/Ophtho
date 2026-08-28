@@ -1,6 +1,6 @@
 # Recording script — Korean
 
-48 takes. One file per phrase, named exactly by its ID.
+52 takes. One file per phrase, named exactly by its ID.
 
 ## For the speaker
 
@@ -50,6 +50,7 @@ recording sets are fine to ship.
 | `vis-read-line` | `vis-read-line.m4a` | 보이는 가장 작은 줄을 읽어 주세요. | Please read the smallest line you can see. |
 | `vis-pinhole` | `vis-pinhole.m4a` | 작은 구멍으로 보세요. 더 잘 보일 수 있습니다. | Try to look through the tiny hole. It may make your vision clearer. |
 | `vis-fingers` | `vis-fingers.m4a` | 손가락 몇 개예요? | How many fingers? |
+| `vis-hand-motion` | `vis-hand-motion.m4a` | 제 손이 움직이는 게 보이세요? | Do you see my hand moving? |
 | `vis-see-this` | `vis-see-this.m4a` | 이게 보이세요? | Can you see this? |
 | `vis-light-move` | `vis-light-move.m4a` | 빛이 움직이면 말씀해 주세요. | Tell me if you see the light move. |
 | `vis-look-nose` | `vis-look-nose.m4a` | 제 코를 보세요. | Look at my nose. |
@@ -68,6 +69,7 @@ recording sets are fine to ship.
 
 | ID | File | Say this | English |
 |---|---|---|---|
+| `mot-look-here` | `mot-look-here.m4a` | 여기를 보세요. | Look here. |
 | `mot-finger` | `mot-finger.m4a` | 제 손가락을 보세요. 고개를 움직이지 마세요. | Look at my finger. Do not move your head. |
 | `mot-up` | `mot-up.m4a` | 위를 보세요. | Look up. |
 | `mot-down` | `mot-down.m4a` | 아래를 보세요. | Look down. |
@@ -121,8 +123,10 @@ recording sets are fine to ship.
 | ID | File | Say this | English |
 |---|---|---|---|
 | `close-finished` | `close-finished.m4a` | 검사가 끝났습니다. 감사합니다. | The exam is finished. Thank you. |
+| `close-healthy` | `close-healthy.m4a` | 눈은 건강합니다. | Your eyes are healthy. |
+| `close-consult` | `close-consult.m4a` | 다른 의사와 눈에 대해 상의하겠습니다. 곧 돌아오겠습니다. | I will have to speak to another doctor about your eyes. I will be back. |
 | `close-interpreter` | `close-interpreter.m4a` | 통역사를 통해 결과를 설명해 드리겠습니다. | We will use an interpreter to explain the results. |
 
 ---
 
-**48 takes total.** Roughly 20 minutes of recording including retakes.
+**52 takes total.** Roughly 20 minutes of recording including retakes.
