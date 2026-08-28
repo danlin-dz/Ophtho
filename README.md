@@ -207,6 +207,10 @@ The animation of a narrow band of light sweeping the phrase when it opens
 fullscreen, is mimicking a slit lamp. It also signals to the patient and
 healthcare provider that the screen has changed.
 
+Where a phrase has a glyph, it appears above the words in the fullscreen view as
+well, sized 1:1 with the text off a single CSS variable, so it cannot drift out
+of proportion when the size changes.
+
 The patient-facing fullscreen view has 3 text sizes, up to ~170px.
 This is to accommodate patients with visual difficulties or who cannot hear — 
 The largest text size should be readable at arm's length by a patient 
