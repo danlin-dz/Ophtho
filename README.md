@@ -7,7 +7,8 @@ The patient can read the phrase, or tap the speaker and it plays aloud.
 
 9 languages: Mandarin, Cantonese, Punjabi, Farsi, Arabic, Korean, Japanese,
 Vietnamese, Tagalog. Each card opens with a **Most used** panel at the top 
-with the 7 commands that come up on nearly every exam.
+with the 8 commands that come up on nearly every exam, and three shortcut boxes
+underneath that jump straight to Vision, Drops or Slit lamp.
 
 **Scope is deliberately narrow.** Every phrase is either an instruction 
 the patient can act on, or a question answerable by nodding, shaking, or pointing. 
@@ -15,15 +16,17 @@ History, consent, findings, or plan go through a professional interpreter.
 In BC, that is the PHSA Provincial Language Service, 1-877-228-2557.
 
 Site contains no analytics, no data collection of any kind.
+
 ---
 
 **8/9 pages have not yet been reviewed by a native speaker.**
 
-Only Mandarin has, by Danlin Zeng. The other 8 pages carry a "Draft translation — do not
-distribute" banner and a *Draft* badge on the homepage. That is not a bug,
-and the banner will stay until a real speaker has reviewed and approved the card.
+Only Mandarin has, by Danlin Zeng. The other 8 pages say "Translations Reviewed by:
+not yet reviewed" in the footer of their own card. There is no banner and no
+*Draft* badge on the homepage, so nothing is visible until a reader scrolls to
+the bottom of a card.
 
-To clear a banner, set `reviewedBy` and `reviewedOn` in
+To record a review, set `reviewedBy` and `reviewedOn` in
 `audio/<code>/index.json` and rebuild.
 
 Also before going live:
@@ -57,7 +60,7 @@ Cloudflare Pages, free tier — unlimited bandwidth, custom domains, automatic S
 ## Exam order
 
 9 stages: intro, visual acuity, pupils, eye movements, intraocular pressure,
-confrontation fields, dilating drops, slit lamp, closing. 47 phrases per language.
+confrontation fields, dilating drops, slit lamp, closing. 52 phrases per language.
 
 Phrase ids are stable semantic slugs (`vis-fingers`, `iop-check`), not positions.
 Reordering a stage or inserting a phrase never renames anything, so recorded
@@ -80,8 +83,8 @@ A picture asks it better than a sentence can.
 A locally recognizable scene was used as it may work better than a generic one.
 A patient who has stood on that street maps their own experience onto it faster.
 
-. Regenerate both sets with
-`python3 tools/make-symptom-images.py _src/scene.jpg _src/dip.jpg`. 
+Regenerate both sets with
+`python3 tools/make-symptom-images.py _src/scene.jpg _src/dip.jpg`.
 
 
 ### Visual field loss
@@ -175,7 +178,7 @@ all files with real recordings as speakers become available.
 
 ### Recording humans instead
 
-1. `node tools/make-recording-scripts.js ko` → a 47-take script with recording
+1. `node tools/make-recording-scripts.js ko` → a 52-take script with recording
    notes. Hand it to the speaker.
 2. Convert to mono AAC, drop the files in `audio/ko/` named by phrase ID.
 3. List the IDs in the `recorded` array of `audio/ko/index.json`.
@@ -216,6 +219,36 @@ but not accurate. The scholarly romanizations are preserved in `tools/langdata.p
 Typically, Punjabi inflects first-person futures and some participles for the
 speaker's gender. Punjabi is written to avoid speaker-gender marking entirely.  
 One form now works for male or female clinicians.
+
+One phrase to watch when the translations are reviewed: the family history
+question for glaucoma. Several languages name glaucoma and cataract as a matched
+pair — Punjabi ਕਾਲਾ ਮੋਤੀਆ "black cataract" against ਸਫ਼ੈਦ ਮੋਤੀਆ "white cataract",
+Farsi آب سیاه "black water" against آب مروارید, Arabic الماء الأزرق "blue water"
+against الماء الأبيض — and patients mix them up in their own language. Both the
+clinical and the lay term are given where they differ. A "no" here should not be
+recorded as a negative family history without an interpreter confirming it.
+
+The three shortcut boxes under Most used are a separate case from the phrase
+glyphs below: they are navigation, and the clinician is the reader, so an icon
+standing in for a whole stage is doing the job icons are actually good at.
+
+Twelve phrases carry a glyph: four direction arrows, an open eye, a shut eye,
+glasses, a tilted dropper, an ear, and a check. The check marks "Your eyes are
+healthy" rather than a thumbs up, because a thumbs up is a gesture and gestures
+are the one thing that does not travel — it is obscene in parts of the Middle
+East and West Africa, which includes languages this card serves. A star or a
+sparkle borrows "rated highly" or "new" from consumer apps and means nothing
+about health outside that convention. They are redundant with the text on
+purpose. An arrow alone is ambiguous between "your eyes go up" and "the thing is
+up there", and an object icon is weaker still — a bottle names a noun while the
+clinical content is the instruction attached to it, so the same picture could mean
+"these are drops", "I am putting drops in", or "do you use drops at home". Beside
+a phrase they reinforce it and make the card findable at a glance; they are never
+something to point at instead of the words, and there is no icon row to point at.
+
+Phrases whose meaning is a position rather than an object or a direction get
+nothing: "Look here" and "Look straight ahead" are defined by where your hand is,
+which no glyph can carry.
 
 Search function corresponds to the English phrase only, not the translated script 
 or the phonetic respelling
