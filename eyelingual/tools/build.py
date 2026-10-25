@@ -24,8 +24,8 @@ from langdata import (LANGS, GRID, STAGES, EN, DIP_EN, DIP_LABELS, DATA, QUICK, 
 from phonetics import PHON
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-VERSION = "Aug 15 2026"
-CACHE = "eyelingual-2026-08-02"
+VERSION = "Oct 24 2026"
+CACHE = "eyelingual-2026-10-24"
 WRITE_PHRASES = "--phrases" in sys.argv or "--all" in sys.argv
 
 DIP_SVGS = [

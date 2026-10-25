@@ -144,16 +144,6 @@
   .card:active{background:var(--choroid-hi);border-color:var(--line-hi)}
   .card:focus-visible{outline:2px solid var(--reflex);outline-offset:2px}
   .card .body{flex:1;min-width:0}
-  /* Redundant with the text on purpose. An arrow alone is ambiguous between
-     "your eyes go up" and "the thing is up there", and an object icon is worse —
-     a bottle names a noun while the clinical content is the instruction attached
-     to it. These reinforce a phrase and make its card findable at a glance; they
-     are never something to point at instead of the words. */
-  .card .ic{
-    flex:none;width:30px;height:30px;margin-right:2px;
-    color:var(--reflex);opacity:.85;display:grid;place-items:center;
-  }
-  .card .ic svg{width:26px;height:26px;display:block}
   .card .en{
     display:block;font-family:var(--f-mono);font-size:10px;letter-spacing:.16em;
     text-transform:uppercase;color:var(--taupe-dim);margin-bottom:7px;
@@ -298,20 +288,6 @@
   .btn svg{width:17px;height:17px}
   .btn:focus-visible{outline:2px solid var(--reflex);outline-offset:2px}
 
-  /* signature: a slit-lamp beam sweeps the phrase once on reveal */
-  .beam{
-    position:absolute;inset:-20% -60% -20% -60%;pointer-events:none;
-    background:linear-gradient(105deg,transparent 44%,rgba(255,214,170,.05) 47%,
-      rgba(255,231,203,.16) 50%,rgba(255,214,170,.05) 53%,transparent 56%);
-    transform:translateX(-46%);opacity:0;
-  }
-  .show.open .beam{animation:sweep 1000ms cubic-bezier(.3,0,.2,1) 60ms 1 both}
-  @keyframes sweep{
-    0%{transform:translateX(-46%);opacity:0}
-    12%{opacity:1}88%{opacity:1}
-    100%{transform:translateX(46%);opacity:0}
-  }
-
   /* ---------- update pill ---------- */
   .update{
     position:fixed;left:50%;transform:translateX(-50%);
@@ -338,7 +314,6 @@
   body.filtering .sym,body.filtering #quick{display:none}
 
   @media (prefers-reduced-motion:reduce){
-    .show.open .beam{animation:none;opacity:0}
     *{transition:none!important}
   }
 </style>
@@ -391,7 +366,6 @@
     <span>Tap to close</span>
   </div>
   <div class="show-mid">
-    <div class="beam" aria-hidden="true"></div>
     <span class="show-ic" id="showIcon" aria-hidden="true"></span>
     <p id="showZh"></p>
     <p id="showPy"></p>
@@ -427,7 +401,7 @@
 
 <script src="phrases.js"></script>
 <script>
-const VERSION = "Aug 15 2026";
+const VERSION = "Oct 24 2026";
 const LANG = "ja";
 const TTS_PRIMARY = "ja-JP";
 const TTS_FALLBACKS = ["ja"];
@@ -467,9 +441,6 @@ const ICON_PATHS = {
          + '<path d="M12 1.9v2.7M12 19.4V22M4.4 4.4l1.9 1.9M17.7 17.7l1.9 1.9'
          + 'M1.9 12h2.7M19.4 12H22M4.4 19.6l1.9-1.9M17.7 6.3l1.9-1.9"/>'
 };
-const dirSvg = k => `<span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"
-  stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${ICON_PATHS[k]}</svg></span>`;
-
 function makeCard(it){
   const card = document.createElement("button");
   card.className = "card";
@@ -479,7 +450,6 @@ function makeCard(it){
      particular produces noise: "kahn" hits half the Mandarin card. */
   card.dataset.hay = it.en.toLowerCase();
   card.innerHTML =
-    (it.icon && ICON_PATHS[it.icon] ? dirSvg(it.icon) : "") +
     `<span class="body">
        <span class="en">${it.en}</span>
        <span class="zh" data-x="${it.x}" data-t="${it.t || it.x}">${it.x}</span>
@@ -495,7 +465,10 @@ function makeCard(it){
 }
 
 let script = "x";
-let recorded = new Set();
+/* id -> filename. Entries in index.json may be a bare id ("s01-01", assumed
+   .m4a) or a full filename ("s01-01.mp3"), so generated and human-recorded
+   files can sit side by side without a conversion step. */
+let recorded = new Map();
 let audioEl = null;
 const $ = id => document.getElementById(id);
 const list = $("list"), chips = $("chips");
@@ -614,7 +587,11 @@ fetch(`../audio/${LANG}/index.json`, {cache:"no-cache"})
   .then(r => r.ok ? r.json() : null)
   .then(m=>{
     if(!m) return;
-    recorded = new Set(m.recorded || []);
+    recorded = new Map();
+    (m.recorded || []).forEach(e=>{
+      const file = String(e).includes(".") ? String(e) : e + ".m4a";
+      recorded.set(file.replace(/\.[^.]+$/, ""), file);
+    });
     if(m.reviewedBy) $("rTag").textContent = m.reviewedBy;
     document.querySelectorAll(".spk").forEach(sp=>{
       if(recorded.has(sp.dataset.id)) sp.classList.add("rec");
@@ -673,7 +650,7 @@ function play(item, btn, tag){
   stopAll();
   if(tag) tag.textContent = "";
   if(recorded.has(item.id)){
-    audioEl = new Audio(`../audio/${LANG}/${item.id}.m4a`);
+    audioEl = new Audio(`../audio/${LANG}/${recorded.get(item.id)}`);
     if(btn) btn.classList.add("on");
     if(tag) tag.textContent = "Recorded voice";
     const done = ()=>{ if(btn) btn.classList.remove("on"); };
@@ -729,8 +706,6 @@ function openShow(it){
          stroke-linecap="round" stroke-linejoin="round">${ICON_PATHS[it.icon]}</svg>` : "";
   $("showPy").textContent = it.p || "";
   $("voiceTag").textContent = "";
-  show.classList.remove("open");
-  void show.offsetWidth;                 // restart the beam sweep
   show.classList.add("open");
   $("showSpeak").focus();
 }

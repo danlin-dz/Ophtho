@@ -114,12 +114,47 @@ async def gen(code):
         except Exception as e:
             print("  FAIL %s  %s" % (pid, e))
 
+    # ffmpeg is optional: the card plays .mp3 as happily as .m4a. Convert only
+    # if it is installed, purely to make the files smaller.
+    import shutil, subprocess
+    files = []
+    if shutil.which("ffmpeg"):
+        for pid in done:
+            src = os.path.join(outdir, pid + ".mp3")
+            dst = os.path.join(outdir, pid + ".m4a")
+            r = subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", src,
+                                "-ac", "1", "-c:a", "aac", "-b:a", "40k", dst],
+                               capture_output=True)
+            if r.returncode == 0 and os.path.getsize(dst) > 500:
+                os.remove(src); files.append(pid + ".m4a")
+            else:
+                files.append(pid + ".mp3")
+        print("  converted to .m4a")
+    else:
+        files = [pid + ".mp3" for pid in done]
+        print("  ffmpeg not found — keeping .mp3 (the card plays either)")
+
     idx = os.path.join(outdir, "index.json")
     meta = json.load(open(idx, encoding="utf-8")) if os.path.exists(idx) else {}
-    meta.update({"language": name, "voice": voice, "recorded": done,
+    meta.update({"language": name, "voice": voice, "recorded": files,
                  "reviewedBy": meta.get("reviewedBy"), "reviewedOn": meta.get("reviewedOn")})
     json.dump(meta, open(idx, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
-    print("  wrote %d/%d, updated audio/%s/index.json" % (len(done), len(items), code))
+    print("  wrote %d/%d, updated audio/%s/index.json" % (len(files), len(items), code))
+
+
+def finish():
+    """Bump the cache key and rebuild, so installed phones pick the audio up."""
+    import datetime, subprocess, re as _re
+    bp = os.path.join(ROOT, "tools", "build.py")
+    src = open(bp, encoding="utf-8").read()
+    stamp = datetime.date.today().isoformat()
+    new_src, n = _re.subn(r'CACHE = "[^"]*"', 'CACHE = "eyelingual-%s"' % stamp, src, count=1)
+    if n:
+        open(bp, "w", encoding="utf-8").write(new_src)
+        print("\nCACHE bumped to eyelingual-%s" % stamp)
+    r = subprocess.run(["python3", os.path.join(ROOT, "tools", "build.py")],
+                       capture_output=True, text=True)
+    print("rebuilt" if r.returncode == 0 else "build failed:\n" + r.stderr)
 
 
 def main():
@@ -132,8 +167,8 @@ def main():
         sys.exit("unknown language code(s): " + ", ".join(bad))
     for c in codes:
         asyncio.run(gen(c))
-    print("\nNow convert to .m4a if you want, then bump CACHE in tools/build.py "
-          "and rebuild so phones pick the new files up.")
+    finish()
+    print("\nDone. Commit and push; installed phones pick the audio up on next load.")
 
 
 if __name__ == "__main__":
