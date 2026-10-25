@@ -29,10 +29,6 @@ the bottom of a card.
 To record a review, set `reviewedBy` and `reviewedOn` in
 `audio/<code>/index.json` and rebuild.
 
-Also before going live:
-- [ ] Buy a domain before printing any QR codes
-- [ ] Generate or record the audio: 4/9 languages are silent on a stock Apple device without it
-
 ## Build
 
 Everything is generated from one template, so the 9 cards cannot drift apart.
@@ -164,6 +160,12 @@ file, this removes the listener's device from the equation entirely.
     python3 tools/make-audio.py --list      # check voice availability first
     python3 tools/make-audio.py --all
 
+That one command generates the files, converts them to .m4a if ffmpeg is
+installed, writes the filenames into each `audio/<code>/index.json`, bumps
+`CACHE`, and rebuilds. Nothing else to run. ffmpeg is optional — the card plays
+.mp3 and .m4a alike, and entries in `recorded` may be a bare id or a full
+filename, so generated and human-recorded files can sit side by side.
+
 Until that is done, a card whose language has no device voice stays silent and
 says so, and dims its speaker buttons. It deliberately does **not** hand the text
 to whatever default voice the device has — an English voice given Gurmukhi reads
@@ -182,7 +184,8 @@ all files with real recordings as speakers become available.
    notes. Hand it to the speaker.
 2. Convert to mono AAC, drop the files in `audio/ko/` named by phrase ID.
 3. List the IDs in the `recorded` array of `audio/ko/index.json`.
-4. Bump `CACHE` in `tools/build.py` and rebuild.
+4. Bump `CACHE` in `tools/build.py` and rebuild. (`make-audio.py` does this for
+   you; only needed when dropping in recordings by hand.)
 
 Anything not listed in `recorded` falls back to the device voice, so partial sets
 ship fine. Phrases with a real recording will show a dot on the speaker button.
@@ -203,12 +206,8 @@ simulated protanopia, deuteranopia and tritanopia. Nothing conveys meaning by
 colour alone. `python3 tools/check-colours.py` re-runs the audit and exits
 non-zero on failure, so it doubles as a pre-deploy check.
 
-The animation of a narrow band of light sweeping the phrase when it opens
-fullscreen, is mimicking a slit lamp. It also signals to the patient and
-healthcare provider that the screen has changed.
-
-Where a phrase has a glyph, it appears above the words in the fullscreen view as
-well, sized 1:1 with the text off a single CSS variable, so it cannot drift out
+Where a phrase has a glyph, it appears above the words in the fullscreen view
+only, sized 1:1 with the text off a single CSS variable, so it cannot drift out
 of proportion when the size changes.
 
 The patient-facing fullscreen view has 3 text sizes, up to ~170px.
@@ -233,7 +232,7 @@ clinical and the lay term are given where they differ. A "no" here should not be
 recorded as a negative family history without an interpreter confirming it.
 
 The three shortcut boxes under Most used are a separate case from the phrase
-glyphs below: they are navigation, and the clinician is the reader, so an icon
+phrase glyphs: they are navigation, and the clinician is the reader, so an icon
 standing in for a whole stage is doing the job icons are actually good at.
 
 Twelve phrases carry a glyph: four direction arrows, an open eye, a shut eye,
@@ -246,9 +245,9 @@ about health outside that convention. They are redundant with the text on
 purpose. An arrow alone is ambiguous between "your eyes go up" and "the thing is
 up there", and an object icon is weaker still — a bottle names a noun while the
 clinical content is the instruction attached to it, so the same picture could mean
-"these are drops", "I am putting drops in", or "do you use drops at home". Beside
-a phrase they reinforce it and make the card findable at a glance; they are never
-something to point at instead of the words, and there is no icon row to point at.
+"these are drops", "I am putting drops in", or "do you use drops at home". Above
+the fullscreen phrase they reinforce it; they are never something to point at
+instead of the words, and there is no icon row to point at.
 
 Phrases whose meaning is a position rather than an object or a direction get
 nothing: "Look here" and "Look straight ahead" are defined by where your hand is,
