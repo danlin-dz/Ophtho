@@ -223,7 +223,9 @@ def build_card(lang, template):
         "__BODYCLASS__": " ".join(body_classes),
         "__TOGGLE__": TOGGLE_HTML if lang["scriptToggle"] else "",
         "__FOOTNOTE__": TOGGLE_NOTE if lang["scriptToggle"] else "",
-        "__REVIEWED__": lang["reviewedBy"] or "not yet reviewed",
+        "__REVIEWED__": lang["reviewedBy"] or "",
+        "__RHIDDEN__": "" if lang["reviewedBy"] else " hidden",
+        "__VERSION__": VERSION,
     }
     # an empty optional block should take its whole line with it, so pages that
     # omit the toggle don't carry a stray blank line

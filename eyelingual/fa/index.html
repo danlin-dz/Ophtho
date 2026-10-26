@@ -369,7 +369,7 @@
     Nothing on this page is collected, stored, or transmitted.
     <div class="meta">
       Last Updated: <span id="vTag">—</span><br>
-      Translations Reviewed by: <span id="rTag">not yet reviewed</span><br>
+      <span id="rLine" hidden>Translations Reviewed by: <span id="rTag"></span><br></span>
       Page Maintained By: Danlin Zeng<br>
       CC BY-NC-SA 4.0
     </div>
@@ -419,7 +419,7 @@
 
 <script src="phrases.js"></script>
 <script>
-const VERSION = "Oct 24 2026";
+const VERSION = "Oct 25 2026";
 const LANG = "fa";
 const TTS_PRIMARY = "fa-IR";
 const TTS_FALLBACKS = ["fa"];
@@ -615,7 +615,7 @@ fetch(`../audio/${LANG}/index.json`, {cache:"no-cache"})
       const file = String(e).includes(".") ? String(e) : e + ".m4a";
       recorded.set(file.replace(/\.[^.]+$/, ""), file);
     });
-    if(m.reviewedBy) $("rTag").textContent = m.reviewedBy;
+    if(m.reviewedBy){ $("rTag").textContent = m.reviewedBy; $("rLine").hidden = false; }
     document.querySelectorAll(".spk").forEach(sp=>{
       if(recorded.has(sp.dataset.id)) sp.classList.add("rec");
     });

@@ -371,7 +371,7 @@ __FOOTNOTE__
     Nothing on this page is collected, stored, or transmitted.
     <div class="meta">
       Last Updated: <span id="vTag">—</span><br>
-      Translations Reviewed by: <span id="rTag">__REVIEWED__</span><br>
+      <span id="rLine"__RHIDDEN__>Translations Reviewed by: <span id="rTag">__REVIEWED__</span><br></span>
       Page Maintained By: Danlin Zeng<br>
       CC BY-NC-SA 4.0
     </div>
@@ -421,7 +421,7 @@ __FOOTNOTE__
 
 <script src="phrases.js"></script>
 <script>
-const VERSION = "Oct 24 2026";
+const VERSION = "__VERSION__";
 const LANG = "__CODE__";
 const TTS_PRIMARY = "__TTS__";
 const TTS_FALLBACKS = __TTSFALLBACKS__;
@@ -617,7 +617,7 @@ fetch(`../audio/${LANG}/index.json`, {cache:"no-cache"})
       const file = String(e).includes(".") ? String(e) : e + ".m4a";
       recorded.set(file.replace(/\.[^.]+$/, ""), file);
     });
-    if(m.reviewedBy) $("rTag").textContent = m.reviewedBy;
+    if(m.reviewedBy){ $("rTag").textContent = m.reviewedBy; $("rLine").hidden = false; }
     document.querySelectorAll(".spk").forEach(sp=>{
       if(recorded.has(sp.dataset.id)) sp.classList.add("rec");
     });
