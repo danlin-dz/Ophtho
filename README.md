@@ -19,20 +19,6 @@ Site contains no analytics, no data collection of any kind.
 
 ---
 
-**8/9 pages have not yet been reviewed by a native speaker.**
-
-Only Mandarin has, by Danlin Zeng. The other 8 pages say "Translations Reviewed by:
-not yet reviewed" in the footer of their own card. There is no banner and no
-*Draft* badge on the homepage, so nothing is visible until a reader scrolls to
-the bottom of a card.
-
-To record a review, set `reviewedBy` and `reviewedOn` in
-`audio/<code>/index.json` and rebuild.
-
-Also before going live:
-- [ ] Buy a domain before printing any QR codes
-- [ ] Generate or record the audio: 4/9 languages are silent on a stock Apple device without it
-
 ## Build
 
 Everything is generated from one template, so the 9 cards cannot drift apart.
@@ -60,7 +46,7 @@ Cloudflare Pages, free tier — unlimited bandwidth, custom domains, automatic S
 ## Exam order
 
 9 stages: intro, visual acuity, pupils, eye movements, intraocular pressure,
-confrontation fields, dilating drops, slit lamp, closing. 53 phrases per language, counting the diplopia question.
+confrontation fields, dilating drops, slit lamp, closing. 53 phrases per language.
 
 Phrase ids are stable semantic slugs (`vis-fingers`, `iop-check`), not positions.
 Reordering a stage or inserting a phrase never renames anything, so recorded
