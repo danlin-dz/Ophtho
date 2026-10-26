@@ -29,6 +29,10 @@ the bottom of a card.
 To record a review, set `reviewedBy` and `reviewedOn` in
 `audio/<code>/index.json` and rebuild.
 
+Also before going live:
+- [ ] Buy a domain before printing any QR codes
+- [ ] Generate or record the audio: 4/9 languages are silent on a stock Apple device without it
+
 ## Build
 
 Everything is generated from one template, so the 9 cards cannot drift apart.
@@ -56,7 +60,7 @@ Cloudflare Pages, free tier — unlimited bandwidth, custom domains, automatic S
 ## Exam order
 
 9 stages: intro, visual acuity, pupils, eye movements, intraocular pressure,
-confrontation fields, dilating drops, slit lamp, closing. 52 phrases per language.
+confrontation fields, dilating drops, slit lamp, closing. 53 phrases per language, counting the diplopia question.
 
 Phrase ids are stable semantic slugs (`vis-fingers`, `iop-check`), not positions.
 Reordering a stage or inserting a phrase never renames anything, so recorded
@@ -68,6 +72,9 @@ Images (14 symptom tiles and 3 diplopia tiles) in the Vision stage.
 This is the strongest case for imagery on the whole site. 
 Perceptual experiences are difficult to describe in any language.
 A picture asks it better than a sentence can.
+
+Every tile enlarges when tapped. The diplopia question opens fullscreen like any
+phrase, with its 3 images below it, and has its own audio (`dip-ask`).
 
 2 source photographs, provided by Danlin Zeng:
 
@@ -180,7 +187,7 @@ all files with real recordings as speakers become available.
 
 ### Recording humans instead
 
-1. `node tools/make-recording-scripts.js ko` → a 52-take script with recording
+1. `node tools/make-recording-scripts.js ko` → a 53-take script with recording
    notes. Hand it to the speaker.
 2. Convert to mono AAC, drop the files in `audio/ko/` named by phrase ID.
 3. List the IDs in the `recorded` array of `audio/ko/index.json`.
