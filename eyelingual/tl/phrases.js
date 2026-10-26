@@ -157,6 +157,7 @@ const QUICKNAV = [{stage:"acuity", icon:"glasses"}, {stage:"drops", icon:"droppe
    with no gesture equivalent and clumsy phrasing in any language, so a picture
    genuinely outperforms a sentence here. Anchored by diplopiaAfter. */
 const DIP = {
+  id:"dip-ask",
   en:"If you see two — how are they arranged? Point.",
   x:"Kung nakikita ninyong dalawa, paano po nakaayos? Ituro po ninyo.",
   p:"koong na-kee-kee-ta nin-yong da-la-wa, pa-ah-no po na-ka-ah-yos? ee-too-ro po nin-yo",

@@ -74,7 +74,11 @@ def load_phrases(code):
     import re
     src = open(os.path.join(ROOT, code, "phrases.js"), encoding="utf-8").read()
     out = []
-    for m in re.finditer(r'\{id:"(s\d\d-\d\d)", en:"(.*?)", x:"(.*?)"', src):
+    for m in re.finditer(r'\{id:"([a-z0-9-]+)", en:"(.*?)", x:"(.*?)"', src):
+        out.append((m.group(1), m.group(3)))
+    # The diplopia question sits outside STAGES but is spoken like any phrase.
+    m = re.search(r'const DIP = \{\s*id:"([a-z0-9-]+)",\s*en:"(.*?)",\s*x:"(.*?)"', src)
+    if m:
         out.append((m.group(1), m.group(3)))
     return out
 

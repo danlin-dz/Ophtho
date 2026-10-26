@@ -157,6 +157,7 @@ const QUICKNAV = [{stage:"acuity", icon:"glasses"}, {stage:"drops", icon:"droppe
    with no gesture equivalent and clumsy phrasing in any language, so a picture
    genuinely outperforms a sentence here. Anchored by diplopiaAfter. */
 const DIP = {
+  id:"dip-ask",
   en:"If you see two — how are they arranged? Point.",
   x:"如果看到两个，是怎么排的？请指一下。",
   t:"如果看到兩個，是怎麼排的？請指一下。",

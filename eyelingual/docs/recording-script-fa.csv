@@ -16,6 +16,7 @@ id,file,stage,english,target,romanisation
 "vis-look-nose","vis-look-nose.m4a","Vision","Look at my nose.","به بینی من نگاه کنید.","beh bee-nee-yeh mun neh-gah koh-need"
 "vis-double","vis-double.m4a","Vision","Do you see two of me?","آیا مرا دوتا می‌بینید؟","ah-yah mah-rah doe tah mee-bee-need?"
 "vis-worse-direction","vis-worse-direction.m4a","Vision","Is it worse looking this way?","وقتی به این طرف نگاه می‌کنید بدتر است؟","vagh-tee beh een tah-raf neh-gah mee-koh-need bad-tar ast?"
+"dip-ask","dip-ask.m4a","Vision","If you see two — how are they arranged? Point.","اگر دوتا می‌بینید، چگونه قرار دارند؟ اشاره کنید.","ah-gar doe tah mee-bee-need, cheh-goo-neh gha-rar dah-rand? eh-shah-reh koh-need"
 "pup-shine","pup-shine.m4a","Pupils","I am going to shine a light in your eyes. Please look at the wall behind me.","با چراغ به چشمانتان نور می‌تابانم. به دیوار پشت سر من نگاه کنید.","bah cheh-rahgh beh chesh-mah-neh-tahn noor mee-tah-bah-nam. beh dee-vahr posht-eh sar-eh mun neh-gah koh-need"
 "pup-dont-look-light","pup-dont-look-light.m4a","Pupils","Do not look at the light. Keep looking far away.","به نور نگاه نکنید، به دور نگاه کنید.","beh noor neh-gah nah-koh-need, beh door neh-gah koh-need"
 "pup-both-open","pup-both-open.m4a","Pupils","Keep both eyes open.","هر دو چشم را باز نگه دارید.","har doe chesh-m rah bahz neh-geh dah-reed"

@@ -20,7 +20,8 @@ for (const code of codes) {
   const box = {};
   new Function("g", src + "\ng.STAGES=STAGES; g.DIP=DIP;")(box);
   const { STAGES } = box;
-  const total = STAGES.reduce((n, s) => n + s.items.length, 0);
+  const { DIP } = box;
+  const total = STAGES.reduce((n, s) => n + s.items.length, 0) + (DIP && DIP.id ? 1 : 0);
   const name = NAMES[code];
 
   let md = `# Recording script — ${name}
@@ -64,6 +65,10 @@ recording sets are fine to ship.
     for (const it of st.items) {
       md += `| \`${it.id}\` | \`${it.id}.m4a\` | ${it.x} | ${it.en} |\n`;
       csv += [it.id, it.id + ".m4a", st.title, it.en, it.x, it.p].map(q).join(",") + "\n";
+    }
+    if (DIP && DIP.id && st.diplopiaAfter) {
+      md += `| \`${DIP.id}\` | \`${DIP.id}.m4a\` | ${DIP.x} | ${DIP.en} |\n`;
+      csv += [DIP.id, DIP.id + ".m4a", st.title, DIP.en, DIP.x, DIP.p].map(q).join(",") + "\n";
     }
   }
   md += `\n---\n\n**${total} takes total.** Roughly 20 minutes of recording including retakes.\n`;

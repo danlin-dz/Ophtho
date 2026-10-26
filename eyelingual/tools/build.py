@@ -24,8 +24,8 @@ from langdata import (LANGS, GRID, STAGES, EN, DIP_EN, DIP_LABELS, DATA, QUICK, 
 from phonetics import PHON
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-VERSION = "Oct 24 2026"
-CACHE = "eyelingual-2026-10-24"
+VERSION = "Oct 25 2026"
+CACHE = "eyelingual-2026-10-25"
 WRITE_PHRASES = "--phrases" in sys.argv or "--all" in sys.argv
 
 DIP_SVGS = [
@@ -174,6 +174,7 @@ def build_phrases(lang):
     out.append('\n/* The one pictogram on the card. Diplopia geometry is a perceptual judgement\n'
                '   with no gesture equivalent and clumsy phrasing in any language, so a picture\n'
                '   genuinely outperforms a sentence here. Anchored by diplopiaAfter. */\nconst DIP = {\n')
+    out.append('  id:"dip-ask",\n')
     out.append('  en:"%s",\n' % esc(DIP_EN))
     if two:
         out.append('  x:"%s",\n  t:"%s",\n' % (esc(dip[0]), esc(dip[1])))

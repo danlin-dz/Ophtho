@@ -1,6 +1,6 @@
 # Recording script — Korean
 
-52 takes. One file per phrase, named exactly by its ID.
+53 takes. One file per phrase, named exactly by its ID.
 
 ## For the speaker
 
@@ -56,6 +56,7 @@ recording sets are fine to ship.
 | `vis-look-nose` | `vis-look-nose.m4a` | 제 코를 보세요. | Look at my nose. |
 | `vis-double` | `vis-double.m4a` | 제가 두 명으로 보이세요? | Do you see two of me? |
 | `vis-worse-direction` | `vis-worse-direction.m4a` | 이쪽을 볼 때 더 심한가요? | Is it worse looking this way? |
+| `dip-ask` | `dip-ask.m4a` | 두 개로 보이면 어떻게 보이나요? 가리켜 주세요. | If you see two — how are they arranged? Point. |
 
 ## 03 · Pupils
 
@@ -129,4 +130,4 @@ recording sets are fine to ship.
 
 ---
 
-**52 takes total.** Roughly 20 minutes of recording including retakes.
+**53 takes total.** Roughly 20 minutes of recording including retakes.

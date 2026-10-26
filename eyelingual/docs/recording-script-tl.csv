@@ -16,6 +16,7 @@ id,file,stage,english,target,romanisation
 "vis-look-nose","vis-look-nose.m4a","Vision","Look at my nose.","Tingnan po ninyo ang ilong ko.","ting-nan po nin-yo ang ee-long ko"
 "vis-double","vis-double.m4a","Vision","Do you see two of me?","Nakikita po ba ninyo akong dalawa?","na-kee-kee-ta po ba nin-yo ah-kong da-la-wa?"
 "vis-worse-direction","vis-worse-direction.m4a","Vision","Is it worse looking this way?","Mas malala po ba kapag tumitingin sa ganitong direksyon?","mas ma-la-la po ba ka-pag too-mee-ting-in sa ga-nee-tong dee-rek-shon?"
+"dip-ask","dip-ask.m4a","Vision","If you see two — how are they arranged? Point.","Kung nakikita ninyong dalawa, paano po nakaayos? Ituro po ninyo.","koong na-kee-kee-ta nin-yong da-la-wa, pa-ah-no po na-ka-ah-yos? ee-too-ro po nin-yo"
 "pup-shine","pup-shine.m4a","Pupils","I am going to shine a light in your eyes. Please look at the wall behind me.","Tatapatan ko po ng ilaw ang mga mata ninyo. Tingnan po ninyo ang pader sa likod ko.","ta-ta-pa-tan ko po nang ee-low ang ma-nga ma-ta nin-yo. ting-nan po nin-yo ang pa-der sa lee-kod ko"
 "pup-dont-look-light","pup-dont-look-light.m4a","Pupils","Do not look at the light. Keep looking far away.","Huwag po tingnan ang ilaw, tumingin po sa malayo.","hoo-wag po ting-nan ang ee-low, too-ming-in po sa ma-la-yo"
 "pup-both-open","pup-both-open.m4a","Pupils","Keep both eyes open.","Imulat po ninyo ang dalawang mata.","ee-moo-lat po nin-yo ang da-la-wang ma-ta"

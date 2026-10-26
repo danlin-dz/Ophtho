@@ -16,6 +16,7 @@ id,file,stage,english,target,romanisation
 "vis-look-nose","vis-look-nose.m4a","Vision","Look at my nose.","私の鼻を見てください。","wa-ta-shee no ha-na oh mee-tay koo-da-sigh"
 "vis-double","vis-double.m4a","Vision","Do you see two of me?","私が二人に見えますか？","wa-ta-shee ga foo-ta-ree nee mee-eh-mass ka?"
 "vis-worse-direction","vis-worse-direction.m4a","Vision","Is it worse looking this way?","こちらを見るとひどくなりますか？","koh-chee-ra oh mee-roo toh hee-doh-koo na-ree-mass ka?"
+"dip-ask","dip-ask.m4a","Vision","If you see two — how are they arranged? Point.","二つ見える場合、どのように並んでいますか？指さしてください。","foo-ta-tsu mee-eh-roo bye, doh-no yoh nee na-ran-day ee-mass ka? yoo-bee-sa-shee-tay koo-da-sigh"
 "pup-shine","pup-shine.m4a","Pupils","I am going to shine a light in your eyes. Please look at the wall behind me.","目に光を当てます。私の後ろの壁を見てください。","may nee hee-ka-ree oh ah-tay-mass. wa-ta-shee no oo-shee-roh no ka-bay oh mee-tay koo-da-sigh"
 "pup-dont-look-light","pup-dont-look-light.m4a","Pupils","Do not look at the light. Keep looking far away.","光を見ないで、遠くを見ていてください。","hee-ka-ree oh mee-nigh-day, toh-koo oh mee-tay ee-tay koo-da-sigh"
 "pup-both-open","pup-both-open.m4a","Pupils","Keep both eyes open.","両目を開けたままにしてください。","ryoh-may oh ah-kay-ta ma-ma nee shee-tay koo-da-sigh"

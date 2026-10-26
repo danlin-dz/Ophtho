@@ -1,6 +1,6 @@
 # Recording script — Cantonese
 
-52 takes. One file per phrase, named exactly by its ID.
+53 takes. One file per phrase, named exactly by its ID.
 
 ## For the speaker
 
@@ -56,6 +56,7 @@ recording sets are fine to ship.
 | `vis-look-nose` | `vis-look-nose.m4a` | 望住我個鼻。 | Look at my nose. |
 | `vis-double` | `vis-double.m4a` | 你係咪見到兩個我？ | Do you see two of me? |
 | `vis-worse-direction` | `vis-worse-direction.m4a` | 望呢邊會唔會嚴重啲？ | Is it worse looking this way? |
+| `dip-ask` | `dip-ask.m4a` | 如果見到兩個，係點樣排？指俾我睇。 | If you see two — how are they arranged? Point. |
 
 ## 03 · Pupils
 
@@ -129,4 +130,4 @@ recording sets are fine to ship.
 
 ---
 
-**52 takes total.** Roughly 20 minutes of recording including retakes.
+**53 takes total.** Roughly 20 minutes of recording including retakes.

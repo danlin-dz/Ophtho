@@ -172,7 +172,6 @@
 
   /* ---------- right-to-left target scripts ---------- */
   body.rtl .card .zh,
-  body.rtl .dip .zh{direction:rtl;text-align:right;unicode-bidi:isolate}
   body.rtl #showZh{direction:rtl;unicode-bidi:isolate}
 
   /* ---------- symptom picker ---------- */
@@ -203,6 +202,7 @@
   }
   .lightbox.open{display:flex}
   .lightbox img{max-width:100%;max-height:64vh;border-radius:50%}
+  .lightbox.square img{border-radius:14px}
   .lightbox .lab{
     font-family:var(--f-target);font-size:clamp(24px,7vw,40px);
     margin:22px 0 0;text-align:center;line-height:1.3;
@@ -218,11 +218,14 @@
   }
 
   /* ---------- diplopia picker ---------- */
-  .dip{border:1px solid var(--line);border-radius:14px;padding:16px 14px 14px;margin:4px 0 8px;background:var(--pupil-deep)}
-  .dip .en{font-family:var(--f-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--taupe-dim)}
-  .dip .zh{font-family:var(--f-target);font-size:22px;font-weight:500;margin:8px 0 16px;line-height:1.4}
+  .dip{margin:4px 0 8px}
   .dip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-  .dip-opt{border:1px solid var(--line);border-radius:10px;padding:7px 6px 10px;text-align:center;background:var(--choroid)}
+  .dip-opt{
+    display:block;width:100%;font:inherit;color:inherit;cursor:pointer;
+    border:1px solid var(--line);border-radius:10px;padding:7px 6px 10px;text-align:center;background:var(--choroid);
+  }
+  .dip-opt:active{border-color:var(--reflex)}
+  .dip-opt:focus-visible{outline:2px solid var(--reflex);outline-offset:2px}
   .dip-opt img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;border-radius:8px}
   .dip-opt span{display:block;font-family:var(--f-target);font-size:15px;margin-top:9px;color:var(--disc);line-height:1.3}
   .dip-opt small{display:block;font-family:var(--f-mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--taupe-dim);margin-top:4px}
@@ -265,6 +268,20 @@
   body.zoom1 #showPy,body.zoom2 #showPy{display:none}   /* the clinician's line is not the patient's */
   #showPy{font-size:15px;font-style:italic;color:var(--taupe);margin:22px 0 0;letter-spacing:.02em}
   #showPy:empty{display:none}
+  /* The diplopia question carries its three pictures into the fullscreen view,
+     so the patient can point at them at the same size as the words. */
+  /* Stacked on a phone so each picture is larger than its thumbnail; the view
+     scrolls. Side by side once the screen is wide enough to stay large. */
+  #showOpts{display:none;grid-template-columns:1fr;gap:22px;width:min(78vw,420px);margin-top:calc(var(--show-fs) * .5)}
+  @media (min-width:700px){ #showOpts{grid-template-columns:repeat(3,1fr);width:min(100%,960px)} }
+  #showOpts.on{display:grid}
+  #showOpts div{text-align:center}
+  #showOpts img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;display:block}
+  #showOpts span{display:block;font-family:var(--f-target);font-size:calc(var(--show-fs) * .5);margin-top:10px;color:var(--disc);line-height:1.25}
+  /* Centred when it fits, top-aligned when it does not: plain centring in a
+     scrolling flex box pushes the start of a long phrase out of reach. */
+  .show-mid{justify-content:flex-start}
+  .show-mid::before,.show-mid::after{content:"";margin:auto}
   .show-bot{flex:none;display:flex;flex-direction:column;gap:10px;align-items:center}
   .show-btns{display:flex;gap:12px;align-items:center;justify-content:center}
   #voiceTag{font-family:var(--f-mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--taupe-dim);min-height:12px}
@@ -376,6 +393,7 @@
     <span class="show-ic" id="showIcon" aria-hidden="true"></span>
     <p id="showZh"></p>
     <p id="showPy"></p>
+    <div id="showOpts" aria-hidden="true"></div>
   </div>
   <div class="show-bot">
     <div class="show-btns">
@@ -504,16 +522,18 @@ STAGES.forEach(st=>{
   const buildDip = ()=>{
     const d = document.createElement("div");
     d.className = "dip";
-    d.innerHTML =
-      `<div class="en">${DIP.en}</div>
-       <div class="zh" data-x="${DIP.x}" data-t="${DIP.t || DIP.x}">${DIP.x}</div>
-       <div class="dip-grid">` +
-      DIP.opts.map(o=>
-        `<div class="dip-opt">
-           <img src="../img/sym-${o.img}.jpg" alt="${o.lab}" loading="lazy">
-           <span data-x="${o.x}" data-t="${o.t || o.x}">${o.x}</span>
-           <small>${o.lab}</small>
-         </div>`).join("") + `</div>`;
+    d.innerHTML = `<div class="dip-grid"></div>`;
+    DIP.opts.forEach(o=>{
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "dip-opt";
+      b.innerHTML =
+        `<img src="../img/sym-${o.img}.jpg" alt="${o.lab}" loading="lazy">
+         <span data-x="${o.x}" data-t="${o.t || o.x}">${o.x}</span>
+         <small>${o.lab}</small>`;
+      b.addEventListener("click", ()=>showTile(o.img, b.querySelector("span").textContent, true));
+      d.firstChild.appendChild(b);
+    });
     return d;
   };
 
@@ -539,7 +559,10 @@ STAGES.forEach(st=>{
   st.items.forEach(it=>{
     const card = makeCard(it);
     sec.appendChild(card);
-    if(st.diplopiaAfter === it.id) sec.appendChild(buildDip());
+    if(st.diplopiaAfter === it.id && typeof DIP !== "undefined"){
+      sec.appendChild(makeCard(DIP));
+      sec.appendChild(buildDip());
+    }
     if(st.symptomsAfter === it.id && typeof SYMPTOMS !== "undefined") sec.appendChild(buildSym());
   });
 
@@ -676,7 +699,7 @@ if(HAS_TOGGLE){
     $("btnS").setAttribute("aria-pressed", v === "x");
     $("btnT").setAttribute("aria-pressed", v === "t");
     document.querySelectorAll("[data-x]").forEach(el=>{ el.textContent = el.dataset[v]; });
-    if(current) $("showZh").textContent = current[script];
+    if(current) openShow(current);
   };
   $("btnS").addEventListener("click", ()=>setScript("x"));
   $("btnT").addEventListener("click", ()=>setScript("t"));
@@ -712,6 +735,11 @@ function openShow(it){
     ? `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
          stroke-linecap="round" stroke-linejoin="round">${ICON_PATHS[it.icon]}</svg>` : "";
   $("showPy").textContent = it.p || "";
+  const opts = $("showOpts");
+  opts.innerHTML = (it.opts || []).map(o=>
+    `<div><img src="../img/sym-${o.img}.jpg" alt=""><span>${o[script] || o.x}</span></div>`).join("");
+  opts.classList.toggle("on", !!(it.opts && it.opts.length));
+  document.querySelector(".show-mid").scrollTop = 0;
   $("voiceTag").textContent = "";
   show.classList.add("open");
   $("showSpeak").focus();
@@ -728,7 +756,8 @@ show.addEventListener("click", e=>{
 /* One image, or the set of directions it can take. Splitting "which side?"
    into a second tap keeps the first grid scannable instead of a wall of
    twenty near-identical circles. */
-function showTile(img, label){
+function showTile(img, label, square){
+  $("lightbox").classList.toggle("square", !!square);
   $("lbGrid").innerHTML = "";
   $("lbGrid").style.display = "none";
   $("lbImg").style.display = "";
@@ -737,6 +766,7 @@ function showTile(img, label){
   $("lightbox").classList.add("open");
 }
 function showVariants(t){
+  $("lightbox").classList.remove("square");
   $("lbImg").style.display = "none";
   const g = $("lbGrid");
   g.style.display = "grid";

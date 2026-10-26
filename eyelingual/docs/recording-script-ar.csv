@@ -16,6 +16,7 @@ id,file,stage,english,target,romanisation
 "vis-look-nose","vis-look-nose.m4a","Vision","Look at my nose.","انظر إلى أنفي.","oon-zur ee-lah an-fee"
 "vis-double","vis-double.m4a","Vision","Do you see two of me?","هل ترانِي اثنين؟","hal tah-rah-nee ith-nayn?"
 "vis-worse-direction","vis-worse-direction.m4a","Vision","Is it worse looking this way?","هل يزداد سوءاً عند النظر هكذا؟","hal yaz-dad soo-an in-da an-na-zar hah-kah-thah?"
+"dip-ask","dip-ask.m4a","Vision","If you see two — how are they arranged? Point.","إذا رأيت اثنين، كيف يظهران؟ أشر.","ee-thah rah-ay-ta ith-nayn, kay-fa yaz-ha-ran? ah-sheer"
 "pup-shine","pup-shine.m4a","Pupils","I am going to shine a light in your eyes. Please look at the wall behind me.","سأسلط ضوءاً على عينيك. انظر إلى الحائط خلفي.","sa-oo-sal-lit dow-an ah-lah ay-nayk. oon-zur ee-lah al-hah-it khal-fee"
 "pup-dont-look-light","pup-dont-look-light.m4a","Pupils","Do not look at the light. Keep looking far away.","لا تنظر إلى الضوء، انظر إلى البعيد.","lah tan-zur ee-lah ad-dow, oon-zur ee-lah al-bah-eed"
 "pup-both-open","pup-both-open.m4a","Pupils","Keep both eyes open.","أبقِ كلتا عينيك مفتوحتين.","ab-kee kil-tah ay-nayk maf-too-ha-tayn"

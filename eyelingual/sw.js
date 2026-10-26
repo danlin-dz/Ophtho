@@ -12,7 +12,7 @@
  * Bump CACHE on every content change. It is the only thing that evicts old text.
  */
 
-const CACHE = "eyelingual-2026-10-24";
+const CACHE = "eyelingual-2026-10-25";
 
 const SHELL = [
   "./",

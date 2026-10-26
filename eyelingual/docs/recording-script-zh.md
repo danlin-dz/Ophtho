@@ -1,6 +1,6 @@
 # Recording script — Mandarin
 
-52 takes. One file per phrase, named exactly by its ID.
+53 takes. One file per phrase, named exactly by its ID.
 
 ## For the speaker
 
@@ -56,6 +56,7 @@ recording sets are fine to ship.
 | `vis-look-nose` | `vis-look-nose.m4a` | 请看我的鼻子。 | Look at my nose. |
 | `vis-double` | `vis-double.m4a` | 您看到两个我吗？ | Do you see two of me? |
 | `vis-worse-direction` | `vis-worse-direction.m4a` | 看这个方向更严重吗？ | Is it worse looking this way? |
+| `dip-ask` | `dip-ask.m4a` | 如果看到两个，是怎么排的？请指一下。 | If you see two — how are they arranged? Point. |
 
 ## 03 · Pupils
 
@@ -129,4 +130,4 @@ recording sets are fine to ship.
 
 ---
 
-**52 takes total.** Roughly 20 minutes of recording including retakes.
+**53 takes total.** Roughly 20 minutes of recording including retakes.

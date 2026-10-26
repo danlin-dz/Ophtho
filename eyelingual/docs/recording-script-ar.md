@@ -1,6 +1,6 @@
 # Recording script — Arabic
 
-52 takes. One file per phrase, named exactly by its ID.
+53 takes. One file per phrase, named exactly by its ID.
 
 ## For the speaker
 
@@ -56,6 +56,7 @@ recording sets are fine to ship.
 | `vis-look-nose` | `vis-look-nose.m4a` | انظر إلى أنفي. | Look at my nose. |
 | `vis-double` | `vis-double.m4a` | هل ترانِي اثنين؟ | Do you see two of me? |
 | `vis-worse-direction` | `vis-worse-direction.m4a` | هل يزداد سوءاً عند النظر هكذا؟ | Is it worse looking this way? |
+| `dip-ask` | `dip-ask.m4a` | إذا رأيت اثنين، كيف يظهران؟ أشر. | If you see two — how are they arranged? Point. |
 
 ## 03 · Pupils
 
@@ -129,4 +130,4 @@ recording sets are fine to ship.
 
 ---
 
-**52 takes total.** Roughly 20 minutes of recording including retakes.
+**53 takes total.** Roughly 20 minutes of recording including retakes.

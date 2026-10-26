@@ -16,6 +16,7 @@ id,file,stage,english,target,romanisation
 "vis-look-nose","vis-look-nose.m4a","Vision","Look at my nose.","请看我的鼻子。","ching kahn waw duh bee-dzuh"
 "vis-double","vis-double.m4a","Vision","Do you see two of me?","您看到两个我吗？","nin kahn-dow lyahng guh waw mah?"
 "vis-worse-direction","vis-worse-direction.m4a","Vision","Is it worse looking this way?","看这个方向更严重吗？","kahn juh-guh fahng-shyahng gung yen-jong mah?"
+"dip-ask","dip-ask.m4a","Vision","If you see two — how are they arranged? Point.","如果看到两个，是怎么排的？请指一下。","roo-gwaw kahn-dow lyahng guh, shr dzun-muh pye duh? ching jr yee-shyah"
 "pup-shine","pup-shine.m4a","Pupils","I am going to shine a light in your eyes. Please look at the wall behind me.","我要用灯照您的眼睛，请看我身后的墙。","waw yow yong dung jow nin duh yen-jing, ching kahn waw shun-hoe duh chyahng"
 "pup-dont-look-light","pup-dont-look-light.m4a","Pupils","Do not look at the light. Keep looking far away.","不要看灯，一直看远处。","boo-yow kahn dung, yee-jr kahn ywen-choo"
 "pup-both-open","pup-both-open.m4a","Pupils","Keep both eyes open.","两只眼睛都睁开。","lyahng jr yen-jing doe jung-kye"
